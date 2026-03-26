@@ -434,6 +434,121 @@
         padding: 28px 0;
       }
 
+      .entry-grid {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 18px;
+      }
+
+      .entry-stack,
+      .social-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .entry-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .entry-card {
+        min-height: 220px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .entry-card.featured {
+        grid-column: 1 / -1;
+        min-height: 250px;
+      }
+
+      .entry-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -12% -22% auto;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 68%);
+      }
+
+      .entry-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .entry-kicker,
+      .entry-domain {
+        display: inline-flex;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .entry-kicker {
+        background: var(--tag-bg);
+      }
+
+      .entry-domain {
+        color: var(--muted);
+        text-transform: none;
+        letter-spacing: 0;
+      }
+
+      .entry-card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+      }
+
+      .entry-card p {
+        max-width: 52ch;
+      }
+
+      .entry-cta {
+        display: inline-flex;
+        margin-top: 20px;
+        font-weight: 800;
+      }
+
+      .social-panel h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .social-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .social-pill strong {
+        font-size: 0.95rem;
+      }
+
+      .social-pill span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
       .scenario-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -649,6 +764,7 @@
 
       @media (max-width: 1080px) {
         .hero-grid,
+        .entry-grid,
         .story-grid,
         .scenario-grid,
         .grid-3,
@@ -660,6 +776,11 @@
         }
 
         .hero-points {
+          grid-template-columns: 1fr;
+        }
+
+        .entry-stack,
+        .social-grid {
           grid-template-columns: 1fr;
         }
 
@@ -721,6 +842,7 @@
 
             <div class="topbar-actions">
               <button class="chip" id="themeToggle" type="button">Galaxy Theme</button>
+              <a class="ghost-btn" href="#entries">项目入口</a>
               <a class="ghost-btn" href="#products">产品宇宙</a>
               <a class="primary-btn" href="#contact">主站方向</a>
             </div>
@@ -742,7 +864,8 @@
               </p>
 
               <div class="hero-actions">
-                <a class="primary-btn" href="#products">查看产品矩阵</a>
+                <a class="primary-btn" href="#entries">查看项目入口</a>
+                <a class="ghost-btn" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
                 <a class="ghost-btn" href="#story">阅读 IP 设定</a>
               </div>
 
@@ -801,6 +924,73 @@
                 </div>
               </div>
             </aside>
+          </div>
+        </section>
+
+        <section class="section" id="entries">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">Project Gateways</div>
+                <h2>保留当前主站的三个项目入口，并继续预留社交出口。</h2>
+              </div>
+              <p>
+                这一层保留了当前 `gnar127.com` 的入口逻辑，只是换成了新的 Nebubu 品牌视觉。主站仍然是聚合页，负责把已上线项目与未来连接位组织清楚。
+              </p>
+            </div>
+
+            <div class="entry-grid">
+              <div class="entry-stack">
+                <a class="card entry-card featured" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">
+                  <div class="entry-top">
+                    <span class="entry-kicker">Portal 01</span>
+                    <span class="entry-domain">invest.gnar127.com</span>
+                  </div>
+                  <h3>Invest Dashboard</h3>
+                  <p>AI 驱动的跨端投资工作台，覆盖 Web、移动端与桌面端，用来处理行情、资产搜索、策略回测与长期盯盘。</p>
+                  <span class="entry-cta">Open dashboard</span>
+                </a>
+
+                <a class="card entry-card" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
+                  <div class="entry-top">
+                    <span class="entry-kicker">Tool 02</span>
+                    <span class="entry-domain">asset.gnar127.com</span>
+                  </div>
+                  <h3>Asset Calculator</h3>
+                  <p>把复杂规则压缩成更容易判断、更容易对比的结果页，延续“有用但不生硬”的入口风格。</p>
+                  <span class="entry-cta">Run calculator</span>
+                </a>
+
+                <a class="card entry-card" href="https://quant.gnar127.com/" target="_blank" rel="noreferrer">
+                  <div class="entry-top">
+                    <span class="entry-kicker">Lab 03</span>
+                    <span class="entry-domain">quant.gnar127.com</span>
+                  </div>
+                  <h3>Quant Lab</h3>
+                  <p>专门运行量化回测的实验入口，用来验证策略、复盘参数变化，并把假设推进到结果。</p>
+                  <span class="entry-cta">Launch backtests</span>
+                </a>
+              </div>
+
+              <div class="social-stack">
+                <div class="card social-panel">
+                  <div class="eyebrow">Signal Dock</div>
+                  <h3>社交入口先保留位置，后续可以直接接线。</h3>
+                  <p>这里沿用当前主站的预留结构，不强行伪装成已上线渠道。等你确定真实地址后，直接把占位链接替换即可。</p>
+
+                  <div class="social-grid">
+                    <div class="social-pill"><strong>Git</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>Discord</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>Telegram</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>WeChat</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>QQ</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>Weibo</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>Redbook</strong><span>Reserved</span></div>
+                    <div class="social-pill"><strong>Twitter</strong><span>Reserved</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
