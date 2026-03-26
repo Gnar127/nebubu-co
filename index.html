@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nebubu | Cute Companion AI Tools</title>
+    <link rel="icon" type="image/png" href="assets/logo-128.png" />
     <meta
       name="description"
       content="Nebubu 是一个 cute companion AI tools 品牌。我们把温柔、可靠和真正有用的 AI 产品带回日常生活。"
@@ -118,72 +119,22 @@
       }
 
       .brand-mark {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
         border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background:
-          radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.65), transparent 20%),
-          radial-gradient(circle at 66% 70%, rgba(255, 255, 255, 0.18), transparent 32%),
-          linear-gradient(140deg, var(--accent-a), var(--accent-b), var(--accent-c));
-        box-shadow: 0 16px 34px rgba(95, 111, 255, 0.22);
+        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 16px 34px rgba(95, 111, 255, 0.18);
         position: relative;
         overflow: hidden;
       }
 
-      .brand-mark::before,
-      .brand-mark::after {
-        content: "";
-        position: absolute;
-        top: 7px;
-        width: 12px;
-        height: 12px;
-        border-radius: 3px 10px 2px 10px;
-        background: rgba(255, 255, 255, 0.92);
-      }
-
-      .brand-mark::before {
-        left: 8px;
-        transform: rotate(-16deg);
-      }
-
-      .brand-mark::after {
-        right: 8px;
-        transform: rotate(16deg);
-      }
-
-      .brand-face {
-        position: absolute;
-        inset: 0;
-      }
-
-      .brand-face span {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #fff;
-        top: 22px;
-      }
-
-      .brand-face span:first-child {
-        left: 15px;
-      }
-
-      .brand-face span:last-child {
-        right: 15px;
-      }
-
-      .brand-face::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 28px;
-        width: 14px;
-        height: 8px;
-        border-bottom: 2px solid #fff;
-        border-radius: 0 0 12px 12px;
-        transform: translateX(-50%);
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
       }
 
       .brand-copy strong {
@@ -374,88 +325,34 @@
         overflow: hidden;
       }
 
-      .orb {
+      .hero-logo-wrap {
         position: absolute;
         left: 50%;
         top: 46%;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
+        width: 320px;
+        height: 320px;
         transform: translate(-50%, -50%);
-        background:
-          radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.78), transparent 16%),
-          radial-gradient(circle at 62% 60%, rgba(255, 255, 255, 0.16), transparent 26%),
-          linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
         box-shadow:
-          0 0 70px rgba(124, 110, 255, 0.34),
-          0 0 120px rgba(255, 152, 207, 0.18);
+          0 0 80px rgba(124, 110, 255, 0.28),
+          0 0 120px rgba(255, 152, 207, 0.12);
       }
 
-      .orb::before,
-      .orb::after {
+      .hero-logo-wrap::before {
         content: "";
         position: absolute;
-        top: 34px;
-        width: 58px;
-        height: 58px;
-        border-radius: 16px 36px 10px 36px;
-        background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.48));
+        inset: 8% 8%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
+        filter: blur(12px);
       }
 
-      .orb::before {
-        left: 32px;
-        transform: rotate(-16deg);
-      }
-
-      .orb::after {
-        right: 32px;
-        transform: rotate(16deg);
-      }
-
-      .orb-face {
+      .hero-logo-wrap img {
         position: absolute;
         inset: 0;
-      }
-
-      .orb-eye,
-      .orb-eye::after {
-        position: absolute;
-        border-radius: 999px;
-        background: #fff;
-      }
-
-      .orb-eye {
-        top: 122px;
-        width: 18px;
-        height: 18px;
-      }
-
-      .orb-eye.left {
-        left: 92px;
-      }
-
-      .orb-eye.right {
-        right: 92px;
-      }
-
-      .orb-eye::after {
-        content: "";
-        width: 6px;
-        height: 6px;
-        right: 3px;
-        bottom: 2px;
-        background: rgba(124, 110, 255, 0.9);
-      }
-
-      .orb-mouth {
-        position: absolute;
-        left: 50%;
-        top: 156px;
-        width: 46px;
-        height: 24px;
-        transform: translateX(-50%);
-        border-bottom: 3px solid #fff;
-        border-radius: 0 0 24px 24px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 16px 24px rgba(16, 10, 45, 0.32));
       }
 
       .star {
@@ -535,6 +432,47 @@
 
       .section {
         padding: 28px 0;
+      }
+
+      .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .scenario-card {
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background:
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
+          var(--panel);
+      }
+
+      .scenario-tag {
+        display: inline-flex;
+        width: fit-content;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--tag-bg);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .scenario-card strong {
+        display: block;
+        font-size: 1.22rem;
+        margin: 18px 0 10px;
+      }
+
+      .scenario-footer {
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--text);
+        font-weight: 700;
       }
 
       .section-head {
@@ -712,6 +650,7 @@
       @media (max-width: 1080px) {
         .hero-grid,
         .story-grid,
+        .scenario-grid,
         .grid-3,
         .grid-4,
         .product-grid,
@@ -752,32 +691,9 @@
           min-height: 390px;
         }
 
-        .orb {
-          width: 220px;
-          height: 220px;
-        }
-
-        .orb::before,
-        .orb::after {
-          width: 42px;
-          height: 42px;
-          top: 28px;
-        }
-
-        .orb-eye {
-          top: 98px;
-        }
-
-        .orb-eye.left {
-          left: 70px;
-        }
-
-        .orb-eye.right {
-          right: 70px;
-        }
-
-        .orb-mouth {
-          top: 128px;
+        .hero-logo-wrap {
+          width: 240px;
+          height: 240px;
         }
 
         .speech {
@@ -795,7 +711,7 @@
           <div class="topbar-inner">
             <a class="brand" href="#top">
               <div class="brand-mark" aria-hidden="true">
-                <div class="brand-face"><span></span><span></span></div>
+                <img src="assets/logo-128.png" alt="Nebubu logo" />
               </div>
               <div class="brand-copy">
                 <strong>NEBUBU</strong>
@@ -856,12 +772,8 @@
                 <div class="star s2"></div>
                 <div class="star s3"></div>
                 <div class="star s4"></div>
-                <div class="orb">
-                  <div class="orb-face">
-                    <div class="orb-eye left"></div>
-                    <div class="orb-eye right"></div>
-                    <div class="orb-mouth"></div>
-                  </div>
+                <div class="hero-logo-wrap">
+                  <img src="assets/logo-full.png" alt="Nebubu galaxy cat logo" />
                 </div>
               </div>
 
@@ -971,6 +883,47 @@
                 <h3>Nebubu Widget</h3>
                 <p class="product-meta">把 Nebubu 以更轻量、更常驻、更贴近日常的方式放到用户触手可及的位置。</p>
                 <div class="status">Future Surface</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="scenes">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">Daily Scenes</div>
+                <h2>Nebubu 应该出现在真实生活里，而不是只活在品牌口号里。</h2>
+              </div>
+              <p>
+                这部分把“陪伴 + 有用”落到具体场景。它帮助主站从抽象品牌介绍，过渡到用户能立即理解的日常价值。
+              </p>
+            </div>
+
+            <div class="scenario-grid">
+              <article class="card scenario-card">
+                <div>
+                  <span class="scenario-tag">Morning</span>
+                  <strong>帮你整理一天的开始</strong>
+                  <p>用轻量提醒、摘要、待办和小结，让 AI 成为一种不打扰但稳定存在的晨间陪伴。</p>
+                </div>
+                <div class="scenario-footer">Nebubu Daily / Nebubu Widget</div>
+              </article>
+              <article class="card scenario-card">
+                <div>
+                  <span class="scenario-tag">Work</span>
+                  <strong>在复杂任务里提供安静支持</strong>
+                  <p>从整理资料到收敛灵感，再到帮助理解复杂信息，Nebubu 更像陪你完成工作的伙伴，而不是催促你的系统。</p>
+                </div>
+                <div class="scenario-footer">Nebubu Notes / Nebubu Focus</div>
+              </article>
+              <article class="card scenario-card">
+                <div>
+                  <span class="scenario-tag">Decision</span>
+                  <strong>在决策时降低压力感</strong>
+                  <p>无论是市场、任务、节奏还是个人计划，Nebubu 的价值都不是替你做决定，而是让判断过程更柔和、更清楚。</p>
+                </div>
+                <div class="scenario-footer">Nebubu Invest and future decision tools</div>
               </article>
             </div>
           </div>
