@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nebubu | Cute Companion AI Tools</title>
+    <meta
+      name="description"
+      content="Nebubu 是一个 cute companion AI tools 品牌。我们把温柔、可靠和真正有用的 AI 产品带回日常生活。"
+    />
+    <style>
+      :root {
+        --bg: #08111f;
+        --bg-soft: rgba(11, 24, 43, 0.72);
+        --panel: rgba(10, 20, 38, 0.72);
+        --panel-strong: rgba(14, 28, 50, 0.9);
+        --text: #f6f8ff;
+        --muted: #aab7d4;
+        --line: rgba(161, 188, 255, 0.16);
+        --accent-a: #74d8ff;
+        --accent-b: #9b7cff;
+        --accent-c: #ff98cf;
+        --accent-d: #7ef0d4;
+        --shadow: 0 30px 80px rgba(2, 7, 18, 0.42);
+        --hero-grid: rgba(139, 163, 200, 0.09);
+        --tag-bg: rgba(117, 179, 255, 0.12);
+      }
+
+      body[data-theme="cute"] {
+        --bg: #fff7fb;
+        --bg-soft: rgba(255, 248, 252, 0.78);
+        --panel: rgba(255, 255, 255, 0.78);
+        --panel-strong: rgba(255, 255, 255, 0.94);
+        --text: #43283d;
+        --muted: #7e6681;
+        --line: rgba(236, 142, 192, 0.2);
+        --accent-a: #ff7fb7;
+        --accent-b: #9c73ff;
+        --accent-c: #ffb6cf;
+        --accent-d: #69ddc2;
+        --shadow: 0 24px 60px rgba(223, 150, 201, 0.22);
+        --hero-grid: rgba(244, 114, 182, 0.09);
+        --tag-bg: rgba(255, 127, 183, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Noto Sans SC", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 15% 20%, rgba(116, 216, 255, 0.14), transparent 25%),
+          radial-gradient(circle at 82% 12%, rgba(155, 124, 255, 0.14), transparent 26%),
+          radial-gradient(circle at 76% 78%, rgba(255, 152, 207, 0.12), transparent 24%),
+          linear-gradient(160deg, var(--bg), color-mix(in srgb, var(--bg) 78%, #0f1b31));
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--hero-grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: radial-gradient(circle at center, black 30%, transparent 78%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 18px 0;
+        backdrop-filter: blur(18px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 18px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--bg-soft);
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 48px;
+        height: 48px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background:
+          radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.65), transparent 20%),
+          radial-gradient(circle at 66% 70%, rgba(255, 255, 255, 0.18), transparent 32%),
+          linear-gradient(140deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        box-shadow: 0 16px 34px rgba(95, 111, 255, 0.22);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .brand-mark::before,
+      .brand-mark::after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        width: 12px;
+        height: 12px;
+        border-radius: 3px 10px 2px 10px;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .brand-mark::before {
+        left: 8px;
+        transform: rotate(-16deg);
+      }
+
+      .brand-mark::after {
+        right: 8px;
+        transform: rotate(16deg);
+      }
+
+      .brand-face {
+        position: absolute;
+        inset: 0;
+      }
+
+      .brand-face span {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        top: 22px;
+      }
+
+      .brand-face span:first-child {
+        left: 15px;
+      }
+
+      .brand-face span:last-child {
+        right: 15px;
+      }
+
+      .brand-face::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 28px;
+        width: 14px;
+        height: 8px;
+        border-bottom: 2px solid #fff;
+        border-radius: 0 0 12px 12px;
+        transform: translateX(-50%);
+      }
+
+      .brand-copy strong {
+        display: block;
+        font-size: 1rem;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-copy span {
+        display: block;
+        margin-top: 2px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .chip,
+      .ghost-btn,
+      .primary-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 11px 18px;
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .chip,
+      .ghost-btn {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--text);
+      }
+
+      .primary-btn {
+        border: 1px solid transparent;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        color: #fff;
+        box-shadow: 0 18px 34px rgba(124, 110, 255, 0.26);
+      }
+
+      .hero {
+        padding: 42px 0 28px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 24px;
+      }
+
+      .hero-card,
+      .panel {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+      }
+
+      .hero-card {
+        border-radius: 40px;
+        padding: 36px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -15% -30% auto;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(126, 240, 212, 0.22), transparent 66%);
+        filter: blur(8px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: var(--tag-bg);
+        color: var(--text);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .hero-title {
+        margin-top: 20px;
+        font-size: clamp(2.8rem, 5vw, 5.6rem);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-title .gradient {
+        display: block;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        margin-top: 18px;
+        max-width: 640px;
+        font-size: 1.16rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .hero-points {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .mini-card {
+        padding: 18px;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .mini-card strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .mini-card span {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .showcase {
+        border-radius: 40px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .showcase::before {
+        content: "";
+        position: absolute;
+        inset: 28px 28px auto auto;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.32), transparent 70%);
+      }
+
+      .mascot-zone {
+        min-height: 480px;
+        border-radius: 34px;
+        background:
+          radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.12), transparent 20%),
+          radial-gradient(circle at 50% 60%, rgba(126, 240, 212, 0.18), transparent 24%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        left: 50%;
+        top: 46%;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background:
+          radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.78), transparent 16%),
+          radial-gradient(circle at 62% 60%, rgba(255, 255, 255, 0.16), transparent 26%),
+          linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        box-shadow:
+          0 0 70px rgba(124, 110, 255, 0.34),
+          0 0 120px rgba(255, 152, 207, 0.18);
+      }
+
+      .orb::before,
+      .orb::after {
+        content: "";
+        position: absolute;
+        top: 34px;
+        width: 58px;
+        height: 58px;
+        border-radius: 16px 36px 10px 36px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.48));
+      }
+
+      .orb::before {
+        left: 32px;
+        transform: rotate(-16deg);
+      }
+
+      .orb::after {
+        right: 32px;
+        transform: rotate(16deg);
+      }
+
+      .orb-face {
+        position: absolute;
+        inset: 0;
+      }
+
+      .orb-eye,
+      .orb-eye::after {
+        position: absolute;
+        border-radius: 999px;
+        background: #fff;
+      }
+
+      .orb-eye {
+        top: 122px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .orb-eye.left {
+        left: 92px;
+      }
+
+      .orb-eye.right {
+        right: 92px;
+      }
+
+      .orb-eye::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        right: 3px;
+        bottom: 2px;
+        background: rgba(124, 110, 255, 0.9);
+      }
+
+      .orb-mouth {
+        position: absolute;
+        left: 50%;
+        top: 156px;
+        width: 46px;
+        height: 24px;
+        transform: translateX(-50%);
+        border-bottom: 3px solid #fff;
+        border-radius: 0 0 24px 24px;
+      }
+
+      .star {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+      }
+
+      .star.s1 { left: 18%; top: 18%; }
+      .star.s2 { right: 15%; top: 23%; width: 8px; height: 8px; }
+      .star.s3 { right: 18%; bottom: 22%; width: 14px; height: 14px; }
+      .star.s4 { left: 14%; bottom: 28%; width: 7px; height: 7px; }
+
+      .speech {
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        width: 190px;
+        padding: 16px 16px 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+      }
+
+      .speech strong {
+        display: block;
+        font-size: 0.86rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .speech span {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .showcase-notes {
+        margin-top: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .showcase-note {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 16px 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        margin-top: 6px;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
+        flex: 0 0 auto;
+      }
+
+      .showcase-note strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .showcase-note span {
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 0.94rem;
+      }
+
+      .section {
+        padding: 28px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(2rem, 3.2vw, 3.3rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .section-head p {
+        max-width: 540px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .grid-3,
+      .grid-4,
+      .product-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .card {
+        border-radius: 30px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .icon-badge {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 900;
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+      }
+
+      .card h3 {
+        font-size: 1.18rem;
+        margin-bottom: 10px;
+      }
+
+      .card p,
+      .card li,
+      .product-meta {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .product-card {
+        padding: 24px 20px;
+      }
+
+      .product-card .status {
+        display: inline-flex;
+        margin-top: 14px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--tag-bg);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 18px;
+      }
+
+      .quote {
+        padding: 32px;
+        border-radius: 34px;
+        border: 1px solid var(--line);
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      }
+
+      .quote strong {
+        display: block;
+        font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+      }
+
+      .quote p {
+        margin-top: 16px;
+        color: var(--muted);
+        line-height: 1.85;
+      }
+
+      .list {
+        padding: 0;
+        margin: 18px 0 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .list li {
+        padding: 16px 18px;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .cta {
+        padding: 30px;
+        border-radius: 38px;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at 20% 20%, rgba(116, 216, 255, 0.18), transparent 20%),
+          radial-gradient(circle at 80% 20%, rgba(255, 152, 207, 0.16), transparent 22%),
+          var(--panel-strong);
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .cta h2 {
+        font-size: clamp(2rem, 3vw, 3.2rem);
+        line-height: 1;
+        letter-spacing: -0.05em;
+        margin-bottom: 12px;
+      }
+
+      .cta p {
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 640px;
+      }
+
+      footer {
+        padding: 30px 0 54px;
+      }
+
+      .footer-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 1080px) {
+        .hero-grid,
+        .story-grid,
+        .grid-3,
+        .grid-4,
+        .product-grid,
+        .cta {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .hero-points {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head,
+        .footer-box,
+        .cta {
+          align-items: start;
+          justify-content: start;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .topbar-inner,
+        .topbar-actions,
+        .hero-actions {
+          flex-wrap: wrap;
+        }
+
+        .hero-card,
+        .showcase,
+        .card,
+        .quote,
+        .cta {
+          padding: 22px;
+          border-radius: 28px;
+        }
+
+        .mascot-zone {
+          min-height: 390px;
+        }
+
+        .orb {
+          width: 220px;
+          height: 220px;
+        }
+
+        .orb::before,
+        .orb::after {
+          width: 42px;
+          height: 42px;
+          top: 28px;
+        }
+
+        .orb-eye {
+          top: 98px;
+        }
+
+        .orb-eye.left {
+          left: 70px;
+        }
+
+        .orb-eye.right {
+          right: 70px;
+        }
+
+        .orb-mouth {
+          top: 128px;
+        }
+
+        .speech {
+          position: static;
+          width: auto;
+          margin: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="galaxy">
+    <div class="page">
+      <header class="topbar">
+        <div class="container">
+          <div class="topbar-inner">
+            <a class="brand" href="#top">
+              <div class="brand-mark" aria-hidden="true">
+                <div class="brand-face"><span></span><span></span></div>
+              </div>
+              <div class="brand-copy">
+                <strong>NEBUBU</strong>
+                <span>Gentle with you, serious about helping.</span>
+              </div>
+            </a>
+
+            <div class="topbar-actions">
+              <button class="chip" id="themeToggle" type="button">Galaxy Theme</button>
+              <a class="ghost-btn" href="#products">产品宇宙</a>
+              <a class="primary-btn" href="#contact">主站方向</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-card">
+              <div class="eyebrow">Cute Companion AI Tools</div>
+              <h1 class="hero-title">
+                AI 不该只是效率机器。
+                <span class="gradient">Nebubu 应该像一只会陪你的银河猫。</span>
+              </h1>
+              <p class="hero-subtitle">
+                Nebubu 是一个围绕陪伴感与实用价值构建的 AI 品牌主站。新的主站不再只展示某一个产品，而是清晰传达品牌世界观、IP 性格、产品矩阵与长期扩展能力。
+              </p>
+
+              <div class="hero-actions">
+                <a class="primary-btn" href="#products">查看产品矩阵</a>
+                <a class="ghost-btn" href="#story">阅读 IP 设定</a>
+              </div>
+
+              <div class="hero-points">
+                <div class="mini-card">
+                  <strong>Warm, not cold</strong>
+                  <span>不是冰冷的生产力口号，而是轻柔、可信赖、能长期陪伴的 AI 关系。</span>
+                </div>
+                <div class="mini-card">
+                  <strong>Useful, not decorative</strong>
+                  <span>每一个 Nebubu 产品都需要解决真实问题，而不是只提供表面的可爱包装。</span>
+                </div>
+                <div class="mini-card">
+                  <strong>Universe, not one app</strong>
+                  <span>主站承担品牌母舰角色，Nebubu Invest 只是其中一个已经落地的产品入口。</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="panel showcase">
+              <div class="mascot-zone">
+                <div class="speech">
+                  <strong>Brand Avatar</strong>
+                  <span>一只温柔、安静、聪明的 galaxy cat。它是主站的核心情绪锚点。</span>
+                </div>
+                <div class="star s1"></div>
+                <div class="star s2"></div>
+                <div class="star s3"></div>
+                <div class="star s4"></div>
+                <div class="orb">
+                  <div class="orb-face">
+                    <div class="orb-eye left"></div>
+                    <div class="orb-eye right"></div>
+                    <div class="orb-mouth"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="showcase-notes">
+                <div class="showcase-note">
+                  <div class="dot"></div>
+                  <div>
+                    <strong>主站定位</strong>
+                    <span>承接 Nebubu 的品牌叙事，而不是延续投资产品的单点转化逻辑。</span>
+                  </div>
+                </div>
+                <div class="showcase-note">
+                  <div class="dot"></div>
+                  <div>
+                    <strong>视觉方向</strong>
+                    <span>银河主题、柔和发光、圆润轮廓、安静科技感，避免廉价幼态或过度卡通。</span>
+                  </div>
+                </div>
+                <div class="showcase-note">
+                  <div class="dot"></div>
+                  <div>
+                    <strong>信息架构</strong>
+                    <span>品牌承诺、IP 设定、产品宇宙、使用场景、价值原则与后续产品入口分层展开。</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="principles">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">Brand Principles</div>
+                <h2>主站首先要让人相信 Nebubu 是什么。</h2>
+              </div>
+              <p>
+                根据 `nebubu_co` 文档，Nebubu 的品牌平衡点很明确：Cute, but not childish. Gentle, but not weak. Useful, not decorative. Reliable, not noisy.
+              </p>
+            </div>
+
+            <div class="grid-4">
+              <article class="card">
+                <div class="icon-badge">01</div>
+                <h3>温柔感</h3>
+                <p>文案与视觉都应该软、轻、清晰，不制造压迫感，也不使用夸张的销售语气。</p>
+              </article>
+              <article class="card">
+                <div class="icon-badge">02</div>
+                <h3>可靠感</h3>
+                <p>主站不能像玩具页。每一个区块都要说明 Nebubu 具体会如何帮助用户解决问题。</p>
+              </article>
+              <article class="card">
+                <div class="icon-badge">03</div>
+                <h3>品牌母舰</h3>
+                <p>作为母品牌首页，重点是品牌与产品宇宙，而不是某个单产品功能详情页。</p>
+              </article>
+              <article class="card">
+                <div class="icon-badge">04</div>
+                <h3>长期扩展</h3>
+                <p>信息架构需要天然支持 Nebubu Invest、Notes、Focus、Daily、Widget 等后续产品加入。</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="products">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <div class="eyebrow">Product Universe</div>
+                <h2>一个品牌，多种陪伴场景。</h2>
+              </div>
+              <p>
+                文档已经明确了推荐的命名结构：Nebubu + 产品描述。主站应该把这些产品看作同一只银河猫在不同生活场景下的能力延展。
+              </p>
+            </div>
+
+            <div class="product-grid">
+              <article class="card product-card">
+                <div class="icon-badge">I</div>
+                <h3>Nebubu Invest</h3>
+                <p class="product-meta">陪你理解市场、看懂风险、让复杂信息更柔和地进入决策。</p>
+                <div class="status">Live Product</div>
+              </article>
+              <article class="card product-card">
+                <div class="icon-badge">N</div>
+                <h3>Nebubu Notes</h3>
+                <p class="product-meta">帮助你记录灵感、整理知识和把碎片化思考安静地收拢起来。</p>
+                <div class="status">Future Surface</div>
+              </article>
+              <article class="card product-card">
+                <div class="icon-badge">F</div>
+                <h3>Nebubu Focus</h3>
+                <p class="product-meta">把专注这件事做得不焦虑，用陪伴感而不是训导感来维持节奏。</p>
+                <div class="status">Future Surface</div>
+              </article>
+              <article class="card product-card">
+                <div class="icon-badge">D</div>
+                <h3>Nebubu Daily</h3>
+                <p class="product-meta">让 AI 进入日常计划、提醒与轻任务处理，成为用户生活里的固定存在。</p>
+                <div class="status">Future Surface</div>
+              </article>
+              <article class="card product-card">
+                <div class="icon-badge">W</div>
+                <h3>Nebubu Widget</h3>
+                <p class="product-meta">把 Nebubu 以更轻量、更常驻、更贴近日常的方式放到用户触手可及的位置。</p>
+                <div class="status">Future Surface</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="story">
+          <div class="container story-grid">
+            <article class="quote">
+              <div class="eyebrow">Mascot Story</div>
+              <strong>它像一只银河猫，安静、不张扬，但总在你需要的时候出现。</strong>
+              <p>
+                这是 Nebubu 最重要的情绪原型。它不是过度幼态的可爱角色，而是一种“柔和但可靠”的人格化入口。主站首页需要把这个角色感建立起来，让用户第一次进入就感受到 Nebubu 的陪伴属性。
+              </p>
+              <ul class="list">
+                <li>Gentle, but not weak.</li>
+                <li>Smart, but not showy.</li>
+                <li>Quiet, but always there when needed.</li>
+                <li>Healing, but still practical.</li>
+              </ul>
+            </article>
+
+            <article class="quote">
+              <div class="eyebrow">Copy Direction</div>
+              <strong>文案语气应该像陪伴式产品，而不是强推式 SaaS。</strong>
+              <p>
+                首页的主叙事应该优先解释 Nebubu 的存在理由，再引导用户去理解具体产品。推荐保留品牌主标语：
+                <br /><br />
+                <strong style="font-size: 1.35rem;">Gentle with you, serious about helping.</strong>
+              </p>
+              <ul class="list">
+                <li>避免过于技术化的句式。</li>
+                <li>避免过度夸张、过度卖货的语气。</li>
+                <li>避免“太可爱而失去可信度”的表达。</li>
+                <li>始终把陪伴感与实用价值放在一起。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="container">
+            <div class="cta">
+              <div>
+                <div class="eyebrow">Homepage Direction</div>
+                <h2>这版主站更像 Nebubu 的品牌母舰。</h2>
+                <p>
+                  它明确区分了母品牌首页与产品首页的角色：`nebubu_co` 负责品牌世界观、产品宇宙与 IP 资产，`nebubu-invest` 继续只承担投资产品本身的 landing / app 职责。
+                </p>
+              </div>
+              <div class="hero-actions">
+                <a class="primary-btn" href="README.md">查看品牌简介</a>
+                <a class="ghost-btn" href="BRAND_POSITIONING.md">查看品牌定位</a>
+                <a class="ghost-btn" href="BRAND_GUIDELINES.md">查看品牌规范</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container footer-box">
+          <span>© 2026 Nebubu. Cute companion AI tools.</span>
+          <span>Workspace: nebubu_co</span>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const body = document.body;
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = body.dataset.theme === "galaxy" ? "cute" : "galaxy";
+        body.dataset.theme = nextTheme;
+        themeToggle.textContent = nextTheme === "galaxy" ? "Galaxy Theme" : "Cute Theme";
+      });
+    </script>
+  </body>
+</html>
