@@ -1,47 +1,79 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="galaxy">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nebubu | Cute Companion AI Tools</title>
+    <title>Nebubu | Gentle Companion AI Universe</title>
     <link rel="icon" type="image/png" href="assets/logo-128.png" />
     <meta
       name="description"
-      content="Nebubu 是一个 cute companion AI tools 品牌。我们把温柔、可靠和真正有用的 AI 产品带回日常生活。"
+      content="Nebubu 是一个温柔、可靠、带陪伴感的 AI 品牌。在这里认识 Nebubu 的世界，再进入 Invest 与未来产品宇宙。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #08111f;
-        --bg-soft: rgba(11, 24, 43, 0.72);
-        --panel: rgba(10, 20, 38, 0.72);
-        --panel-strong: rgba(14, 28, 50, 0.9);
-        --text: #f6f8ff;
-        --muted: #aab7d4;
-        --line: rgba(161, 188, 255, 0.16);
-        --accent-a: #74d8ff;
-        --accent-b: #9b7cff;
-        --accent-c: #ff98cf;
-        --accent-d: #7ef0d4;
-        --shadow: 0 30px 80px rgba(2, 7, 18, 0.42);
-        --hero-grid: rgba(139, 163, 200, 0.09);
-        --tag-bg: rgba(117, 179, 255, 0.12);
+        color-scheme: dark;
+        --font-display: "Outfit", "Noto Sans SC", "PingFang SC", sans-serif;
+        --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --container: min(1180px, calc(100vw - 28px));
+        --radius-sm: 18px;
+        --radius-md: 30px;
+        --radius-lg: 42px;
+        --radius-xl: 56px;
+        --shadow-hero: 0 28px 90px rgba(5, 7, 20, 0.32);
+        --shadow-card: 0 20px 54px rgba(5, 7, 20, 0.18);
+        --ease: 260ms cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-slow: 620ms cubic-bezier(0.16, 1, 0.3, 1);
+        --cursor-opacity: 0;
       }
 
-      body[data-theme="cute"] {
-        --bg: #fff7fb;
-        --bg-soft: rgba(255, 248, 252, 0.78);
-        --panel: rgba(255, 255, 255, 0.78);
-        --panel-strong: rgba(255, 255, 255, 0.94);
-        --text: #43283d;
-        --muted: #7e6681;
-        --line: rgba(236, 142, 192, 0.2);
-        --accent-a: #ff7fb7;
-        --accent-b: #9c73ff;
-        --accent-c: #ffb6cf;
-        --accent-d: #69ddc2;
-        --shadow: 0 24px 60px rgba(223, 150, 201, 0.22);
-        --hero-grid: rgba(244, 114, 182, 0.09);
-        --tag-bg: rgba(255, 127, 183, 0.12);
+      html[data-theme="galaxy"] {
+        color-scheme: dark;
+        --bg: oklch(0.15 0.03 268);
+        --bg-alt: oklch(0.11 0.03 258);
+        --surface: rgba(14, 20, 41, 0.7);
+        --surface-strong: rgba(16, 24, 47, 0.9);
+        --surface-soft: rgba(30, 41, 74, 0.48);
+        --line: rgba(156, 176, 255, 0.16);
+        --line-strong: rgba(156, 176, 255, 0.28);
+        --text: oklch(0.96 0.01 260);
+        --text-soft: oklch(0.81 0.02 264);
+        --text-mute: oklch(0.68 0.02 264);
+        --accent-a: oklch(0.81 0.1 216);
+        --accent-b: oklch(0.73 0.17 299);
+        --accent-c: oklch(0.78 0.13 348);
+        --accent-d: oklch(0.83 0.11 180);
+        --tag-bg: rgba(117, 185, 255, 0.14);
+        --glow-a: rgba(115, 211, 255, 0.24);
+        --glow-b: rgba(180, 113, 255, 0.22);
+        --glow-c: rgba(255, 147, 202, 0.18);
+      }
+
+      html[data-theme="cute"] {
+        color-scheme: light;
+        --bg: oklch(0.965 0.02 336);
+        --bg-alt: oklch(0.945 0.02 313);
+        --surface: rgba(255, 250, 252, 0.74);
+        --surface-strong: rgba(255, 252, 253, 0.92);
+        --surface-soft: rgba(255, 240, 246, 0.64);
+        --line: rgba(232, 148, 189, 0.22);
+        --line-strong: rgba(226, 115, 175, 0.32);
+        --text: oklch(0.31 0.04 335);
+        --text-soft: oklch(0.47 0.03 332);
+        --text-mute: oklch(0.61 0.02 329);
+        --accent-a: oklch(0.75 0.12 214);
+        --accent-b: oklch(0.71 0.17 317);
+        --accent-c: oklch(0.81 0.1 12);
+        --accent-d: oklch(0.83 0.1 180);
+        --tag-bg: rgba(255, 154, 198, 0.16);
+        --glow-a: rgba(255, 175, 210, 0.24);
+        --glow-b: rgba(146, 194, 255, 0.18);
+        --glow-c: rgba(255, 220, 158, 0.18);
       }
 
       * {
@@ -54,27 +86,46 @@
 
       body {
         margin: 0;
-        font-family: "Plus Jakarta Sans", "Noto Sans SC", "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at 15% 20%, rgba(116, 216, 255, 0.14), transparent 25%),
-          radial-gradient(circle at 82% 12%, rgba(155, 124, 255, 0.14), transparent 26%),
-          radial-gradient(circle at 76% 78%, rgba(255, 152, 207, 0.12), transparent 24%),
-          linear-gradient(160deg, var(--bg), color-mix(in srgb, var(--bg) 78%, #0f1b31));
-        color: var(--text);
         min-height: 100vh;
+        font-family: var(--font-body);
+        color: var(--text);
+        background:
+          radial-gradient(circle at 14% 12%, var(--glow-a), transparent 26%),
+          radial-gradient(circle at 84% 8%, var(--glow-b), transparent 24%),
+          radial-gradient(circle at 80% 78%, var(--glow-c), transparent 28%),
+          linear-gradient(160deg, var(--bg), var(--bg-alt));
+        overflow-x: hidden;
       }
 
       body::before {
         content: "";
         position: fixed;
         inset: 0;
-        background-image:
-          linear-gradient(var(--hero-grid) 1px, transparent 1px),
-          linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
-        background-size: 72px 72px;
-        mask-image: radial-gradient(circle at center, black 30%, transparent 78%);
-        pointer-events: none;
         z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: radial-gradient(circle at center, black 24%, transparent 78%);
+        opacity: 0.55;
+      }
+
+      .cursor-glow-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 4;
+        pointer-events: none;
+        overflow: hidden;
+        opacity: var(--cursor-opacity);
+        transition: opacity var(--ease);
+      }
+
+      .cursor-trail-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        mix-blend-mode: screen;
       }
 
       a {
@@ -82,169 +133,253 @@
         text-decoration: none;
       }
 
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button {
+        font: inherit;
+      }
+
       .page {
         position: relative;
-        z-index: 1;
+        z-index: 3;
       }
 
       .container {
-        width: min(1180px, calc(100% - 32px));
+        width: var(--container);
         margin: 0 auto;
       }
-
       .topbar {
         position: sticky;
         top: 0;
-        z-index: 20;
-        padding: 18px 0;
-        backdrop-filter: blur(18px);
+        z-index: 30;
+        padding: 16px 0;
+        transition: transform var(--ease), padding var(--ease);
+      }
+
+      .topbar.is-scrolled {
+        padding: 10px 0;
       }
 
       .topbar-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        padding: 14px 18px;
-        border: 1px solid var(--line);
+        gap: 18px;
+        padding: 14px 18px 14px 22px;
         border-radius: 999px;
-        background: var(--bg-soft);
-        box-shadow: var(--shadow);
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 20px 50px rgba(4, 6, 18, 0.14);
       }
 
       .brand {
         display: flex;
         align-items: center;
         gap: 14px;
+        min-width: 0;
       }
 
       .brand-mark {
-        width: 52px;
-        height: 52px;
-        border-radius: 18px;
-        padding: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.06);
-        box-shadow: 0 16px 34px rgba(95, 111, 255, 0.18);
         position: relative;
-        overflow: hidden;
+        width: 56px;
+        height: 56px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
+        border: 1px solid var(--line);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
       }
 
       .brand-mark img {
-        width: 100%;
-        height: 100%;
-        display: block;
+        width: 92%;
+        height: 92%;
         object-fit: contain;
       }
 
       .brand-copy strong {
         display: block;
+        font-family: var(--font-display);
         font-size: 1rem;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
       }
 
       .brand-copy span {
         display: block;
-        margin-top: 2px;
+        margin-top: 4px;
+        color: var(--text-mute);
         font-size: 0.78rem;
-        color: var(--muted);
       }
 
-      .topbar-actions {
+      .nav-links,
+      .topbar-actions,
+      .hero-actions,
+      .hero-meta,
+      .cta-actions,
+      .footer-links {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+        flex-wrap: wrap;
       }
 
-      .chip,
-      .ghost-btn,
-      .primary-btn {
+      .nav-links {
+        gap: 18px;
+      }
+
+      .nav-links a {
+        position: relative;
+        font-size: 0.92rem;
+        color: var(--text-soft);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: center;
+        background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+        transition: transform var(--ease);
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .button,
+      .theme-button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        min-height: 46px;
+        padding: 0 18px;
         border-radius: 999px;
-        padding: 11px 18px;
-        font-size: 0.92rem;
+        border: 1px solid transparent;
+        font-size: 0.9rem;
         font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform var(--ease),
+          box-shadow var(--ease),
+          border-color var(--ease),
+          background var(--ease),
+          color var(--ease);
       }
 
-      .chip,
-      .ghost-btn {
-        border: 1px solid var(--line);
-        background: var(--panel);
+      .button:hover,
+      .theme-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button.secondary,
+      .theme-button {
+        border-color: var(--line);
+        background: color-mix(in srgb, var(--surface) 84%, transparent);
         color: var(--text);
       }
 
-      .primary-btn {
-        border: 1px solid transparent;
+      .button.primary {
+        color: white;
         background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
-        color: #fff;
-        box-shadow: 0 18px 34px rgba(124, 110, 255, 0.26);
+        box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-b) 24%, transparent);
+      }
+
+      .button.ghost {
+        border-color: transparent;
+        background: transparent;
+        color: var(--text-soft);
+      }
+
+      .button.ghost:hover {
+        background: color-mix(in srgb, var(--surface) 72%, transparent);
+        color: var(--text);
       }
 
       .hero {
-        padding: 42px 0 28px;
+        padding: 42px 0 22px;
       }
 
       .hero-grid {
         display: grid;
         grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-        gap: 24px;
+        gap: 22px;
+        align-items: stretch;
       }
 
-      .hero-card,
-      .panel {
-        border: 1px solid var(--line);
-        background: var(--panel);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(20px);
-      }
-
-      .hero-card {
-        border-radius: 40px;
-        padding: 36px;
+      .hero-copy,
+      .hero-visual,
+      .panel,
+      .card,
+      .quote,
+      .cta-shell {
         position: relative;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(20px);
         overflow: hidden;
       }
 
-      .hero-card::before {
+      .hero-copy,
+      .hero-visual {
+        border-radius: var(--radius-xl);
+      }
+
+      .hero-copy {
+        padding: 34px;
+      }
+
+      .hero-copy::before {
         content: "";
         position: absolute;
-        inset: auto -15% -30% auto;
-        width: 280px;
-        height: 280px;
+        right: -60px;
+        bottom: -70px;
+        width: 260px;
+        height: 260px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(126, 240, 212, 0.22), transparent 66%);
-        filter: blur(8px);
+        background: radial-gradient(circle, color-mix(in srgb, var(--accent-d) 38%, transparent), transparent 68%);
+        opacity: 0.85;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        width: fit-content;
         padding: 9px 14px;
         border-radius: 999px;
         background: var(--tag-bg);
-        color: var(--text);
-        font-size: 0.82rem;
+        border: 1px solid var(--line);
+        font-size: 0.8rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
       }
 
       .hero-title {
-        margin-top: 20px;
-        font-size: clamp(2.8rem, 5vw, 5.6rem);
-        line-height: 0.95;
-        letter-spacing: -0.05em;
+        margin: 22px 0 0;
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 5vw, 5.8rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
       }
 
       .hero-title .gradient {
@@ -255,638 +390,1100 @@
         color: transparent;
       }
 
-      .hero-subtitle {
-        margin-top: 18px;
-        max-width: 640px;
-        font-size: 1.16rem;
+      .hero-subtitle,
+      .section-head p,
+      .card p,
+      .quote p,
+      .tool-item span,
+      .social-item span,
+      .product-card p,
+      .scene-card p,
+      .story-list li,
+      .footer-copy {
+        color: var(--text-soft);
         line-height: 1.8;
-        color: var(--muted);
       }
 
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 26px;
+      .hero-subtitle {
+        margin-top: 20px;
+        max-width: 40rem;
+        font-size: 1.08rem;
       }
 
-      .hero-points {
+      .hero-actions,
+      .hero-meta {
         margin-top: 28px;
+      }
+
+      .meta-pill {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+        color: var(--text-soft);
+        font-size: 0.88rem;
+      }
+      .hero-band {
+        margin-top: 26px;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
       }
 
-      .mini-card {
-        padding: 18px;
+      .mini-panel {
+        padding: 16px 16px 18px;
         border-radius: 24px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.04);
       }
 
-      .mini-card strong {
+      .mini-panel strong {
         display: block;
-        font-size: 1.05rem;
         margin-bottom: 8px;
+        font-size: 1rem;
       }
 
-      .mini-card span {
-        color: var(--muted);
-        font-size: 0.92rem;
+      .mini-panel span {
+        color: var(--text-soft);
+        font-size: 0.9rem;
         line-height: 1.65;
       }
 
-      .showcase {
-        border-radius: 40px;
-        padding: 28px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .showcase::before {
-        content: "";
-        position: absolute;
-        inset: 28px 28px auto auto;
-        width: 96px;
-        height: 96px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.32), transparent 70%);
-      }
-
-      .mascot-zone {
-        min-height: 480px;
-        border-radius: 34px;
+      .hero-visual {
+        padding: 22px;
+        display: grid;
+        gap: 16px;
         background:
-          radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.12), transparent 20%),
-          radial-gradient(circle at 50% 60%, rgba(126, 240, 212, 0.18), transparent 24%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-        border: 1px solid var(--line);
-        position: relative;
-        overflow: hidden;
+          radial-gradient(circle at 16% 24%, color-mix(in srgb, var(--accent-a) 20%, transparent), transparent 24%),
+          radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--accent-b) 20%, transparent), transparent 22%),
+          linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 88%, transparent));
       }
 
-      .hero-logo-wrap {
+      .visual-stage {
+        position: relative;
+        min-height: 466px;
+        border-radius: 34px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.18), transparent 18%),
+          radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--accent-d) 22%, transparent), transparent 24%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      }
+
+      .halo {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        width: 330px;
+        height: 330px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background:
+          radial-gradient(circle, color-mix(in srgb, var(--accent-b) 18%, transparent), transparent 58%),
+          radial-gradient(circle, color-mix(in srgb, var(--accent-a) 14%, transparent), transparent 62%);
+        filter: blur(8px);
+      }
+
+      .mascot {
         position: absolute;
         left: 50%;
-        top: 46%;
-        width: 320px;
-        height: 320px;
+        top: 48%;
+        width: min(310px, 78%);
         transform: translate(-50%, -50%);
-        box-shadow:
-          0 0 80px rgba(124, 110, 255, 0.28),
-          0 0 120px rgba(255, 152, 207, 0.12);
+        filter: drop-shadow(0 26px 48px rgba(12, 10, 34, 0.34));
       }
 
-      .hero-logo-wrap::before {
-        content: "";
+      .orbit {
         position: absolute;
-        inset: 8% 8%;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
-        filter: blur(12px);
+        border: 1px dashed color-mix(in srgb, var(--line-strong) 90%, transparent);
+        border-radius: 999px;
+        opacity: 0.8;
       }
 
-      .hero-logo-wrap img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 16px 24px rgba(16, 10, 45, 0.32));
+      .orbit.o1 {
+        inset: 18% 16% auto;
+        height: 220px;
       }
 
-      .star {
+      .orbit.o2 {
+        inset: 30% 8% auto;
+        height: 132px;
+      }
+
+      .spark {
         position: absolute;
         width: 10px;
         height: 10px;
-        border-radius: 3px;
+        border-radius: 4px;
         background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.55);
       }
 
-      .star.s1 { left: 18%; top: 18%; }
-      .star.s2 { right: 15%; top: 23%; width: 8px; height: 8px; }
-      .star.s3 { right: 18%; bottom: 22%; width: 14px; height: 14px; }
-      .star.s4 { left: 14%; bottom: 28%; width: 7px; height: 7px; }
+      .spark.s1 { top: 16%; left: 18%; }
+      .spark.s2 { top: 22%; right: 18%; width: 8px; height: 8px; }
+      .spark.s3 { bottom: 24%; left: 16%; width: 7px; height: 7px; }
+      .spark.s4 { bottom: 20%; right: 14%; width: 14px; height: 14px; }
 
-      .speech {
+      .speech-bubble {
         position: absolute;
-        right: 20px;
+        right: 18px;
         top: 18px;
         width: 190px;
-        padding: 16px 16px 18px;
+        padding: 15px 15px 17px;
         border-radius: 22px;
         border: 1px solid var(--line);
-        background: var(--panel-strong);
+        background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
       }
 
-      .speech strong {
+      .speech-bubble strong {
         display: block;
-        font-size: 0.86rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
         margin-bottom: 8px;
-      }
-
-      .speech span {
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .showcase-notes {
-        margin-top: 18px;
-        display: grid;
-        gap: 12px;
-      }
-
-      .showcase-note {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        padding: 16px 18px;
-        border-radius: 22px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .dot {
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        margin-top: 6px;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
-        flex: 0 0 auto;
-      }
-
-      .showcase-note strong {
-        display: block;
-        margin-bottom: 4px;
-      }
-
-      .showcase-note span {
-        color: var(--muted);
-        line-height: 1.65;
-        font-size: 0.94rem;
-      }
-
-      .section {
-        padding: 28px 0;
-      }
-
-      .entry-grid {
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 18px;
-      }
-
-      .entry-stack,
-      .social-stack {
-        display: grid;
-        gap: 18px;
-      }
-
-      .entry-stack {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .entry-card {
-        min-height: 220px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .entry-card.featured {
-        grid-column: 1 / -1;
-        min-height: 250px;
-      }
-
-      .entry-card.toolbox {
-        min-height: 250px;
-      }
-
-      .entry-card::before {
-        content: "";
-        position: absolute;
-        inset: auto -12% -22% auto;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 68%);
-      }
-
-      .entry-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-
-      .entry-kicker,
-      .entry-domain {
-        display: inline-flex;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+        font-size: 0.82rem;
         text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
-      .entry-kicker {
-        background: var(--tag-bg);
+      .speech-bubble span {
+        color: var(--text-soft);
+        font-size: 0.88rem;
+        line-height: 1.65;
       }
 
-      .entry-domain {
-        color: var(--muted);
-        text-transform: none;
-        letter-spacing: 0;
-      }
-
-      .entry-card h3 {
-        font-size: 1.35rem;
-        margin-bottom: 10px;
-      }
-
-      .entry-card p {
-        max-width: 52ch;
-      }
-
-      .entry-cta {
-        display: inline-flex;
-        margin-top: 20px;
-        font-weight: 800;
-      }
-
-      .social-panel h3 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-      }
-
-      .tool-list {
+      .manifest-grid {
         display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
-        margin-top: 20px;
       }
 
-      .tool-item {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 16px 18px;
-        border-radius: 18px;
+      .manifest-note {
+        padding: 16px;
+        border-radius: 24px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.04);
       }
 
-      .tool-item strong {
+      .manifest-note strong {
         display: block;
         margin-bottom: 6px;
       }
 
-      .tool-item span {
-        color: var(--muted);
+      .manifest-note span {
+        color: var(--text-soft);
         font-size: 0.9rem;
         line-height: 1.65;
       }
 
-      .tool-item em {
-        display: inline-flex;
-        align-items: center;
-        white-space: nowrap;
-        font-style: normal;
-        font-size: 0.8rem;
-        font-weight: 800;
-        color: var(--text);
-      }
-
-      .social-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .social-pill {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 14px 16px;
-        border-radius: 18px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .social-pill strong {
-        font-size: 0.95rem;
-      }
-
-      .social-pill span {
-        color: var(--muted);
-        font-size: 0.8rem;
-        font-weight: 700;
-      }
-
-      .scenario-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .scenario-card {
-        min-height: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background:
-          radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
-          var(--panel);
-      }
-
-      .scenario-tag {
-        display: inline-flex;
-        width: fit-content;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: var(--tag-bg);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .scenario-card strong {
-        display: block;
-        font-size: 1.22rem;
-        margin: 18px 0 10px;
-      }
-
-      .scenario-footer {
-        padding-top: 18px;
-        border-top: 1px solid var(--line);
-        color: var(--text);
-        font-weight: 700;
+      .section {
+        padding: 34px 0;
       }
 
       .section-head {
         display: flex;
         align-items: end;
         justify-content: space-between;
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 22px;
       }
 
       .section-head h2 {
-        font-size: clamp(2rem, 3.2vw, 3.3rem);
-        line-height: 1;
-        letter-spacing: -0.04em;
+        margin: 14px 0 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.1rem, 3.5vw, 3.6rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
       }
 
       .section-head p {
-        max-width: 540px;
-        color: var(--muted);
-        line-height: 1.8;
+        max-width: 34rem;
       }
 
-      .grid-3,
-      .grid-4,
-      .product-grid {
+      .gateway-grid,
+      .world-grid,
+      .scene-grid,
+      .manifesto-grid {
         display: grid;
         gap: 18px;
       }
 
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .gateway-grid,
+      .world-grid,
+      .manifesto-grid {
+        grid-template-columns: 1.02fr 0.98fr;
       }
 
-      .grid-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+      .gateway-stack,
+      .dock-stack {
+        display: grid;
+        gap: 18px;
       }
 
-      .product-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+      .gateway-stack {
+        grid-template-columns: 1fr 1fr;
       }
 
       .card {
-        border-radius: 30px;
-        border: 1px solid var(--line);
-        background: var(--panel);
-        box-shadow: var(--shadow);
+        border-radius: var(--radius-md);
         padding: 24px;
       }
 
-      .icon-badge {
-        width: 52px;
-        height: 52px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
-        display: grid;
-        place-items: center;
-        color: #fff;
-        font-weight: 900;
-        font-size: 1.1rem;
-        margin-bottom: 18px;
+      .card.featured {
+        grid-column: 1 / -1;
+        min-height: 278px;
       }
 
-      .card h3 {
-        font-size: 1.18rem;
-        margin-bottom: 10px;
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
       }
 
-      .card p,
-      .card li,
-      .product-meta {
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 0.95rem;
-      }
-
-      .product-card {
-        padding: 24px 20px;
-      }
-
-      .product-card .status {
+      .kicker,
+      .domain,
+      .status-pill {
         display: inline-flex;
-        margin-top: 14px;
+        align-items: center;
         padding: 7px 10px;
         border-radius: 999px;
-        background: var(--tag-bg);
-        font-size: 0.76rem;
+        border: 1px solid var(--line);
+        font-size: 0.75rem;
         font-weight: 800;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
       }
 
-      .story-grid {
+      .kicker,
+      .status-pill {
+        background: var(--tag-bg);
+      }
+
+      .domain {
+        color: var(--text-mute);
+      }
+
+      .card h3,
+      .product-card h3,
+      .scene-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.28rem;
+      }
+
+      .cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        font-weight: 800;
+      }
+
+      .cta-link::after {
+        content: "→";
+      }
+
+      .tool-list,
+      .social-list,
+      .story-list {
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 18px;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .tool-item,
+      .social-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 16px 16px 16px 18px;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .tool-item strong,
+      .social-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .tool-item em,
+      .social-item em {
+        white-space: nowrap;
+        font-style: normal;
+        font-size: 0.78rem;
+        font-weight: 800;
       }
 
       .quote {
-        padding: 32px;
-        border-radius: 34px;
-        border: 1px solid var(--line);
-        background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        border-radius: var(--radius-lg);
+        padding: 28px;
       }
 
       .quote strong {
         display: block;
-        font-size: clamp(1.8rem, 2.6vw, 2.8rem);
-        line-height: 1.15;
-        letter-spacing: -0.04em;
+        margin-top: 14px;
+        font-family: var(--font-display);
+        font-size: clamp(1.9rem, 3vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: -0.05em;
       }
 
-      .quote p {
-        margin-top: 16px;
-        color: var(--muted);
-        line-height: 1.85;
-      }
-
-      .list {
-        padding: 0;
+      .story-list {
         margin: 18px 0 0;
+        padding: 0;
         list-style: none;
-        display: grid;
-        gap: 12px;
       }
 
-      .list li {
+      .story-list li {
         padding: 16px 18px;
-        border-radius: 20px;
+        border-radius: 22px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.04);
       }
 
-      .cta {
-        padding: 30px;
-        border-radius: 38px;
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .principle-card {
+        padding: 22px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-soft) 90%, transparent);
+      }
+
+      .principle-badge,
+      .product-badge {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 18px;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        color: white;
+        font-family: var(--font-display);
+        font-weight: 800;
+      }
+
+      .universe-shell {
+        padding: 28px;
+        border-radius: var(--radius-lg);
         border: 1px solid var(--line);
         background:
-          radial-gradient(circle at 20% 20%, rgba(116, 216, 255, 0.18), transparent 20%),
-          radial-gradient(circle at 80% 20%, rgba(255, 152, 207, 0.16), transparent 22%),
-          var(--panel-strong);
-        box-shadow: var(--shadow);
+          radial-gradient(circle at 16% 20%, color-mix(in srgb, var(--accent-a) 16%, transparent), transparent 18%),
+          radial-gradient(circle at 84% 18%, color-mix(in srgb, var(--accent-c) 16%, transparent), transparent 18%),
+          color-mix(in srgb, var(--surface-strong) 92%, transparent);
+        box-shadow: var(--shadow-hero);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+        align-items: start;
+      }
+
+      .product-card {
+        padding: 22px 18px;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .product-card:nth-child(2n) {
+        margin-top: 28px;
+      }
+
+      .product-card:nth-child(4) {
+        margin-top: 54px;
+      }
+
+      .status-pill {
+        margin-top: 14px;
+      }
+
+      .scene-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .scene-card {
+        min-height: 310px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
+          color-mix(in srgb, var(--surface) 92%, transparent);
+      }
+
+      .scene-tag {
+        display: inline-flex;
+        width: fit-content;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--tag-bg);
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+
+      .scene-footer {
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .anti-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .anti-item {
+        padding: 15px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .anti-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .cta-shell {
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        background:
+          radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent-a) 18%, transparent), transparent 18%),
+          radial-gradient(circle at 85% 18%, color-mix(in srgb, var(--accent-c) 18%, transparent), transparent 20%),
+          color-mix(in srgb, var(--surface-strong) 92%, transparent);
+        box-shadow: var(--shadow-hero);
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
       }
 
-      .cta h2 {
-        font-size: clamp(2rem, 3vw, 3.2rem);
-        line-height: 1;
+      .cta-shell h2 {
+        margin: 14px 0 12px;
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 3vw, 3.5rem);
+        line-height: 0.98;
         letter-spacing: -0.05em;
+      }
+
+      .hero-band,
+      .manifest-grid,
+      #principles,
+      #entries .gateway-stack > article.card:last-child,
+      #entries .dock-stack,
+      #products .product-grid,
+      #scenes .scene-grid,
+      #story .world-grid > .quote:last-child,
+      #contact .cta-actions {
+        display: none;
+      }
+
+      #entries .gateway-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mascot-hotspot {
+        position: absolute;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition:
+          transform var(--ease),
+          border-color var(--ease),
+          background var(--ease),
+          box-shadow var(--ease);
+      }
+
+      .mascot-hotspot:hover,
+      .mascot-hotspot[aria-pressed="true"] {
+        transform: translateY(-2px);
+        border-color: var(--line-strong);
+        background: color-mix(in srgb, var(--tag-bg) 70%, var(--surface-strong));
+        box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-b) 18%, transparent);
+      }
+
+      .mascot-hotspot[data-companion="gentle"] {
+        top: 16%;
+        left: 12%;
+      }
+
+      .mascot-hotspot[data-companion="reliable"] {
+        top: 26%;
+        right: 12%;
+      }
+
+      .mascot-hotspot[data-companion="present"] {
+        bottom: 18%;
+        left: 16%;
+      }
+
+      .companion-panel,
+      .belief-panel,
+      .product-panel {
+        padding: 22px;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+      }
+
+      .companion-tabs,
+      .belief-pills,
+      .scene-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .companion-tab,
+      .belief-pill,
+      .scene-toggle,
+      .cta-choice {
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        color: var(--text-soft);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform var(--ease),
+          border-color var(--ease),
+          background var(--ease),
+          color var(--ease),
+          box-shadow var(--ease);
+      }
+
+      .companion-tab:hover,
+      .companion-tab.is-active,
+      .belief-pill:hover,
+      .belief-pill.is-active,
+      .scene-toggle:hover,
+      .scene-toggle.is-active,
+      .cta-choice:hover,
+      .cta-choice.is-active {
+        transform: translateY(-1px);
+        border-color: var(--line-strong);
+        background: color-mix(in srgb, var(--tag-bg) 72%, var(--surface-strong));
+        color: var(--text);
+      }
+
+      .companion-panel strong,
+      .belief-panel strong,
+      .product-panel h3,
+      .cta-choice-panel strong {
+        display: block;
+        margin-top: 16px;
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+        line-height: 1.06;
+        letter-spacing: -0.04em;
+      }
+
+      .companion-panel p,
+      .belief-stage p,
+      .product-panel p,
+      .cta-choice-panel p,
+      .entry-path span,
+      .product-switch span,
+      .product-panel-item span,
+      .scene-stage-item span,
+      .scene-moment span,
+      .drawer-summary,
+      .drawer-point span {
+        color: var(--text-soft);
+        line-height: 1.75;
+      }
+
+      .entry-guide {
+        margin-top: 18px;
+      }
+
+      .entry-paths {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .entry-path {
+        display: block;
+        padding: 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        transition:
+          transform var(--ease),
+          border-color var(--ease),
+          background var(--ease);
+      }
+
+      .entry-path:hover {
+        transform: translateY(-3px);
+        border-color: var(--line-strong);
+        background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
+      }
+
+      .entry-path strong,
+      .product-panel-item strong,
+      .scene-stage-item strong,
+      .scene-moment strong,
+      .drawer-point strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .product-showcase,
+      .scene-stage {
+        display: grid;
+        grid-template-columns: minmax(0, 0.94fr) minmax(320px, 1.06fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .product-selector {
+        display: grid;
+        gap: 12px;
+      }
+
+      .product-switch {
+        width: 100%;
+        padding: 18px;
+        text-align: left;
+        font: inherit;
+        color: inherit;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+        transition:
+          transform var(--ease),
+          border-color var(--ease),
+          background var(--ease),
+          box-shadow var(--ease);
+      }
+
+      .product-switch:hover,
+      .product-switch.is-active {
+        transform: translateY(-2px);
+        border-color: var(--line-strong);
+        background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+        box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-b) 10%, transparent);
+      }
+
+      .product-switch-badge {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
         margin-bottom: 12px;
+        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        color: white;
+        font-family: var(--font-display);
+        font-weight: 800;
       }
 
-      .cta p {
-        color: var(--muted);
-        line-height: 1.8;
-        max-width: 640px;
+      .product-switch strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.04rem;
+        color: var(--text);
       }
 
-      footer {
-        padding: 30px 0 54px;
+      .product-switch em {
+        display: inline-flex;
+        margin-top: 12px;
+        font-style: normal;
+        font-size: 0.76rem;
+        font-weight: 800;
+        color: var(--text);
       }
 
-      .footer-box {
+      .product-panel-grid,
+      .scene-stage-list,
+      .drawer-points {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .product-panel-item,
+      .scene-stage-item,
+      .scene-moment,
+      .drawer-point,
+      .cta-choice-panel,
+      .belief-stage {
+        padding: 16px 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .product-panel-actions,
+      .cta-interact {
+        display: grid;
+        gap: 16px;
+      }
+
+      .product-panel-actions {
+        margin-top: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .scene-experience {
+        display: grid;
+        gap: 16px;
+      }
+
+      .scene-stage-copy {
+        padding: 26px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
+          color-mix(in srgb, var(--surface) 92%, transparent);
+      }
+
+      .scene-stage-copy h3 {
+        margin: 14px 0 12px;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 2.8vw, 3rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+      }
+
+      .scene-moments {
+        display: grid;
+        gap: 12px;
+      }
+
+      .belief-panel {
+        border-radius: var(--radius-lg);
+      }
+
+      .belief-signature {
+        display: inline-block;
+        margin-top: 14px;
+        font-family: var(--font-display);
+        letter-spacing: -0.03em;
+        color: var(--text);
+      }
+
+      .cta-interact {
+        min-width: min(380px, 100%);
+      }
+
+      .cta-choice-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .cta-choice {
+        text-align: left;
+      }
+
+      .cta-choice-panel strong {
+        margin-top: 0;
+      }
+
+      .drawer-scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 36;
+        background: rgba(10, 14, 28, 0.42);
+        backdrop-filter: blur(8px);
+      }
+
+      .product-drawer {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        bottom: 18px;
+        z-index: 40;
+        width: min(480px, calc(100vw - 36px));
+        padding: 22px;
+        border-radius: 32px;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
+        box-shadow: var(--shadow-hero);
+        transform: translateX(calc(100% + 40px));
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          transform var(--ease-slow),
+          opacity var(--ease);
+        overflow-y: auto;
+      }
+
+      .product-drawer.is-open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .drawer-top,
+      .drawer-meta {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        padding: 18px 0 0;
-        color: var(--muted);
+        gap: 14px;
+      }
+
+      .drawer-top strong {
+        display: block;
+        margin-top: 14px;
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+        line-height: 1.04;
+      }
+
+      .drawer-close {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .drawer-summary,
+      .drawer-meta,
+      .drawer-points,
+      .product-drawer .button {
+        margin-top: 18px;
+      }
+
+      footer {
+        padding: 26px 0 56px;
+      }
+
+      .footer-shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-copy {
         font-size: 0.92rem;
       }
 
-      @media (max-width: 1080px) {
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+        transition:
+          opacity var(--ease-slow),
+          transform var(--ease-slow);
+        transition-delay: var(--delay, 0ms);
+      }
+
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      @media (max-width: 1120px) {
         .hero-grid,
-        .entry-grid,
-        .story-grid,
-        .scenario-grid,
-        .grid-3,
-        .grid-4,
-        .product-grid,
-        .cta {
-          grid-template-columns: 1fr;
-          display: grid;
-        }
-
-        .hero-points {
+        .gateway-grid,
+        .world-grid,
+        .manifesto-grid,
+        .product-showcase,
+        .scene-stage {
           grid-template-columns: 1fr;
         }
 
-        .entry-stack,
-        .social-grid {
-          grid-template-columns: 1fr;
+        .product-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
-        .section-head,
-        .footer-box,
-        .cta {
-          align-items: start;
-          justify-content: start;
+        .principle-grid,
+        .scene-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 720px) {
-        .topbar-inner,
-        .topbar-actions,
-        .hero-actions {
+      @media (max-width: 860px) {
+        .topbar-inner {
           flex-wrap: wrap;
-        }
-
-        .hero-card,
-        .showcase,
-        .card,
-        .quote,
-        .cta {
-          padding: 22px;
+          justify-content: center;
           border-radius: 28px;
         }
 
-        .mascot-zone {
+        .nav-links,
+        .topbar-actions {
+          justify-content: center;
+        }
+
+        .hero-band,
+        .manifest-grid,
+        .gateway-stack,
+        .principle-grid,
+        .product-grid,
+        .scene-grid,
+        .entry-paths,
+        .product-panel-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .product-card:nth-child(2n),
+        .product-card:nth-child(4) {
+          margin-top: 0;
+        }
+
+        .cta-shell,
+        .footer-shell {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .mascot-hotspot[data-companion="gentle"] {
+          top: 12%;
+          left: 10%;
+        }
+
+        .mascot-hotspot[data-companion="reliable"] {
+          top: 18%;
+          right: 10%;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          width: min(100vw - 20px, 1180px);
+        }
+
+        .hero-copy,
+        .hero-visual,
+        .quote,
+        .cta-shell,
+        .universe-shell,
+        .card {
+          padding: 20px;
+        }
+
+        .hero-title,
+        .section-head h2,
+        .cta-shell h2,
+        .quote strong {
+          word-break: break-word;
+        }
+
+        .button,
+        .theme-button {
+          width: 100%;
+        }
+
+        .hero-actions,
+        .cta-actions,
+        .footer-links {
+          display: grid;
+          width: 100%;
+          grid-template-columns: 1fr;
+        }
+
+        .scene-tabs,
+        .companion-tabs,
+        .belief-pills {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .product-drawer {
+          inset: 12px;
+          width: auto;
+        }
+
+        .visual-stage {
           min-height: 390px;
         }
 
-        .hero-logo-wrap {
-          width: 240px;
-          height: 240px;
+        .speech-bubble {
+          width: 150px;
+        }
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .cursor-glow-layer {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
         }
 
-        .speech {
-          position: static;
-          width: auto;
-          margin: 18px;
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+        }
+
+        .cursor-glow-layer {
+          display: none;
         }
       }
     </style>
   </head>
-  <body data-theme="galaxy">
+  <body>
+    <div class="cursor-glow-layer" aria-hidden="true">
+      <canvas class="cursor-trail-canvas" id="cursorTrailCanvas"></canvas>
+    </div>
     <div class="page">
-      <header class="topbar">
+      <header class="topbar" id="topbar">
         <div class="container">
           <div class="topbar-inner">
             <a class="brand" href="#top">
-              <div class="brand-mark" aria-hidden="true">
+              <span class="brand-mark" aria-hidden="true">
                 <img src="assets/logo-128.png" alt="Nebubu logo" />
-              </div>
-              <div class="brand-copy">
+              </span>
+              <span class="brand-copy">
                 <strong>NEBUBU</strong>
                 <span>Gentle with you, serious about helping.</span>
-              </div>
+              </span>
             </a>
 
+            <nav class="nav-links" aria-label="主导航">
+              <a href="#entries">入口</a>
+              <a href="#products">产品</a>
+              <a href="#products">宇宙</a>
+              <a href="#story">设定</a>
+            </nav>
+
             <div class="topbar-actions">
-              <button class="chip" id="themeToggle" type="button">Galaxy Theme</button>
-              <a class="ghost-btn" href="#entries">项目入口</a>
-              <a class="ghost-btn" href="#products">产品宇宙</a>
-              <a class="primary-btn" href="#contact">主站方向</a>
+              <button class="theme-button" id="themeToggle" type="button">Galaxy</button>
+              <a class="button ghost" href="#entries">项目入口</a>
+              <a class="button primary" href="#contact">立即开始</a>
             </div>
           </div>
         </div>
@@ -895,74 +1492,85 @@
       <main id="top">
         <section class="hero">
           <div class="container hero-grid">
-            <div class="hero-card">
-              <div class="eyebrow">Cute Companion AI Tools</div>
+            <article class="hero-copy" data-reveal>
+              <div class="eyebrow">Cute Companion AI Universe</div>
               <h1 class="hero-title">
                 AI 不该只是效率机器。
-                <span class="gradient">Nebubu 应该像一只会陪你的银河猫。</span>
+                <span class="gradient">Nebubu 更像一只安静、可靠、会陪你的银河猫。</span>
               </h1>
               <p class="hero-subtitle">
-                Nebubu 是一个围绕陪伴感与实用价值构建的 AI 品牌主站。新的主站不再只展示某一个产品，而是清晰传达品牌世界观、IP 性格、产品矩阵与长期扩展能力。
+                这里先带你认识 Nebubu 为什么存在，以及它想让 AI 变成怎样的陪伴。然后，你可以自然地走进当前产品入口与未来的产品宇宙。
               </p>
 
               <div class="hero-actions">
-                <a class="primary-btn" href="#entries">查看项目入口</a>
-                <a class="ghost-btn" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
-                <a class="ghost-btn" href="#story">阅读 IP 设定</a>
+                <a class="button primary" href="#entries">查看项目入口</a>
+                <a class="button secondary" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
+                <a class="button ghost" href="#story">阅读 IP 设定</a>
               </div>
 
-              <div class="hero-points">
-                <div class="mini-card">
-                  <strong>Warm, not cold</strong>
-                  <span>不是冰冷的生产力口号，而是轻柔、可信赖、能长期陪伴的 AI 关系。</span>
-                </div>
-                <div class="mini-card">
-                  <strong>Useful, not decorative</strong>
-                  <span>每一个 Nebubu 产品都需要解决真实问题，而不是只提供表面的可爱包装。</span>
-                </div>
-                <div class="mini-card">
-                  <strong>Universe, not one app</strong>
-                  <span>主站承担品牌母舰角色，Nebubu Invest 只是其中一个已经落地的产品入口。</span>
-                </div>
-              </div>
-            </div>
-
-            <aside class="panel showcase">
-              <div class="mascot-zone">
-                <div class="speech">
-                  <strong>Brand Avatar</strong>
-                  <span>一只温柔、安静、聪明的 galaxy cat。它是主站的核心情绪锚点。</span>
-                </div>
-                <div class="star s1"></div>
-                <div class="star s2"></div>
-                <div class="star s3"></div>
-                <div class="star s4"></div>
-                <div class="hero-logo-wrap">
-                  <img src="assets/logo-full.png" alt="Nebubu galaxy cat logo" />
-                </div>
+              <div class="hero-meta">
+                <span class="meta-pill">Warm, not cold</span>
+                <span class="meta-pill">Useful, not decorative</span>
+                <span class="meta-pill">Universe, not one app</span>
               </div>
 
-              <div class="showcase-notes">
-                <div class="showcase-note">
-                  <div class="dot"></div>
-                  <div>
-                    <strong>主站定位</strong>
-                    <span>承接 Nebubu 的品牌叙事，而不是延续投资产品的单点转化逻辑。</span>
-                  </div>
+              <div class="hero-band">
+                <div class="mini-panel">
+                  <strong>陪伴方式</strong>
+                  <span>不催促，不命令，让 AI 像一个安静但可靠的存在，陪你一起处理真实问题。</span>
                 </div>
-                <div class="showcase-note">
-                  <div class="dot"></div>
-                  <div>
-                    <strong>视觉方向</strong>
-                    <span>银河主题、柔和发光、圆润轮廓、安静科技感，避免廉价幼态或过度卡通。</span>
-                  </div>
+                <div class="mini-panel">
+                  <strong>使用感受</strong>
+                  <span>温柔、清楚、可信赖。先让你感到被理解，再给出真正有用的帮助。</span>
                 </div>
-                <div class="showcase-note">
-                  <div class="dot"></div>
-                  <div>
-                    <strong>信息架构</strong>
-                    <span>品牌承诺、IP 设定、产品宇宙、使用场景、价值原则与后续产品入口分层展开。</span>
-                  </div>
+                <div class="mini-panel">
+                  <strong>你会在这里找到</strong>
+                  <span>核心产品入口、轻量工具，以及正在慢慢展开的 Nebubu 产品宇宙。</span>
+                </div>
+              </div>
+            </article>
+
+            <aside class="hero-visual" data-reveal>
+              <div class="visual-stage">
+                <div class="halo"></div>
+                <div class="orbit o1"></div>
+                <div class="orbit o2"></div>
+                <div class="spark s1"></div>
+                <div class="spark s2"></div>
+                <div class="spark s3"></div>
+                <div class="spark s4"></div>
+                <div class="speech-bubble">
+                  <strong id="companionSpeechLabel">Gentle</strong>
+                  <span id="companionSpeechText">安静靠近，在你需要的时候给出不打扰但真实有用的帮助。</span>
+                </div>
+                <button class="mascot-hotspot" type="button" data-companion="gentle" aria-pressed="true">Gentle</button>
+                <button class="mascot-hotspot" type="button" data-companion="reliable" aria-pressed="false">Reliable</button>
+                <button class="mascot-hotspot" type="button" data-companion="present" aria-pressed="false">Present</button>
+                <img class="mascot" src="assets/logo-full.png" alt="Nebubu galaxy cat logo" />
+              </div>
+
+              <div class="companion-panel">
+                <div class="companion-tabs" role="tablist" aria-label="Nebubu traits">
+                  <button class="companion-tab is-active" type="button" data-companion-tab="gentle">温柔</button>
+                  <button class="companion-tab" type="button" data-companion-tab="reliable">可靠</button>
+                  <button class="companion-tab" type="button" data-companion-tab="present">陪伴</button>
+                </div>
+                <strong id="companionTitle">安静靠近</strong>
+                <p id="companionBody">它不会抢你的节奏，而是像一盏一直亮着的小灯，在你需要的时候把复杂的事情照得更清楚。</p>
+              </div>
+
+              <div class="manifest-grid">
+                <div class="manifest-note">
+                  <strong>现在开始</strong>
+                  <span>从 Invest 出发，先进入已经可以直接使用的核心产品。</span>
+                </div>
+                <div class="manifest-note">
+                  <strong>品牌气质</strong>
+                  <span>柔和、发光、圆润，但始终保持清楚与可信赖，不幼态，也不冷硬。</span>
+                </div>
+                <div class="manifest-note">
+                  <strong>接下来</strong>
+                  <span>Notes、Focus、Daily、Widget 会在同一个世界里继续展开，慢慢长成完整陪伴体系。</span>
                 </div>
               </div>
             </aside>
@@ -971,101 +1579,132 @@
 
         <section class="section" id="entries">
           <div class="container">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
               <div>
                 <div class="eyebrow">Project Gateways</div>
-                <h2>主入口只保留核心项目，同时把轻量应用收进 Nebubu 小工具。</h2>
+                <h2>从一个清晰入口开始，再慢慢认识整个 Nebubu 世界。</h2>
               </div>
               <p>
-                这一层继续承担聚合职责，但入口结构会更清晰：主项目负责品牌核心产品，小工具区域负责承接轻量应用与实验型实用工具。
+                如果你现在就想开始使用，先去 Invest。如果你更想先感受 Nebubu 的方式，这里也保留了轻量工具和接下来会展开的方向。
               </p>
             </div>
 
-            <div class="entry-grid">
-              <div class="entry-stack">
-                <a class="card entry-card featured" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">
-                  <div class="entry-top">
-                    <span class="entry-kicker">Portal 01</span>
-                    <span class="entry-domain">invest.gnar127.com</span>
+            <div class="gateway-grid">
+              <div class="gateway-stack">
+                <a class="card featured" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer" data-reveal>
+                  <div class="card-top">
+                    <span class="kicker">Portal 01</span>
+                    <span class="domain">invest.gnar127.com</span>
                   </div>
                   <h3>Nebubu Invest</h3>
-                  <p>作为 Nebubu 当前最明确的主项目入口，这里承接 AI 驱动的跨端投资工作台，覆盖 Web、移动端与桌面端。</p>
-                  <span class="entry-cta">Open dashboard</span>
+                  <p>
+                    当前最明确的核心产品入口，承接 AI 驱动的跨端投资工作台。它已经可以直接使用，也最能代表 Nebubu 现在的能力。
+                  </p>
+                  <span class="cta-link">Open dashboard</span>
                 </a>
 
-                <div class="card entry-card toolbox">
-                  <div class="entry-top">
-                    <span class="entry-kicker">Tools</span>
-                    <span class="entry-domain">lightweight apps</span>
+                <article class="card" data-reveal>
+                  <div class="card-top">
+                    <span class="kicker">Tools</span>
+                    <span class="domain">lightweight apps</span>
                   </div>
                   <h3>Nebubu 小工具</h3>
-                  <p>这里收纳 Nebubu 旗下更轻量、更即用即走的小应用，不占据主品牌入口，但会持续扩展。</p>
+                  <p>把更轻、更即用即走的小应用收在这里，不抢主入口，但持续增长。</p>
                   <div class="tool-list">
                     <a class="tool-item" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
                       <div>
                         <strong>Asset Calculator</strong>
-                        <span>把复杂规则压缩成更容易判断、更容易对比的结果页，适合作为轻量计算工具入口。</span>
+                        <span>把复杂规则压缩成更容易判断和对比的结果页，适合作为轻量计算入口。</span>
                       </div>
                       <em>Open</em>
                     </a>
                   </div>
-                </div>
+                </article>
+
+                <article class="card" data-reveal>
+                  <div class="card-top">
+                    <span class="kicker">Start Here</span>
+                  </div>
+                  <h3>先从一个已经可用的产品开始，再慢慢认识这个品牌。</h3>
+                  <p>我们不想一上来就把所有东西塞给你。先从清楚的入口开始，等你熟悉之后，再走进更多工具、场景和产品。</p>
+                </article>
               </div>
 
-              <div class="social-stack">
-                <div class="card social-panel">
-                  <div class="eyebrow">Signal Dock</div>
-                  <h3>社交入口先保留位置，后续可以直接接线。</h3>
-                  <p>这里沿用当前主站的预留结构，不强行伪装成已上线渠道。等你确定真实地址后，直接把占位链接替换即可。</p>
-
-                  <div class="social-grid">
-                    <div class="social-pill"><strong>Git</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>Discord</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>Telegram</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>WeChat</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>QQ</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>Weibo</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>Redbook</strong><span>Reserved</span></div>
-                    <div class="social-pill"><strong>Twitter</strong><span>Reserved</span></div>
+              <div class="dock-stack">
+                <article class="card" data-reveal>
+                  <div class="card-top">
+                    <span class="kicker">Next Up</span>
+                    <span class="domain">growing with you</span>
                   </div>
-                </div>
+                  <h3>Nebubu 还在继续长大，但方向已经很清楚。</h3>
+                  <p>你现在可以先使用已经开放的入口，也可以先看看接下来会有哪些能力慢慢加入你的日常。</p>
+
+                  <div class="social-list">
+                    <div class="social-item"><div><strong>Invest</strong><span>已经开放，适合直接开始体验 Nebubu 的判断与陪伴方式。</span></div><em>Now</em></div>
+                    <div class="social-item"><div><strong>Asset Calculator</strong><span>更轻量的工具入口，适合快速计算、对比和做初步判断。</span></div><em>Open</em></div>
+                    <div class="social-item"><div><strong>Notes / Focus</strong><span>会把整理、收纳和专注带进同一个温柔但清楚的工作流里。</span></div><em>Soon</em></div>
+                    <div class="social-item"><div><strong>Daily / Widget</strong><span>会让 Nebubu 更常驻、更贴近日常，变成更轻但更稳定的陪伴。</span></div><em>Soon</em></div>
+                  </div>
+                </article>
               </div>
             </div>
+
+            <article class="card entry-guide" data-reveal>
+              <div class="card-top">
+                <span class="kicker">Flow</span>
+                <span class="domain">simple first steps</span>
+              </div>
+              <h3>三种开始方式，按你现在最需要的来。</h3>
+              <div class="entry-paths">
+                <a class="entry-path" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">
+                  <strong>直接开始</strong>
+                  <span>打开 Invest，立刻进入已经可用的核心产品。</span>
+                </a>
+                <a class="entry-path" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
+                  <strong>先用轻工具</strong>
+                  <span>用 Asset Calculator 快速计算、对比和做初步判断。</span>
+                </a>
+                <a class="entry-path" href="#products">
+                  <strong>先看看宇宙</strong>
+                  <span>浏览 Nebubu 接下来会慢慢长出的产品和场景。</span>
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
         <section class="section" id="principles">
           <div class="container">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
               <div>
                 <div class="eyebrow">Brand Principles</div>
-                <h2>主站首先要让人相信 Nebubu 是什么。</h2>
+                <h2>先感受到 Nebubu 是什么，再决定从哪里开始。</h2>
               </div>
               <p>
-                根据 `nebubu_co` 文档，Nebubu 的品牌平衡点很明确：Cute, but not childish. Gentle, but not weak. Useful, not decorative. Reliable, not noisy.
+                我们希望每个产品都保持同一套平衡: Cute, but not childish. Gentle, but not weak. Useful, not decorative. Reliable, not noisy.
               </p>
             </div>
 
-            <div class="grid-4">
-              <article class="card">
-                <div class="icon-badge">01</div>
+            <div class="principle-grid">
+              <article class="principle-card" data-reveal>
+                <div class="principle-badge">01</div>
                 <h3>温柔感</h3>
-                <p>文案与视觉都应该软、轻、清晰，不制造压迫感，也不使用夸张的销售语气。</p>
+                <p>不制造焦虑，不用压迫式提示抢注意力，而是用更平静的方式陪你理解问题。</p>
               </article>
-              <article class="card">
-                <div class="icon-badge">02</div>
+              <article class="principle-card" data-reveal>
+                <div class="principle-badge">02</div>
                 <h3>可靠感</h3>
-                <p>主站不能像玩具页。每一个区块都要说明 Nebubu 具体会如何帮助用户解决问题。</p>
+                <p>可爱只是入口，不是全部。真正留下你的，应该是清楚、稳定、能落到日常里的帮助。</p>
               </article>
-              <article class="card">
-                <div class="icon-badge">03</div>
-                <h3>品牌母舰</h3>
-                <p>作为母品牌首页，重点是品牌与产品宇宙，而不是某个单产品功能详情页。</p>
+              <article class="principle-card" data-reveal>
+                <div class="principle-badge">03</div>
+                <h3>母品牌视角</h3>
+                <p>Nebubu 不只是一款工具，而是一整套会逐步展开的陪伴式产品体验。</p>
               </article>
-              <article class="card">
-                <div class="icon-badge">04</div>
+              <article class="principle-card" data-reveal>
+                <div class="principle-badge">04</div>
                 <h3>长期扩展</h3>
-                <p>信息架构需要天然支持 Nebubu Invest、Notes、Focus、Daily、Widget 等后续产品加入。</p>
+                <p>从 Invest 到未来的 Notes、Focus、Daily、Widget，每一步都应该属于同一个世界。</p>
               </article>
             </div>
           </div>
@@ -1073,101 +1712,207 @@
 
         <section class="section" id="products">
           <div class="container">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
               <div>
                 <div class="eyebrow">Product Universe</div>
                 <h2>一个品牌，多种陪伴场景。</h2>
               </div>
               <p>
-                文档已经明确了推荐的命名结构：Nebubu + 产品描述。主站应该把这些产品看作同一只银河猫在不同生活场景下的能力延展。
+                Nebubu 会慢慢长出不同产品，但它们做的是同一件事: 用更温柔、更清楚的方式，把 AI 带回真实日常。
               </p>
             </div>
 
-            <div class="product-grid">
-              <article class="card product-card">
-                <div class="icon-badge">I</div>
-                <h3>Nebubu Invest</h3>
-                <p class="product-meta">陪你理解市场、看懂风险、让复杂信息更柔和地进入决策。</p>
-                <div class="status">Live Product</div>
-              </article>
-              <article class="card product-card">
-                <div class="icon-badge">N</div>
-                <h3>Nebubu Notes</h3>
-                <p class="product-meta">帮助你记录灵感、整理知识和把碎片化思考安静地收拢起来。</p>
-                <div class="status">Future Surface</div>
-              </article>
-              <article class="card product-card">
-                <div class="icon-badge">F</div>
-                <h3>Nebubu Focus</h3>
-                <p class="product-meta">把专注这件事做得不焦虑，用陪伴感而不是训导感来维持节奏。</p>
-                <div class="status">Future Surface</div>
-              </article>
-              <article class="card product-card">
-                <div class="icon-badge">D</div>
-                <h3>Nebubu Daily</h3>
-                <p class="product-meta">让 AI 进入日常计划、提醒与轻任务处理，成为用户生活里的固定存在。</p>
-                <div class="status">Future Surface</div>
-              </article>
-              <article class="card product-card">
-                <div class="icon-badge">W</div>
-                <h3>Nebubu Widget</h3>
-                <p class="product-meta">把 Nebubu 以更轻量、更常驻、更贴近日常的方式放到用户触手可及的位置。</p>
-                <div class="status">Future Surface</div>
-              </article>
+            <div class="universe-shell" data-reveal>
+              <div class="product-showcase">
+                <div class="product-selector" role="tablist" aria-label="Nebubu products">
+                  <button class="product-switch is-active" type="button" data-product-key="invest">
+                    <span class="product-switch-badge">I</span>
+                    <strong>Nebubu Invest</strong>
+                    <span>陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</span>
+                    <em>Live Product</em>
+                  </button>
+                  <button class="product-switch" type="button" data-product-key="notes">
+                    <span class="product-switch-badge">N</span>
+                    <strong>Nebubu Notes</strong>
+                    <span>安静地收纳灵感、碎片和知识，不让想法只是划过。</span>
+                    <em>Coming Soon</em>
+                  </button>
+                  <button class="product-switch" type="button" data-product-key="focus">
+                    <span class="product-switch-badge">F</span>
+                    <strong>Nebubu Focus</strong>
+                    <span>帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。</span>
+                    <em>Coming Soon</em>
+                  </button>
+                  <button class="product-switch" type="button" data-product-key="daily">
+                    <span class="product-switch-badge">D</span>
+                    <strong>Nebubu Daily</strong>
+                    <span>把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。</span>
+                    <em>Coming Soon</em>
+                  </button>
+                  <button class="product-switch" type="button" data-product-key="widget">
+                    <span class="product-switch-badge">W</span>
+                    <strong>Nebubu Widget</strong>
+                    <span>让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。</span>
+                    <em>Coming Soon</em>
+                  </button>
+                </div>
+
+                <article class="product-panel">
+                  <div class="card-top">
+                    <span class="kicker" id="productPanelState">Live Product</span>
+                    <span class="domain" id="productPanelTime">Available now</span>
+                  </div>
+                  <h3 id="productPanelTitle">Nebubu Invest</h3>
+                  <p id="productPanelSummary">陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
+
+                  <div class="product-panel-grid">
+                    <div class="product-panel-item">
+                      <strong>适合什么时候</strong>
+                      <span id="productPanelUse">当你需要更快读懂市场、整理风险和形成判断的时候。</span>
+                    </div>
+                    <div class="product-panel-item">
+                      <strong>它的方式</strong>
+                      <span id="productPanelMode">把复杂信息压缩成更容易比较和行动的结构，而不是堆更多术语。</span>
+                    </div>
+                    <div class="product-panel-item">
+                      <strong>当前阶段</strong>
+                      <span id="productPanelStage">已经开放，可以直接进入体验。</span>
+                    </div>
+                  </div>
+
+                  <div class="product-panel-actions">
+                    <a class="button primary" id="productPrimaryAction" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
+                    <button class="button secondary" id="productDrawerTrigger" type="button">查看详细展开</button>
+                  </div>
+                </article>
+              </div>
+
+              <div class="product-grid">
+                <article class="product-card">
+                  <div class="product-badge">I</div>
+                  <h3>Nebubu Invest</h3>
+                  <p>陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
+                  <div class="status-pill">Live Product</div>
+                </article>
+                <article class="product-card">
+                  <div class="product-badge">N</div>
+                  <h3>Nebubu Notes</h3>
+                  <p>安静地收纳灵感、碎片和知识，不让想法只是划过。</p>
+                  <div class="status-pill">Coming Soon</div>
+                </article>
+                <article class="product-card">
+                  <div class="product-badge">F</div>
+                  <h3>Nebubu Focus</h3>
+                  <p>帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。</p>
+                  <div class="status-pill">Coming Soon</div>
+                </article>
+                <article class="product-card">
+                  <div class="product-badge">D</div>
+                  <h3>Nebubu Daily</h3>
+                  <p>把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。</p>
+                  <div class="status-pill">Coming Soon</div>
+                </article>
+                <article class="product-card">
+                  <div class="product-badge">W</div>
+                  <h3>Nebubu Widget</h3>
+                  <p>让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。</p>
+                  <div class="status-pill">Coming Soon</div>
+                </article>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="section" id="scenes">
           <div class="container">
-            <div class="section-head">
+            <div class="section-head" data-reveal>
               <div>
                 <div class="eyebrow">Daily Scenes</div>
                 <h2>Nebubu 应该出现在真实生活里，而不是只活在品牌口号里。</h2>
               </div>
-              <p>
-                这部分把“陪伴 + 有用”落到具体场景。它帮助主站从抽象品牌介绍，过渡到用户能立即理解的日常价值。
-              </p>
+              <p>品牌的价值不是抽象理念，而是落到用户每天会遇到的节奏、任务、判断和情绪压力里。</p>
             </div>
 
-            <div class="scenario-grid">
-              <article class="card scenario-card">
-                <div>
-                  <span class="scenario-tag">Morning</span>
-                  <strong>帮你整理一天的开始</strong>
-                  <p>用轻量提醒、摘要、待办和小结，让 AI 成为一种不打扰但稳定存在的晨间陪伴。</p>
+            <div class="scene-experience" data-reveal>
+              <div class="scene-tabs" role="tablist" aria-label="Daily scenes">
+                <button class="scene-toggle is-active" type="button" data-scene-key="morning">Morning</button>
+                <button class="scene-toggle" type="button" data-scene-key="work">Work</button>
+                <button class="scene-toggle" type="button" data-scene-key="decision">Decision</button>
+              </div>
+
+              <div class="scene-stage">
+                <div class="scene-stage-copy">
+                  <span class="scene-tag" id="sceneStageTag">Morning</span>
+                  <h3 id="sceneStageTitle">帮你整理一天的开始</h3>
+                  <p id="sceneStageBody">用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。</p>
+
+                  <div class="scene-stage-list">
+                    <div class="scene-stage-item">
+                      <strong>更适合配合</strong>
+                      <span id="sceneStageProducts">Nebubu Daily / Nebubu Widget</span>
+                    </div>
+                    <div class="scene-stage-item">
+                      <strong>带来的感受</strong>
+                      <span id="sceneStageFeeling">不急着推进你，而是先帮你把一天理顺。</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="scenario-footer">Nebubu Daily / Nebubu Widget</div>
+
+                <div class="scene-moments" id="sceneMoments">
+                  <div class="scene-moment">
+                    <strong>看一眼重点</strong>
+                    <span>先知道今天最重要的事情是什么。</span>
+                  </div>
+                  <div class="scene-moment">
+                    <strong>把提醒变轻</strong>
+                    <span>不是轰炸式提醒，而是更顺手的温柔提示。</span>
+                  </div>
+                  <div class="scene-moment">
+                    <strong>留一点余地</strong>
+                    <span>给节奏和情绪都留出可以呼吸的空间。</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="scene-grid">
+              <article class="scene-card" data-reveal>
+                <div>
+                  <span class="scene-tag">Morning</span>
+                  <h3>帮你整理一天的开始</h3>
+                  <p>用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。</p>
+                </div>
+                <div class="scene-footer">Nebubu Daily / Nebubu Widget</div>
               </article>
-              <article class="card scenario-card">
+              <article class="scene-card" data-reveal>
                 <div>
-                  <span class="scenario-tag">Work</span>
-                  <strong>在复杂任务里提供安静支持</strong>
-                  <p>从整理资料到收敛灵感，再到帮助理解复杂信息，Nebubu 更像陪你完成工作的伙伴，而不是催促你的系统。</p>
+                  <span class="scene-tag">Work</span>
+                  <h3>在复杂任务里提供安静支持</h3>
+                  <p>从整理资料到收纳灵感，再到帮你理解复杂信息，Nebubu 更像同伴，而不是催促系统。</p>
                 </div>
-                <div class="scenario-footer">Nebubu Notes / Nebubu Focus</div>
+                <div class="scene-footer">Nebubu Notes / Nebubu Focus</div>
               </article>
-              <article class="card scenario-card">
+              <article class="scene-card" data-reveal>
                 <div>
-                  <span class="scenario-tag">Decision</span>
-                  <strong>在决策时降低压力感</strong>
-                  <p>无论是市场、任务、节奏还是个人计划，Nebubu 的价值都不是替你做决定，而是让判断过程更柔和、更清楚。</p>
+                  <span class="scene-tag">Decision</span>
+                  <h3>在决策时降低压力感</h3>
+                  <p>无论是市场、计划还是个人节奏，Nebubu 的价值都不是替你决定，而是让判断更柔和、更清楚。</p>
                 </div>
-                <div class="scenario-footer">Nebubu Invest and future decision tools</div>
+                <div class="scene-footer">Nebubu Invest and future decision tools</div>
               </article>
             </div>
           </div>
         </section>
 
         <section class="section" id="story">
-          <div class="container story-grid">
-            <article class="quote">
+          <div class="container world-grid">
+            <article class="quote" data-reveal>
               <div class="eyebrow">Mascot Story</div>
               <strong>它像一只银河猫，安静、不张扬，但总在你需要的时候出现。</strong>
               <p>
-                这是 Nebubu 最重要的情绪原型。它不是过度幼态的可爱角色，而是一种“柔和但可靠”的人格化入口。主站首页需要把这个角色感建立起来，让用户第一次进入就感受到 Nebubu 的陪伴属性。
+                Nebubu 最重要的不是“可爱”本身，而是那种柔和但可靠的靠近方式。它不是过度幼态的角色，而是一种让人愿意长期相处的情绪入口。
               </p>
-              <ul class="list">
+              <ul class="story-list">
                 <li>Gentle, but not weak.</li>
                 <li>Smart, but not showy.</li>
                 <li>Quiet, but always there when needed.</li>
@@ -1175,61 +1920,820 @@
               </ul>
             </article>
 
-            <article class="quote">
-              <div class="eyebrow">Copy Direction</div>
-              <strong>文案语气应该像陪伴式产品，而不是强推式 SaaS。</strong>
+            <article class="belief-panel" data-reveal>
+              <div class="eyebrow">What We Believe</div>
+              <strong>好用不该只意味着更快，也应该意味着更安心。</strong>
+              <div class="belief-pills" role="tablist" aria-label="Nebubu beliefs">
+                <button class="belief-pill is-active" type="button" data-belief-key="quiet">安静一点</button>
+                <button class="belief-pill" type="button" data-belief-key="clear">清楚一点</button>
+                <button class="belief-pill" type="button" data-belief-key="near">靠近一点</button>
+              </div>
+              <div class="belief-stage">
+                <p id="beliefBody">不喧闹，不抢戏，让帮助自然地发生。Nebubu 应该更像陪伴，而不是一层不断施压的界面。</p>
+                <span class="belief-signature">Gentle with you, serious about helping.</span>
+              </div>
+            </article>
+
+            <article class="quote" data-reveal>
+              <div class="eyebrow">What We Believe</div>
+              <strong>好用不该只意味着更快，也应该意味着更安心。</strong>
               <p>
-                首页的主叙事应该优先解释 Nebubu 的存在理由，再引导用户去理解具体产品。推荐保留品牌主标语：
+                我们希望 Nebubu 带来的不是压迫式效率，而是一种更轻、更稳、更愿意每天使用的帮助。它可以聪明，但不必炫耀; 可以可爱，但一定要可靠。
                 <br /><br />
-                <strong style="font-size: 1.35rem;">Gentle with you, serious about helping.</strong>
+                <span style="font-family: var(--font-display); font-size: 1.4rem; letter-spacing: -0.03em; color: var(--text);">
+                  Gentle with you, serious about helping.
+                </span>
               </p>
-              <ul class="list">
-                <li>避免过于技术化的句式。</li>
-                <li>避免过度夸张、过度卖货的语气。</li>
-                <li>避免“太可爱而失去可信度”的表达。</li>
-                <li>始终把陪伴感与实用价值放在一起。</li>
-              </ul>
+              <div class="anti-list">
+                <div class="anti-item">
+                  <strong>安静一点</strong>
+                  <span>不喧闹，不抢戏，让帮助自然地发生。</span>
+                </div>
+                <div class="anti-item">
+                  <strong>清楚一点</strong>
+                  <span>复杂的事情可以被解释得更容易理解，而不是更像黑箱。</span>
+                </div>
+                <div class="anti-item">
+                  <strong>靠近一点</strong>
+                  <span>产品不是冷冰冰的命令界面，而是愿意长期待在你身边的工具。</span>
+                </div>
+              </div>
             </article>
           </div>
         </section>
 
         <section class="section" id="contact">
           <div class="container">
-            <div class="cta">
+            <div class="cta-shell" data-reveal>
               <div>
-                <div class="eyebrow">Homepage Direction</div>
-                <h2>这版主站更像 Nebubu 的品牌母舰。</h2>
-                <p>
-                  它明确区分了母品牌首页与产品首页的角色：`nebubu_co` 负责品牌世界观、产品宇宙与 IP 资产，`nebubu-invest` 继续只承担投资产品本身的 landing / app 职责。
+                <div class="eyebrow">Start With Nebubu</div>
+                <h2 id="ctaHeadline">如果你已经准备好，可以先从 Invest 开始。</h2>
+                <p class="footer-copy" id="ctaBody">
+                  先进入已经开放的产品，感受 Nebubu 的判断方式和陪伴语气。之后，更多工具和日常场景会在这里慢慢补齐。
                 </p>
               </div>
-              <div class="hero-actions">
-                <a class="primary-btn" href="README.md">查看品牌简介</a>
-                <a class="ghost-btn" href="BRAND_POSITIONING.md">查看品牌定位</a>
-                <a class="ghost-btn" href="BRAND_GUIDELINES.md">查看品牌规范</a>
+              <div class="cta-interact">
+                <div class="cta-choice-list" role="tablist" aria-label="Start choices">
+                  <button class="cta-choice is-active" type="button" data-cta-key="start">我想直接开始</button>
+                  <button class="cta-choice" type="button" data-cta-key="products">我想先看产品</button>
+                  <button class="cta-choice" type="button" data-cta-key="story">我想先认识 Nebubu</button>
+                </div>
+
+                <div class="cta-choice-panel">
+                  <strong id="ctaChoiceTitle">直接进入 Invest</strong>
+                  <p id="ctaChoiceBody">如果你已经准备好开始使用，这会是最快的入口。</p>
+                  <a class="button primary" id="ctaChoiceAction" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
+                </div>
+              </div>
+              <div class="cta-actions">
+                <a class="button primary" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
+                <a class="button secondary" href="#products">查看产品宇宙</a>
+                <a class="button secondary" href="#story">阅读 Nebubu 设定</a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
+      <div class="drawer-scrim" id="drawerScrim" hidden></div>
+      <aside class="product-drawer" id="productDrawer" aria-hidden="true">
+        <div class="drawer-top">
+          <div>
+            <div class="eyebrow">Product Detail</div>
+            <strong id="drawerTitle">Nebubu Invest</strong>
+          </div>
+          <button class="drawer-close" id="drawerClose" type="button" aria-label="Close product detail">Close</button>
+        </div>
+        <p class="drawer-summary" id="drawerSummary">陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
+        <div class="drawer-meta">
+          <span class="status-pill" id="drawerState">Live Product</span>
+          <span class="domain" id="drawerTime">Available now</span>
+        </div>
+        <div class="drawer-points" id="drawerPoints">
+          <div class="drawer-point">
+            <strong>读懂信息</strong>
+            <span>把复杂市场信息整理成更容易比较和判断的结构。</span>
+          </div>
+        </div>
+        <a class="button primary" id="drawerAction" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
+      </aside>
+
       <footer>
-        <div class="container footer-box">
-          <span>© 2026 Nebubu. Cute companion AI tools.</span>
-          <span>Workspace: nebubu_co</span>
+        <div class="container footer-shell">
+          <div class="footer-copy">
+            <strong style="display: block; color: var(--text); margin-bottom: 4px;">Nebubu</strong>
+            <span>© <span id="year"></span> Cute companion AI tools.</span>
+          </div>
+          <div class="footer-links">
+            <a class="button ghost" href="#top">回到顶部</a>
+            <a class="button ghost" href="#entries">项目入口</a>
+            <a class="button ghost" href="#products">产品宇宙</a>
+          </div>
         </div>
       </footer>
     </div>
 
     <script>
+      const root = document.documentElement;
+      const topbar = document.getElementById("topbar");
       const themeToggle = document.getElementById("themeToggle");
-      const body = document.body;
+      const yearEl = document.getElementById("year");
+      const revealTargets = document.querySelectorAll("[data-reveal]");
+      const storageKey = "nebubu-home-theme";
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      const cursorLayer = document.querySelector(".cursor-glow-layer");
+      const cursorTrailCanvas = document.getElementById("cursorTrailCanvas");
+      const companionSpeechLabel = document.getElementById("companionSpeechLabel");
+      const companionSpeechText = document.getElementById("companionSpeechText");
+      const companionTitle = document.getElementById("companionTitle");
+      const companionBody = document.getElementById("companionBody");
+      const companionHotspots = document.querySelectorAll("[data-companion]");
+      const companionTabs = document.querySelectorAll("[data-companion-tab]");
+      const productSwitches = document.querySelectorAll("[data-product-key]");
+      const productPanelState = document.getElementById("productPanelState");
+      const productPanelTime = document.getElementById("productPanelTime");
+      const productPanelTitle = document.getElementById("productPanelTitle");
+      const productPanelSummary = document.getElementById("productPanelSummary");
+      const productPanelUse = document.getElementById("productPanelUse");
+      const productPanelMode = document.getElementById("productPanelMode");
+      const productPanelStage = document.getElementById("productPanelStage");
+      const productPrimaryAction = document.getElementById("productPrimaryAction");
+      const productDrawerTrigger = document.getElementById("productDrawerTrigger");
+      const drawerScrim = document.getElementById("drawerScrim");
+      const productDrawer = document.getElementById("productDrawer");
+      const drawerTitle = document.getElementById("drawerTitle");
+      const drawerSummary = document.getElementById("drawerSummary");
+      const drawerState = document.getElementById("drawerState");
+      const drawerTime = document.getElementById("drawerTime");
+      const drawerPoints = document.getElementById("drawerPoints");
+      const drawerAction = document.getElementById("drawerAction");
+      const drawerClose = document.getElementById("drawerClose");
+      const sceneToggles = document.querySelectorAll("[data-scene-key]");
+      const sceneStageTag = document.getElementById("sceneStageTag");
+      const sceneStageTitle = document.getElementById("sceneStageTitle");
+      const sceneStageBody = document.getElementById("sceneStageBody");
+      const sceneStageProducts = document.getElementById("sceneStageProducts");
+      const sceneStageFeeling = document.getElementById("sceneStageFeeling");
+      const sceneMoments = document.getElementById("sceneMoments");
+      const beliefPills = document.querySelectorAll("[data-belief-key]");
+      const beliefBody = document.getElementById("beliefBody");
+      const ctaChoices = document.querySelectorAll("[data-cta-key]");
+      const ctaHeadline = document.getElementById("ctaHeadline");
+      const ctaBody = document.getElementById("ctaBody");
+      const ctaChoiceTitle = document.getElementById("ctaChoiceTitle");
+      const ctaChoiceBody = document.getElementById("ctaChoiceBody");
+      const ctaChoiceAction = document.getElementById("ctaChoiceAction");
 
-      themeToggle.addEventListener("click", () => {
-        const nextTheme = body.dataset.theme === "galaxy" ? "cute" : "galaxy";
-        body.dataset.theme = nextTheme;
-        themeToggle.textContent = nextTheme === "galaxy" ? "Galaxy Theme" : "Cute Theme";
-      });
+      const companionStates = {
+        gentle: {
+          speechLabel: "Gentle",
+          speechText: "安静靠近，在你需要的时候给出不打扰但真实有用的帮助。",
+          title: "安静靠近",
+          body: "它不会抢你的节奏，而是像一盏一直亮着的小灯，在你需要的时候把复杂的事情照得更清楚。"
+        },
+        reliable: {
+          speechLabel: "Reliable",
+          speechText: "可爱只是入口，真正留下你的应该是清楚、稳定和可信赖。",
+          title: "清楚而稳定",
+          body: "Nebubu 不靠大声证明自己，而是用更稳定的反馈、更容易理解的结构和更长期的陪伴感建立信任。"
+        },
+        present: {
+          speechLabel: "Present",
+          speechText: "不是偶尔闪现的工具，而是能慢慢贴近日常的一种存在。",
+          title: "始终在身边",
+          body: "从 Invest 到未来的 Daily 和 Widget，Nebubu 想成为一种更轻但更常驻的陪伴，而不是一次性的炫技界面。"
+        }
+      };
+
+      const productData = {
+        invest: {
+          state: "Live Product",
+          time: "Available now",
+          title: "Nebubu Invest",
+          summary: "陪你理解市场、看懂风险、把复杂信息柔和地带进判断。",
+          use: "当你需要更快读懂市场、整理风险和形成判断的时候。",
+          mode: "把复杂信息压缩成更容易比较和行动的结构，而不是堆更多术语。",
+          stage: "已经开放，可以直接进入体验。",
+          actionLabel: "打开 Invest",
+          actionHref: "https://invest.gnar127.com/",
+          actionExternal: true,
+          details: [
+            { title: "读懂信息", body: "把复杂市场信息整理成更容易比较和判断的结构。" },
+            { title: "降低压力", body: "不替你做决定，而是让判断过程更柔和、更清楚。" },
+            { title: "直接开始", body: "现在就可以进入，是整个 Nebubu 宇宙最成熟的入口。" }
+          ]
+        },
+        notes: {
+          state: "Coming Soon",
+          time: "In progress",
+          title: "Nebubu Notes",
+          summary: "安静地收纳灵感、碎片和知识，不让想法只是划过。",
+          use: "当你的灵感、阅读和想法需要一个更轻、更舒服的收纳空间时。",
+          mode: "先把信息安静地放好，再慢慢帮助你看见结构和连接。",
+          stage: "正在形成中，会作为日常记录与整理的核心入口出现。",
+          actionLabel: "先看品牌故事",
+          actionHref: "#story",
+          actionExternal: false,
+          details: [
+            { title: "收纳碎片", body: "让零散灵感和笔记不再只是在屏幕上划过。" },
+            { title: "保留上下文", body: "重要的不是记住一条信息，而是知道它为什么值得留下。" },
+            { title: "更轻的记录感", body: "不会把记录变成负担，而是变成更自然的日常动作。" }
+          ]
+        },
+        focus: {
+          state: "Coming Soon",
+          time: "In progress",
+          title: "Nebubu Focus",
+          summary: "帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。",
+          use: "当你需要回到当前任务，而不是被更多通知和焦虑牵着走的时候。",
+          mode: "不靠强压式倒计时，而是用更温柔的方式帮你重新回到节奏里。",
+          stage: "处于规划与成形阶段，会优先服务于工作和学习场景。",
+          actionLabel: "查看产品宇宙",
+          actionHref: "#products",
+          actionExternal: false,
+          details: [
+            { title: "找回节奏", body: "帮助你知道现在最值得做的是什么，而不是逼你全都做。" },
+            { title: "减少噪声", body: "把注意力从外部噪音里拉回来，而不是再叠一层压力。" },
+            { title: "陪伴式专注", body: "专注可以被温柔地维持，而不是被命令式地管理。" }
+          ]
+        },
+        daily: {
+          state: "Coming Soon",
+          time: "Future surface",
+          title: "Nebubu Daily",
+          summary: "把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。",
+          use: "适合每天反复出现的提醒、整理、节奏安排和生活管理。",
+          mode: "把提醒做得更轻，把计划做得更顺手，让它更像一种陪伴而不是督促。",
+          stage: "会是 Nebubu 走向高频日常使用的重要一环。",
+          actionLabel: "看看日常场景",
+          actionHref: "#scenes",
+          actionExternal: false,
+          details: [
+            { title: "晨间节奏", body: "用更平静的方式帮助你整理一天的开始。" },
+            { title: "日常轻整理", body: "让提醒、计划和待办变得更自然，不那么打扰。" },
+            { title: "长期陪伴", body: "它应该是你每天会遇到的小帮手，而不是偶尔才打开的工具。" }
+          ]
+        },
+        widget: {
+          state: "Coming Soon",
+          time: "Future surface",
+          title: "Nebubu Widget",
+          summary: "让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。",
+          use: "当你希望帮助更快出现，不用每次都完整打开一套产品的时候。",
+          mode: "把陪伴感拆成更轻的小入口，随时可见，但不过度打扰。",
+          stage: "会和 Daily 一起，承担 Nebubu 更高频、更轻量的常驻体验。",
+          actionLabel: "认识 Nebubu",
+          actionHref: "#contact",
+          actionExternal: false,
+          details: [
+            { title: "常驻但轻", body: "更像贴在生活边缘的一层柔和提示，而不是新的负担。" },
+            { title: "更快触达", body: "不需要切换完整工作流，也能拿到当下最需要的帮助。" },
+            { title: "保持存在感", body: "让 Nebubu 真正走进日常，而不是只停留在产品页面里。" }
+          ]
+        }
+      };
+
+      const sceneData = {
+        morning: {
+          tag: "Morning",
+          title: "帮你整理一天的开始",
+          body: "用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。",
+          products: "Nebubu Daily / Nebubu Widget",
+          feeling: "不急着推进你，而是先帮你把一天理顺。",
+          moments: [
+            { title: "看一眼重点", body: "先知道今天最重要的事情是什么。" },
+            { title: "把提醒变轻", body: "不是轰炸式提醒，而是更顺手的温柔提示。" },
+            { title: "留一点余地", body: "给节奏和情绪都留出可以呼吸的空间。" }
+          ]
+        },
+        work: {
+          tag: "Work",
+          title: "在复杂任务里提供安静支持",
+          body: "从整理资料到收纳灵感，再到帮你理解复杂信息，Nebubu 更像同伴，而不是催促系统。",
+          products: "Nebubu Notes / Nebubu Focus",
+          feeling: "不是继续加速，而是先让复杂的事变得更容易处理。",
+          moments: [
+            { title: "收住信息", body: "先把散乱的资料和想法放到更容易理解的位置。" },
+            { title: "帮你看清", body: "把复杂内容压成能快速比较和行动的结构。" },
+            { title: "把节奏扶稳", body: "不大声催促，只在你要偏离的时候轻轻拉回来。" }
+          ]
+        },
+        decision: {
+          tag: "Decision",
+          title: "在决策时降低压力感",
+          body: "无论是市场、计划还是个人节奏，Nebubu 的价值都不是替你决定，而是让判断更柔和、更清楚。",
+          products: "Nebubu Invest and future decision tools",
+          feeling: "把压力从你身上拿掉一点，让你更容易看见真正重要的事情。",
+          moments: [
+            { title: "先看清局面", body: "把变量摊开，而不是把焦虑继续叠高。" },
+            { title: "再形成判断", body: "让信息、风险和选择之间的关系更容易理解。" },
+            { title: "最后才行动", body: "Nebubu 想陪你判断，而不是替你下命令。" }
+          ]
+        }
+      };
+
+      const beliefData = {
+        quiet: "不喧闹，不抢戏，让帮助自然地发生。Nebubu 应该更像陪伴，而不是一层不断施压的界面。",
+        clear: "复杂的事情可以被解释得更容易理解，而不是被包装成更像黑箱的聪明感。",
+        near: "产品不应该像冷冰冰的命令系统，而应该像愿意长期待在你身边的工具。"
+      };
+
+      const ctaData = {
+        start: {
+          headline: "如果你已经准备好，可以先从 Invest 开始。",
+          body: "先进入已经开放的产品，感受 Nebubu 的判断方式和陪伴语气。之后，更多工具和日常场景会在这里慢慢补齐。",
+          choiceTitle: "直接进入 Invest",
+          choiceBody: "如果你已经准备好开始使用，这会是最快的入口。",
+          actionLabel: "打开 Invest",
+          actionHref: "https://invest.gnar127.com/",
+          actionExternal: true
+        },
+        products: {
+          headline: "如果你更想先看全貌，就先浏览产品宇宙。",
+          body: "Nebubu 不只是一款工具。先看产品方向，再决定从哪个入口进入，会更适合想先理解整体的人。",
+          choiceTitle: "先看产品宇宙",
+          choiceBody: "从 Invest、Notes、Focus、Daily、Widget 的关系开始，理解这个世界会长成什么样。",
+          actionLabel: "查看产品宇宙",
+          actionHref: "#products",
+          actionExternal: false
+        },
+        story: {
+          headline: "如果你想先认识 Nebubu，就先从它的故事开始。",
+          body: "比起参数和术语，Nebubu 更想先让你感受到它的气质: 温柔、可靠、安静，但总在身边。",
+          choiceTitle: "阅读 Nebubu 设定",
+          choiceBody: "去看看这只银河猫为什么会成为整个品牌最重要的情绪入口。",
+          actionLabel: "阅读 IP 设定",
+          actionHref: "#story",
+          actionExternal: false
+        }
+      };
+
+      let trailCtx = null;
+      let trailParticles = [];
+      let lastPointer = null;
+      let pointerActive = false;
+      let trailFrame = null;
+      let pointerDistance = 0;
+
+      const maxTrailParticles = 180;
+      const maxTrailDistance = 240;
+      const trailSampleDistance = 18;
+
+      function syncThemeLabel(theme) {
+        themeToggle.textContent = theme === "cute" ? "Cute" : "Galaxy";
+      }
+
+      function applyTheme(theme) {
+        const nextTheme = theme === "cute" ? "cute" : "galaxy";
+        root.dataset.theme = nextTheme;
+        syncThemeLabel(nextTheme);
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {
+          void error;
+        }
+      }
+
+      function initTheme() {
+        let storedTheme = "galaxy";
+        try {
+          storedTheme = localStorage.getItem(storageKey) || storedTheme;
+        } catch (error) {
+          void error;
+        }
+        applyTheme(storedTheme);
+        themeToggle.addEventListener("click", () => {
+          applyTheme(root.dataset.theme === "galaxy" ? "cute" : "galaxy");
+        });
+      }
+
+      function initScrollState() {
+        const sync = () => {
+          topbar.classList.toggle("is-scrolled", window.scrollY > 16);
+        };
+        sync();
+        window.addEventListener("scroll", sync, { passive: true });
+      }
+
+      function initReveal() {
+        if (reduceMotion) {
+          revealTargets.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.16,
+            rootMargin: "0px 0px -8% 0px"
+          }
+        );
+
+        revealTargets.forEach((el, index) => {
+          el.style.setProperty("--delay", `${Math.min(index * 55, 320)}ms`);
+          observer.observe(el);
+        });
+      }
+
+      function syncActionLink(link, href, label, external = false) {
+        if (!link) return;
+        link.textContent = label;
+        link.href = href;
+        if (external) {
+          link.target = "_blank";
+          link.rel = "noreferrer";
+        } else {
+          link.removeAttribute("target");
+          link.removeAttribute("rel");
+        }
+      }
+
+      function setCompanionState(key) {
+        const next = companionStates[key] || companionStates.gentle;
+        if (companionSpeechLabel) companionSpeechLabel.textContent = next.speechLabel;
+        if (companionSpeechText) companionSpeechText.textContent = next.speechText;
+        if (companionTitle) companionTitle.textContent = next.title;
+        if (companionBody) companionBody.textContent = next.body;
+
+        companionHotspots.forEach((button) => {
+          const active = button.dataset.companion === key;
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        companionTabs.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.companionTab === key);
+        });
+      }
+
+      let activeProductKey = "invest";
+
+      function renderDrawerDetails(details) {
+        if (!drawerPoints) return;
+        drawerPoints.innerHTML = details
+          .map(
+            (item) => `
+              <div class="drawer-point">
+                <strong>${item.title}</strong>
+                <span>${item.body}</span>
+              </div>
+            `
+          )
+          .join("");
+      }
+
+      function setProductState(key) {
+        const next = productData[key] || productData.invest;
+        activeProductKey = key in productData ? key : "invest";
+
+        productSwitches.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.productKey === activeProductKey);
+        });
+
+        if (productPanelState) productPanelState.textContent = next.state;
+        if (productPanelTime) productPanelTime.textContent = next.time;
+        if (productPanelTitle) productPanelTitle.textContent = next.title;
+        if (productPanelSummary) productPanelSummary.textContent = next.summary;
+        if (productPanelUse) productPanelUse.textContent = next.use;
+        if (productPanelMode) productPanelMode.textContent = next.mode;
+        if (productPanelStage) productPanelStage.textContent = next.stage;
+        syncActionLink(productPrimaryAction, next.actionHref, next.actionLabel, next.actionExternal);
+
+        if (drawerTitle) drawerTitle.textContent = next.title;
+        if (drawerSummary) drawerSummary.textContent = next.summary;
+        if (drawerState) drawerState.textContent = next.state;
+        if (drawerTime) drawerTime.textContent = next.time;
+        syncActionLink(drawerAction, next.actionHref, next.actionLabel, next.actionExternal);
+        renderDrawerDetails(next.details);
+      }
+
+      function openDrawer() {
+        if (!productDrawer || !drawerScrim) return;
+        productDrawer.classList.add("is-open");
+        productDrawer.setAttribute("aria-hidden", "false");
+        drawerScrim.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDrawer() {
+        if (!productDrawer || !drawerScrim) return;
+        productDrawer.classList.remove("is-open");
+        productDrawer.setAttribute("aria-hidden", "true");
+        drawerScrim.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      function setSceneState(key) {
+        const next = sceneData[key] || sceneData.morning;
+
+        sceneToggles.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.sceneKey === key);
+        });
+
+        if (sceneStageTag) sceneStageTag.textContent = next.tag;
+        if (sceneStageTitle) sceneStageTitle.textContent = next.title;
+        if (sceneStageBody) sceneStageBody.textContent = next.body;
+        if (sceneStageProducts) sceneStageProducts.textContent = next.products;
+        if (sceneStageFeeling) sceneStageFeeling.textContent = next.feeling;
+
+        if (sceneMoments) {
+          sceneMoments.innerHTML = next.moments
+            .map(
+              (item) => `
+                <div class="scene-moment">
+                  <strong>${item.title}</strong>
+                  <span>${item.body}</span>
+                </div>
+              `
+            )
+            .join("");
+        }
+      }
+
+      function setBeliefState(key) {
+        const next = beliefData[key] || beliefData.quiet;
+        if (beliefBody) beliefBody.textContent = next;
+        beliefPills.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.beliefKey === key);
+        });
+      }
+
+      function setCtaState(key) {
+        const next = ctaData[key] || ctaData.start;
+        if (ctaHeadline) ctaHeadline.textContent = next.headline;
+        if (ctaBody) ctaBody.textContent = next.body;
+        if (ctaChoiceTitle) ctaChoiceTitle.textContent = next.choiceTitle;
+        if (ctaChoiceBody) ctaChoiceBody.textContent = next.choiceBody;
+        syncActionLink(ctaChoiceAction, next.actionHref, next.actionLabel, next.actionExternal);
+        ctaChoices.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.ctaKey === key);
+        });
+      }
+
+      function initInteractivePanels() {
+        companionHotspots.forEach((button) => {
+          button.addEventListener("click", () => setCompanionState(button.dataset.companion));
+        });
+
+        companionTabs.forEach((button) => {
+          button.addEventListener("click", () => setCompanionState(button.dataset.companionTab));
+        });
+
+        productSwitches.forEach((button) => {
+          button.addEventListener("click", () => setProductState(button.dataset.productKey));
+        });
+
+        if (productDrawerTrigger) {
+          productDrawerTrigger.addEventListener("click", openDrawer);
+        }
+
+        if (drawerClose) {
+          drawerClose.addEventListener("click", closeDrawer);
+        }
+
+        if (drawerScrim) {
+          drawerScrim.addEventListener("click", closeDrawer);
+        }
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeDrawer();
+          }
+        });
+
+        sceneToggles.forEach((button) => {
+          button.addEventListener("click", () => setSceneState(button.dataset.sceneKey));
+        });
+
+        beliefPills.forEach((button) => {
+          button.addEventListener("click", () => setBeliefState(button.dataset.beliefKey));
+        });
+
+        ctaChoices.forEach((button) => {
+          button.addEventListener("click", () => setCtaState(button.dataset.ctaKey));
+        });
+
+        setCompanionState("gentle");
+        setProductState(activeProductKey);
+        setSceneState("morning");
+        setBeliefState("quiet");
+        setCtaState("start");
+      }
+
+      function ensureTrailCanvasSize() {
+        if (!cursorTrailCanvas) return;
+        const dpr = window.devicePixelRatio || 1;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        cursorTrailCanvas.width = Math.floor(width * dpr);
+        cursorTrailCanvas.height = Math.floor(height * dpr);
+        cursorTrailCanvas.style.width = `${width}px`;
+        cursorTrailCanvas.style.height = `${height}px`;
+
+        trailCtx = cursorTrailCanvas.getContext("2d");
+        trailCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function getTrailStyle() {
+        return root.dataset.theme === "cute"
+          ? {
+              fill: "255, 236, 245",
+              glow: "255, 173, 209",
+              stroke: "255, 252, 255",
+              fragmentStroke: "255, 214, 231",
+              fragmentStrokeAlpha: 0.38
+            }
+          : {
+              fill: "232, 228, 255",
+              glow: "160, 173, 255",
+              stroke: "244, 240, 255",
+              fragmentStroke: "205, 216, 255",
+              fragmentStrokeAlpha: 0.16
+            };
+      }
+
+      function pushTrailParticle(particle) {
+        trailParticles.push(particle);
+        if (trailParticles.length > maxTrailParticles) {
+          trailParticles.splice(0, trailParticles.length - maxTrailParticles);
+        }
+      }
+
+      function emitParticleCluster(x, y, intensity = 1, pathDistance = pointerDistance) {
+        const baseSize = 7.4 + Math.random() * 3.6 * intensity;
+        pushTrailParticle({
+          x,
+          y,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          size: baseSize,
+          rotation: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.02,
+          life: 1,
+          decay: 0.944 + Math.random() * 0.012,
+          opacity: 0.21 + Math.random() * 0.05,
+          glowOpacity: 0.11 + Math.random() * 0.04,
+          pathDistance,
+          isFragment: false
+        });
+
+        const fragmentCount = intensity > 1.15 ? 4 : 3;
+        for (let index = 0; index < fragmentCount; index += 1) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 0.28 + Math.random() * (0.5 + intensity * 0.18);
+          pushTrailParticle({
+            x,
+            y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            size: 2.8 + Math.random() * 4.2,
+            rotation: Math.random() * Math.PI * 2,
+            spin: (Math.random() - 0.5) * 0.06,
+            life: 0.92 + Math.random() * 0.08,
+            decay: 0.914 + Math.random() * 0.024,
+            opacity: 0.16 + Math.random() * 0.05,
+            glowOpacity: 0.07 + Math.random() * 0.03,
+            pathDistance,
+            isFragment: true
+          });
+        }
+      }
+
+      function addTrailParticles(from, to, startDistance) {
+        const dx = to.x - from.x;
+        const dy = to.y - from.y;
+        const distance = Math.hypot(dx, dy);
+        const steps = Math.min(5, Math.max(1, Math.ceil(distance / trailSampleDistance)));
+        const intensity = Math.min(1.4, 0.92 + distance / 140);
+
+        for (let index = 1; index <= steps; index += 1) {
+          const ratio = index / steps;
+          emitParticleCluster(
+            from.x + dx * ratio,
+            from.y + dy * ratio,
+            intensity,
+            startDistance + distance * ratio
+          );
+        }
+      }
+
+      function drawTrail() {
+        if (!trailCtx || !cursorTrailCanvas) return;
+
+        trailCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        trailParticles = trailParticles
+          .map((particle) => ({
+            ...particle,
+            x: particle.x + particle.vx,
+            y: particle.y + particle.vy,
+            vx: particle.vx * 0.987,
+            vy: particle.vy * 0.987,
+            rotation: particle.rotation + particle.spin,
+            life: particle.life * particle.decay
+          }))
+          .filter((particle) => particle.life > 0.035 && pointerDistance - particle.pathDistance <= maxTrailDistance);
+
+        if (trailParticles.length > 0) {
+          const { fill, glow, stroke, fragmentStroke, fragmentStrokeAlpha } = getTrailStyle();
+
+          trailCtx.save();
+          trailCtx.globalCompositeOperation = "screen";
+
+          for (const particle of trailParticles) {
+            const size = particle.size * (0.82 + particle.life * 0.22);
+            const glowSize = size * (particle.isFragment ? 1.28 : 1.62);
+            const alpha = particle.opacity * particle.life;
+            const glowAlpha = particle.glowOpacity * particle.life;
+
+            trailCtx.save();
+            trailCtx.translate(particle.x, particle.y);
+            trailCtx.rotate(particle.rotation);
+            trailCtx.shadowBlur = particle.isFragment ? size * 0.95 : size * 1.3;
+            trailCtx.shadowColor = `rgba(${glow}, ${glowAlpha})`;
+
+            trailCtx.fillStyle = `rgba(${glow}, ${glowAlpha * 0.7})`;
+            trailCtx.fillRect(-glowSize / 2, -glowSize / 2, glowSize, glowSize);
+
+            trailCtx.fillStyle = `rgba(${fill}, ${alpha})`;
+            trailCtx.fillRect(-size / 2, -size / 2, size, size);
+
+            if (particle.isFragment) {
+              trailCtx.lineWidth = 1;
+              trailCtx.strokeStyle = `rgba(${fragmentStroke}, ${particle.life * fragmentStrokeAlpha})`;
+              trailCtx.strokeRect(-size / 2, -size / 2, size, size);
+            } else {
+              trailCtx.lineWidth = 0.8;
+              trailCtx.strokeStyle = `rgba(${stroke}, ${particle.life * 0.08})`;
+              trailCtx.strokeRect(-size / 2, -size / 2, size, size);
+            }
+            trailCtx.restore();
+          }
+
+          trailCtx.restore();
+        }
+
+        if (trailParticles.length > 0 || pointerActive) {
+          trailFrame = window.requestAnimationFrame(drawTrail);
+        } else {
+          root.style.setProperty("--cursor-opacity", "0");
+          trailFrame = null;
+        }
+      }
+
+      function wakeTrailLoop() {
+        if (trailFrame !== null) return;
+        trailFrame = window.requestAnimationFrame(drawTrail);
+      }
+
+      function initCursorGlow() {
+        if (!cursorLayer || reduceMotion || !finePointer) return;
+        ensureTrailCanvasSize();
+
+        const showGlow = () => {
+          root.style.setProperty("--cursor-opacity", "1");
+          pointerActive = true;
+          wakeTrailLoop();
+        };
+
+        const hideGlow = () => {
+          pointerActive = false;
+          lastPointer = null;
+        };
+
+        window.addEventListener("mousemove", (event) => {
+          const nextPoint = { x: event.clientX, y: event.clientY };
+          if (lastPointer) {
+            const segmentDistance = Math.hypot(nextPoint.x - lastPointer.x, nextPoint.y - lastPointer.y);
+            const startDistance = pointerDistance;
+            pointerDistance += segmentDistance;
+            addTrailParticles(lastPointer, nextPoint, startDistance);
+          } else {
+            emitParticleCluster(nextPoint.x, nextPoint.y, 1, pointerDistance);
+          }
+          lastPointer = nextPoint;
+          showGlow();
+        }, { passive: true });
+
+        window.addEventListener("mouseleave", hideGlow);
+        window.addEventListener("blur", hideGlow);
+        window.addEventListener("resize", ensureTrailCanvasSize, { passive: true });
+      }
+
+      yearEl.textContent = String(new Date().getFullYear());
+      initTheme();
+      initScrollState();
+      initReveal();
+      initInteractivePanels();
+      initCursorGlow();
     </script>
   </body>
 </html>
