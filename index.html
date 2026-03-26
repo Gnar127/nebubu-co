@@ -461,6 +461,10 @@
         min-height: 250px;
       }
 
+      .entry-card.toolbox {
+        min-height: 250px;
+      }
+
       .entry-card::before {
         content: "";
         position: absolute;
@@ -519,6 +523,44 @@
       .social-panel h3 {
         font-size: 1.3rem;
         margin-bottom: 10px;
+      }
+
+      .tool-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .tool-item {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .tool-item strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .tool-item span {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .tool-item em {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        font-style: normal;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--text);
       }
 
       .social-grid {
@@ -932,10 +974,10 @@
             <div class="section-head">
               <div>
                 <div class="eyebrow">Project Gateways</div>
-                <h2>保留当前主站的三个项目入口，并继续预留社交出口。</h2>
+                <h2>主入口只保留核心项目，同时把轻量应用收进 Nebubu 小工具。</h2>
               </div>
               <p>
-                这一层保留了当前 `gnar127.com` 的入口逻辑，只是换成了新的 Nebubu 品牌视觉。主站仍然是聚合页，负责把已上线项目与未来连接位组织清楚。
+                这一层继续承担聚合职责，但入口结构会更清晰：主项目负责品牌核心产品，小工具区域负责承接轻量应用与实验型实用工具。
               </p>
             </div>
 
@@ -946,30 +988,28 @@
                     <span class="entry-kicker">Portal 01</span>
                     <span class="entry-domain">invest.gnar127.com</span>
                   </div>
-                  <h3>Invest Dashboard</h3>
-                  <p>AI 驱动的跨端投资工作台，覆盖 Web、移动端与桌面端，用来处理行情、资产搜索、策略回测与长期盯盘。</p>
+                  <h3>Nebubu Invest</h3>
+                  <p>作为 Nebubu 当前最明确的主项目入口，这里承接 AI 驱动的跨端投资工作台，覆盖 Web、移动端与桌面端。</p>
                   <span class="entry-cta">Open dashboard</span>
                 </a>
 
-                <a class="card entry-card" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
+                <div class="card entry-card toolbox">
                   <div class="entry-top">
-                    <span class="entry-kicker">Tool 02</span>
-                    <span class="entry-domain">asset.gnar127.com</span>
+                    <span class="entry-kicker">Tools</span>
+                    <span class="entry-domain">lightweight apps</span>
                   </div>
-                  <h3>Asset Calculator</h3>
-                  <p>把复杂规则压缩成更容易判断、更容易对比的结果页，延续“有用但不生硬”的入口风格。</p>
-                  <span class="entry-cta">Run calculator</span>
-                </a>
-
-                <a class="card entry-card" href="https://quant.gnar127.com/" target="_blank" rel="noreferrer">
-                  <div class="entry-top">
-                    <span class="entry-kicker">Lab 03</span>
-                    <span class="entry-domain">quant.gnar127.com</span>
+                  <h3>Nebubu 小工具</h3>
+                  <p>这里收纳 Nebubu 旗下更轻量、更即用即走的小应用，不占据主品牌入口，但会持续扩展。</p>
+                  <div class="tool-list">
+                    <a class="tool-item" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
+                      <div>
+                        <strong>Asset Calculator</strong>
+                        <span>把复杂规则压缩成更容易判断、更容易对比的结果页，适合作为轻量计算工具入口。</span>
+                      </div>
+                      <em>Open</em>
+                    </a>
                   </div>
-                  <h3>Quant Lab</h3>
-                  <p>专门运行量化回测的实验入口，用来验证策略、复盘参数变化，并把假设推进到结果。</p>
-                  <span class="entry-cta">Launch backtests</span>
-                </a>
+                </div>
               </div>
 
               <div class="social-stack">
