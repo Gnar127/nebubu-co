@@ -1,0 +1,46 @@
+Nebubu Base v1 Design Specification
+1. Immutable Traits
+
+Body Proportions: Exaggerated "chibi" proportions with an approximate 1:1 head-to-body ratio. The body is pear-shaped with a prominent, round belly.
+
+Face Shape: Perfectly rounded and soft, with wide cheeks and no pronounced chin or jawline.
+
+Eye Shape & Details: Enormous, rounded oval eyes. The irises are a deep, vibrant blue with bright, luminescent light-blue highlights.
+
+Mouth & Cheeks: A tiny, simple "w" shaped mouth (feline style) centered between the eyes. Soft, circular orange blush marks sit directly under the outer corners of each eye.
+
+Ear Shape: Large, upright, and pointed (cat-like), with a distinct, smooth curve.
+
+Limb Structure: Short, stubby, and tubular. The paws are rounded with tiny, subtle indentations indicating toes, but no sharp claws.
+
+Tail: Thick and plush, swooping outward and upward, terminating in a prominent, glowing, blue, four-pointed crystalline star.
+
+Color Palette & Distribution: * Base: Warm cream/pale beige.
+
+Markings: Soft, muted blue-grey patches (specifically a scalloped patch on the forehead, a large circular patch covering the belly, inner ear shading, and smaller spots on the arms and legs).
+
+Signature Accessory: A snug, dark blue collar featuring a small, glowing light-blue star pendant at the front.
+
+2. Flexible Traits
+
+Ear Positioning: While upright by default, the angle of the ears can likely pivot or droop slightly to convey emotion (e.g., flattened for sadness, perked forward for curiosity).
+
+Tail Arch: The exact swoop and curve of the tail can adjust dynamically with movement or pose, provided the star tip remains clearly visible.
+
+Expression: The "w" mouth can open into a small smile or 'O' shape, and the large eyes can squint or close to form happy crescents, as long as the innocent temperament is preserved.
+
+Limb Posing: The stubby limbs can be raised, seated, or positioned for simple actions, though their short length limits complex articulation.
+
+3. Overall Vibe Keywords
+
+Celestial
+
+Plush-like
+
+Innocent
+
+Feline-inspired
+
+Magical
+
+Gentle
