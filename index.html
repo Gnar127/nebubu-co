@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="galaxy">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,63 +17,45 @@
     />
     <style>
       :root {
-        color-scheme: dark;
+        color-scheme: light;
         --font-display: "Outfit", "Noto Sans SC", "PingFang SC", sans-serif;
         --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
         --container: min(1180px, calc(100vw - 28px));
-        --radius-sm: 18px;
-        --radius-md: 30px;
-        --radius-lg: 42px;
-        --radius-xl: 56px;
-        --shadow-hero: 0 28px 90px rgba(5, 7, 20, 0.32);
-        --shadow-card: 0 20px 54px rgba(5, 7, 20, 0.18);
-        --ease: 260ms cubic-bezier(0.16, 1, 0.3, 1);
-        --ease-slow: 620ms cubic-bezier(0.16, 1, 0.3, 1);
-        --cursor-opacity: 0;
-      }
-
-      html[data-theme="galaxy"] {
-        color-scheme: dark;
-        --bg: oklch(0.15 0.03 268);
-        --bg-alt: oklch(0.11 0.03 258);
-        --surface: rgba(14, 20, 41, 0.7);
-        --surface-strong: rgba(16, 24, 47, 0.9);
-        --surface-soft: rgba(30, 41, 74, 0.48);
-        --line: rgba(156, 176, 255, 0.16);
-        --line-strong: rgba(156, 176, 255, 0.28);
-        --text: oklch(0.96 0.01 260);
-        --text-soft: oklch(0.81 0.02 264);
-        --text-mute: oklch(0.68 0.02 264);
-        --accent-a: oklch(0.81 0.1 216);
-        --accent-b: oklch(0.73 0.17 299);
-        --accent-c: oklch(0.78 0.13 348);
-        --accent-d: oklch(0.83 0.11 180);
-        --tag-bg: rgba(117, 185, 255, 0.14);
-        --glow-a: rgba(115, 211, 255, 0.24);
-        --glow-b: rgba(180, 113, 255, 0.22);
-        --glow-c: rgba(255, 147, 202, 0.18);
-      }
-
-      html[data-theme="cute"] {
-        color-scheme: light;
-        --bg: oklch(0.965 0.02 336);
-        --bg-alt: oklch(0.945 0.02 313);
-        --surface: rgba(255, 250, 252, 0.74);
-        --surface-strong: rgba(255, 252, 253, 0.92);
-        --surface-soft: rgba(255, 240, 246, 0.64);
-        --line: rgba(232, 148, 189, 0.22);
-        --line-strong: rgba(226, 115, 175, 0.32);
-        --text: oklch(0.31 0.04 335);
-        --text-soft: oklch(0.47 0.03 332);
-        --text-mute: oklch(0.61 0.02 329);
-        --accent-a: oklch(0.75 0.12 214);
-        --accent-b: oklch(0.71 0.17 317);
-        --accent-c: oklch(0.81 0.1 12);
-        --accent-d: oklch(0.83 0.1 180);
-        --tag-bg: rgba(255, 154, 198, 0.16);
-        --glow-a: rgba(255, 175, 210, 0.24);
-        --glow-b: rgba(146, 194, 255, 0.18);
-        --glow-c: rgba(255, 220, 158, 0.18);
+        --radius-sm: 24px;
+        --radius-md: 28px;
+        --radius-lg: 32px;
+        --bg-top: #C8E6C9;
+        --bg-bottom: #A5D6A7;
+        --bg: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+        --card-bg: #FFFDF7;
+        --card-border: #A5D6A7;
+        --card-border-width: 2px;
+        --text: #5D4E37;
+        --text-soft: #7D6E57;
+        --text-mute: #9D8E77;
+        --accent-pink: #FFB7C5;
+        --accent-yellow: #FFE082;
+        --accent-blue: #B3E5FC;
+        --accent-green: #A5D6A7;
+        --accent-orange: #FFCC80;
+        --tag-bg: rgba(255, 183, 197, 0.2);
+        --tag-border: rgba(165, 214, 169, 0.4);
+        --shadow-card:
+          0 2px 8px rgba(139, 195, 74, 0.15),
+          0 6px 20px rgba(139, 195, 74, 0.12),
+          0 12px 40px rgba(139, 195, 74, 0.08);
+        --shadow-card-hover:
+          0 4px 12px rgba(139, 195, 74, 0.2),
+          0 10px 30px rgba(139, 195, 74, 0.15),
+          0 18px 50px rgba(139, 195, 74, 0.1);
+        --shadow-hero:
+          0 4px 12px rgba(139, 195, 74, 0.18),
+          0 10px 36px rgba(139, 195, 74, 0.14),
+          0 20px 60px rgba(139, 195, 74, 0.1);
+        --ease: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        --ease-slow: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+        --cloud-color: rgba(255, 255, 255, 0.7);
+        --cloud-shadow: rgba(200, 220, 200, 0.3);
       }
 
       * {
@@ -89,43 +71,34 @@
         min-height: 100vh;
         font-family: var(--font-body);
         color: var(--text);
-        background:
-          radial-gradient(circle at 14% 12%, var(--glow-a), transparent 26%),
-          radial-gradient(circle at 84% 8%, var(--glow-b), transparent 24%),
-          radial-gradient(circle at 80% 78%, var(--glow-c), transparent 28%),
-          linear-gradient(160deg, var(--bg), var(--bg-alt));
+        background: var(--bg);
+        background-attachment: fixed;
         overflow-x: hidden;
       }
 
-      body::before {
-        content: "";
+      .clouds-layer {
         position: fixed;
         inset: 0;
+        pointer-events: none;
         z-index: 0;
-        pointer-events: none;
-        background-image:
-          linear-gradient(var(--line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--line) 1px, transparent 1px);
-        background-size: 72px 72px;
-        mask-image: radial-gradient(circle at center, black 24%, transparent 78%);
-        opacity: 0.55;
-      }
-
-      .cursor-glow-layer {
-        position: fixed;
-        inset: 0;
-        z-index: 4;
-        pointer-events: none;
         overflow: hidden;
-        opacity: var(--cursor-opacity);
-        transition: opacity var(--ease);
       }
 
-      .cursor-trail-canvas {
-        width: 100%;
-        height: 100%;
-        display: block;
-        mix-blend-mode: screen;
+      .cloud {
+        position: absolute;
+        filter: drop-shadow(0 4px 12px var(--cloud-shadow));
+      }
+
+      .cloud-1 { top: 5%; left: -5%; animation: cloud-drift 25s ease-in-out infinite; }
+      .cloud-2 { top: 12%; right: -8%; animation: cloud-drift 30s ease-in-out infinite 5s; }
+      .cloud-3 { top: 35%; left: 30%; opacity: 0.5; animation: cloud-drift 35s ease-in-out infinite 10s; }
+      .cloud-4 { bottom: 15%; right: -5%; animation: cloud-drift 22s ease-in-out infinite 3s; }
+
+      @keyframes cloud-drift {
+        0%, 100% { transform: translateX(0) translateY(0); }
+        25% { transform: translateX(15px) translateY(-8px); }
+        50% { transform: translateX(8px) translateY(-12px); }
+        75% { transform: translateX(20px) translateY(-5px); }
       }
 
       a {
@@ -144,7 +117,7 @@
 
       .page {
         position: relative;
-        z-index: 3;
+        z-index: 1;
       }
 
       .container {
@@ -160,7 +133,7 @@
       }
 
       .topbar.is-scrolled {
-        padding: 10px 0;
+        padding: 8px 0;
       }
 
       .topbar-inner {
@@ -168,12 +141,12 @@
         align-items: center;
         justify-content: space-between;
         gap: 18px;
-        padding: 14px 18px 14px 22px;
+        padding: 12px 18px 12px 22px;
         border-radius: 999px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
-        backdrop-filter: blur(18px);
-        box-shadow: 0 20px 50px rgba(4, 6, 18, 0.14);
+        border: 2px solid var(--card-border);
+        background: rgba(255, 253, 247, 0.9);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-card);
       }
 
       .brand {
@@ -190,9 +163,9 @@
         border-radius: 20px;
         display: grid;
         place-items: center;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
-        border: 1px solid var(--line);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        box-shadow: var(--shadow-card);
       }
 
       .brand-mark img {
@@ -247,7 +220,7 @@
         border-radius: 999px;
         transform: scaleX(0);
         transform-origin: center;
-        background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+        background: linear-gradient(90deg, var(--accent-pink), var(--accent-yellow), var(--accent-green));
         transition: transform var(--ease);
       }
 
@@ -278,20 +251,26 @@
 
       .button:hover,
       .theme-button:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: var(--shadow-card-hover);
       }
 
-      .button.secondary,
-      .theme-button {
-        border-color: var(--line);
-        background: color-mix(in srgb, var(--surface) 84%, transparent);
-        color: var(--text);
+      .button:active,
+      .theme-button:active {
+        transform: translateY(-1px) scale(0.98);
       }
 
       .button.primary {
-        color: white;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
-        box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-b) 24%, transparent);
+        color: var(--text);
+        background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow), var(--accent-green));
+        border: 2px solid var(--card-border);
+        box-shadow: var(--shadow-card);
+      }
+
+      .button.secondary {
+        border: 2px solid var(--card-border);
+        background: rgba(255, 253, 247, 0.9);
+        color: var(--text);
       }
 
       .button.ghost {
@@ -301,7 +280,7 @@
       }
 
       .button.ghost:hover {
-        background: color-mix(in srgb, var(--surface) 72%, transparent);
+        background: rgba(255, 253, 247, 0.7);
         color: var(--text);
       }
 
@@ -323,32 +302,19 @@
       .quote,
       .cta-shell {
         position: relative;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: var(--card-bg);
         box-shadow: var(--shadow-card);
-        backdrop-filter: blur(20px);
         overflow: hidden;
       }
 
       .hero-copy,
       .hero-visual {
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
       }
 
       .hero-copy {
         padding: 34px;
-      }
-
-      .hero-copy::before {
-        content: "";
-        position: absolute;
-        right: -60px;
-        bottom: -70px;
-        width: 260px;
-        height: 260px;
-        border-radius: 50%;
-        background: radial-gradient(circle, color-mix(in srgb, var(--accent-d) 38%, transparent), transparent 68%);
-        opacity: 0.85;
       }
 
       .eyebrow {
@@ -359,7 +325,7 @@
         padding: 9px 14px;
         border-radius: 999px;
         background: var(--tag-bg);
-        border: 1px solid var(--line);
+        border: 1px solid var(--tag-border);
         font-size: 0.8rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -371,7 +337,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
+        background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow));
       }
 
       .hero-title {
@@ -384,7 +350,7 @@
 
       .hero-title .gradient {
         display: block;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow), var(--accent-green));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -418,11 +384,12 @@
       .meta-pill {
         padding: 10px 14px;
         border-radius: 999px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+        border: 2px solid var(--card-border);
+        background: rgba(255, 253, 247, 0.8);
         color: var(--text-soft);
         font-size: 0.88rem;
       }
+
       .hero-band {
         margin-top: 26px;
         display: grid;
@@ -432,9 +399,9 @@
 
       .mini-panel {
         padding: 16px 16px 18px;
-        border-radius: 24px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius-sm);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .mini-panel strong {
@@ -453,100 +420,161 @@
         padding: 22px;
         display: grid;
         gap: 16px;
-        background:
-          radial-gradient(circle at 16% 24%, color-mix(in srgb, var(--accent-a) 20%, transparent), transparent 24%),
-          radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--accent-b) 20%, transparent), transparent 22%),
-          linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 88%, transparent));
+        background: var(--card-bg);
       }
 
       .visual-stage {
         position: relative;
-        min-height: 466px;
-        border-radius: 34px;
-        border: 1px solid var(--line);
+        min-height: 380px;
+        border-radius: var(--radius-lg);
+        border: var(--card-border-width) solid var(--card-border);
         overflow: hidden;
-        background:
-          radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.18), transparent 18%),
-          radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--accent-d) 22%, transparent), transparent 24%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        background: linear-gradient(180deg, rgba(255, 253, 247, 0.9), rgba(200, 230, 201, 0.3));
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .halo {
-        position: absolute;
-        inset: 50% auto auto 50%;
-        width: 330px;
-        height: 330px;
+      .mascot-circle {
+        position: relative;
+        width: 280px;
+        height: 280px;
         border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background:
-          radial-gradient(circle, color-mix(in srgb, var(--accent-b) 18%, transparent), transparent 58%),
-          radial-gradient(circle, color-mix(in srgb, var(--accent-a) 14%, transparent), transparent 62%);
-        filter: blur(8px);
+        background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow), var(--accent-green));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 8px 32px rgba(139, 195, 74, 0.3),
+          0 2px 8px rgba(139, 195, 74, 0.2),
+          inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        animation: gentle-bounce 4s ease-in-out infinite;
       }
 
-      .mascot {
+      @keyframes gentle-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      .mascot-circle img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 12px rgba(93, 78, 55, 0.15));
+      }
+
+      .sparkle {
         position: absolute;
+        width: 16px;
+        height: 16px;
+        animation: sparkle-twinkle 3s ease-in-out infinite;
+      }
+
+      .sparkle::before,
+      .sparkle::after {
+        content: "";
+        position: absolute;
+        background: var(--accent-yellow);
+      }
+
+      .sparkle::before {
+        width: 4px;
+        height: 16px;
+        left: 6px;
+        border-radius: 2px;
+      }
+
+      .sparkle::after {
+        width: 16px;
+        height: 4px;
+        top: 6px;
+        border-radius: 2px;
+      }
+
+      .sparkle.sp1 { top: 10%; left: 8%; animation-delay: 0s; }
+      .sparkle.sp2 { top: 15%; right: 10%; animation-delay: 0.8s; }
+      .sparkle.sp3 { bottom: 18%; left: 12%; animation-delay: 1.5s; }
+      .sparkle.sp4 { bottom: 12%; right: 8%; animation-delay: 2.2s; }
+
+      @keyframes sparkle-twinkle {
+        0%, 100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
+        50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+      }
+
+      .hero-speech {
+        position: absolute;
+        bottom: 16px;
         left: 50%;
-        top: 48%;
-        width: min(310px, 78%);
-        transform: translate(-50%, -50%);
-        filter: drop-shadow(0 26px 48px rgba(12, 10, 34, 0.34));
+        transform: translateX(-50%);
+        width: 85%;
+        padding: 14px 18px;
+        border-radius: var(--radius-sm);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.95);
+        text-align: center;
+        box-shadow: var(--shadow-card);
       }
 
-      .orbit {
-        position: absolute;
-        border: 1px dashed color-mix(in srgb, var(--line-strong) 90%, transparent);
-        border-radius: 999px;
-        opacity: 0.8;
-      }
-
-      .orbit.o1 {
-        inset: 18% 16% auto;
-        height: 220px;
-      }
-
-      .orbit.o2 {
-        inset: 30% 8% auto;
-        height: 132px;
-      }
-
-      .spark {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 4px;
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 0 16px rgba(255, 255, 255, 0.55);
-      }
-
-      .spark.s1 { top: 16%; left: 18%; }
-      .spark.s2 { top: 22%; right: 18%; width: 8px; height: 8px; }
-      .spark.s3 { bottom: 24%; left: 16%; width: 7px; height: 7px; }
-      .spark.s4 { bottom: 20%; right: 14%; width: 14px; height: 14px; }
-
-      .speech-bubble {
-        position: absolute;
-        right: 18px;
-        top: 18px;
-        width: 190px;
-        padding: 15px 15px 17px;
-        border-radius: 22px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
-      }
-
-      .speech-bubble strong {
+      .hero-speech strong {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         font-size: 0.82rem;
         text-transform: uppercase;
         letter-spacing: 0.08em;
       }
 
-      .speech-bubble span {
+      .hero-speech span {
         color: var(--text-soft);
         font-size: 0.88rem;
-        line-height: 1.65;
+        line-height: 1.5;
+      }
+
+      .companion-panel {
+        padding: 22px;
+        border-radius: var(--radius-md);
+        border: var(--card-border-width) solid var(--card-border);
+        background: var(--card-bg);
+      }
+
+      .companion-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .companion-tab {
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.8);
+        color: var(--text-soft);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform var(--ease), border-color var(--ease), background var(--ease), color var(--ease);
+      }
+
+      .companion-tab:hover,
+      .companion-tab.is-active {
+        transform: translateY(-1px);
+        border-color: var(--accent-pink);
+        background: rgba(255, 183, 197, 0.2);
+        color: var(--text);
+      }
+
+      .companion-panel strong {
+        display: block;
+        margin-top: 16px;
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        letter-spacing: -0.03em;
+        color: var(--text);
+      }
+
+      .companion-panel p {
+        color: var(--text-soft);
+        line-height: 1.75;
+        margin: 8px 0 0;
       }
 
       .manifest-grid {
@@ -557,9 +585,9 @@
 
       .manifest-note {
         padding: 16px;
-        border-radius: 24px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius-sm);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .manifest-note strong {
@@ -571,6 +599,14 @@
         color: var(--text-soft);
         font-size: 0.9rem;
         line-height: 1.65;
+      }
+
+      .mascot-hotspot {
+        display: none;
+      }
+
+      .orbit {
+        display: none;
       }
 
       .section {
@@ -646,7 +682,7 @@
         align-items: center;
         padding: 7px 10px;
         border-radius: 999px;
-        border: 1px solid var(--line);
+        border: var(--card-border-width) solid var(--card-border);
         font-size: 0.75rem;
         font-weight: 800;
       }
@@ -695,8 +731,8 @@
         gap: 14px;
         padding: 16px 16px 16px 18px;
         border-radius: 20px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .tool-item strong,
@@ -736,8 +772,8 @@
       .story-list li {
         padding: 16px 18px;
         border-radius: 22px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .principle-grid {
@@ -747,10 +783,76 @@
       }
 
       .principle-card {
+        position: relative;
         padding: 22px;
         border-radius: var(--radius-md);
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-soft) 90%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: var(--card-bg);
+        box-shadow: var(--shadow-card);
+        cursor: pointer;
+        overflow: hidden;
+        transition: box-shadow var(--ease), transform var(--ease);
+      }
+
+      .principle-card:hover {
+        box-shadow: var(--shadow-card-hover);
+        transform: translateY(-2px);
+      }
+
+      .principle-card[data-expanded="true"] {
+        grid-column: span 2;
+      }
+
+      .principle-preview {
+        transition: opacity var(--ease);
+      }
+
+      .principle-card:not([data-expanded="true"]) .principle-full {
+        display: none;
+      }
+
+      .principle-card[data-expanded="true"] .principle-preview {
+        opacity: 0.6;
+      }
+
+      .principle-full {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: var(--card-border-width) solid var(--card-border);
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity var(--ease-slow), max-height var(--ease-slow);
+      }
+
+      .principle-card[data-expanded="true"] .principle-full {
+        opacity: 1;
+        max-height: 300px;
+      }
+
+      .principle-arrow {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform var(--ease);
+      }
+
+      .principle-arrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid var(--text-mute);
+        border-bottom: 2px solid var(--text-mute);
+        transform: rotate(45deg);
+      }
+
+      .principle-card[data-expanded="true"] .principle-arrow {
+        transform: rotate(180deg);
       }
 
       .principle-badge,
@@ -761,21 +863,10 @@
         display: grid;
         place-items: center;
         margin-bottom: 18px;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
+        background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow), var(--accent-blue));
         color: white;
         font-family: var(--font-display);
         font-weight: 800;
-      }
-
-      .universe-shell {
-        padding: 28px;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line);
-        background:
-          radial-gradient(circle at 16% 20%, color-mix(in srgb, var(--accent-a) 16%, transparent), transparent 18%),
-          radial-gradient(circle at 84% 18%, color-mix(in srgb, var(--accent-c) 16%, transparent), transparent 18%),
-          color-mix(in srgb, var(--surface-strong) 92%, transparent);
-        box-shadow: var(--shadow-hero);
       }
 
       .product-grid {
@@ -788,8 +879,8 @@
       .product-card {
         padding: 22px 18px;
         border-radius: 28px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.05);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .product-card:nth-child(2n) {
@@ -798,6 +889,14 @@
 
       .product-card:nth-child(4) {
         margin-top: 54px;
+      }
+
+      .product-art {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-sm);
+        margin-bottom: 14px;
+        object-fit: contain;
       }
 
       .status-pill {
@@ -815,10 +914,10 @@
         justify-content: space-between;
         padding: 24px;
         border-radius: var(--radius-md);
-        border: 1px solid var(--line);
+        border: var(--card-border-width) solid var(--card-border);
         background:
           radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
-          color-mix(in srgb, var(--surface) 92%, transparent);
+          rgba(255, 253, 247, 0.92);
       }
 
       .scene-tag {
@@ -833,7 +932,7 @@
 
       .scene-footer {
         padding-top: 18px;
-        border-top: 1px solid var(--line);
+        border-top: var(--card-border-width) solid var(--card-border);
         color: var(--text);
         font-weight: 700;
       }
@@ -847,8 +946,8 @@
       .anti-item {
         padding: 15px 16px;
         border-radius: 20px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .anti-item strong {
@@ -857,49 +956,38 @@
       }
 
       .cta-shell {
-        border-radius: var(--radius-lg);
-        padding: 30px;
-        background:
-          radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent-a) 18%, transparent), transparent 18%),
-          radial-gradient(circle at 85% 18%, color-mix(in srgb, var(--accent-c) 18%, transparent), transparent 20%),
-          color-mix(in srgb, var(--surface-strong) 92%, transparent);
-        box-shadow: var(--shadow-hero);
+        border-radius: 24px;
+        padding: 20px 24px;
+        border: 2px solid #A5D6A7;
+        background-color: #FFFDF7;
+        background-image: none;
+        box-shadow: 0 4px 12px rgba(139, 195, 74, 0.18), 0 10px 36px rgba(139, 195, 74, 0.14), 0 20px 60px rgba(139, 195, 74, 0.1);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 20px;
       }
 
       .cta-shell h2 {
-        margin: 14px 0 12px;
+        margin: 10px 0 8px;
         font-family: var(--font-display);
-        font-size: clamp(2.2rem, 3vw, 3.5rem);
+        font-size: clamp(1.6rem, 2.5vw, 2.4rem);
         line-height: 0.98;
         letter-spacing: -0.05em;
       }
 
       .hero-band,
       .manifest-grid,
-      #principles,
-      #entries .gateway-stack > article.card:last-child,
-      #entries .dock-stack,
-      #products .product-grid,
-      #scenes .scene-grid,
-      #story .world-grid > .quote:last-child,
       #contact .cta-actions {
         display: none;
-      }
-
-      #entries .gateway-grid {
-        grid-template-columns: 1fr;
       }
 
       .mascot-hotspot {
         position: absolute;
         padding: 8px 12px;
         border-radius: 999px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.88);
         color: var(--text);
         font: inherit;
         font-size: 0.78rem;
@@ -915,10 +1003,10 @@
 
       .mascot-hotspot:hover,
       .mascot-hotspot[aria-pressed="true"] {
-        transform: translateY(-2px);
-        border-color: var(--line-strong);
-        background: color-mix(in srgb, var(--tag-bg) 70%, var(--surface-strong));
-        box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-b) 18%, transparent);
+        transform: translateY(-3px) scale(1.05);
+        border-color: var(--card-border);
+        background: rgba(255, 183, 197, 0.35);
+        box-shadow: 0 12px 28px rgba(139, 195, 74, 0.22);
       }
 
       .mascot-hotspot[data-companion="gentle"] {
@@ -941,13 +1029,12 @@
       .product-panel {
         padding: 22px;
         border-radius: 28px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.9);
       }
 
       .companion-tabs,
-      .belief-pills,
-      .scene-tabs {
+      .belief-pills {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -957,8 +1044,8 @@
       .belief-pill,
       .scene-toggle,
       .cta-choice {
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.88);
         color: var(--text-soft);
         border-radius: 999px;
         padding: 10px 14px;
@@ -982,8 +1069,8 @@
       .cta-choice:hover,
       .cta-choice.is-active {
         transform: translateY(-1px);
-        border-color: var(--line-strong);
-        background: color-mix(in srgb, var(--tag-bg) 72%, var(--surface-strong));
+        border-color: var(--card-border);
+        background: rgba(255, 183, 197, 0.36);
         color: var(--text);
       }
 
@@ -1004,10 +1091,7 @@
       .product-panel p,
       .cta-choice-panel p,
       .entry-path span,
-      .product-switch span,
       .product-panel-item span,
-      .scene-stage-item span,
-      .scene-moment span,
       .drawer-summary,
       .drawer-point span {
         color: var(--text-soft);
@@ -1029,8 +1113,8 @@
         display: block;
         padding: 18px;
         border-radius: 22px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
         transition:
           transform var(--ease),
           border-color var(--ease),
@@ -1038,105 +1122,106 @@
       }
 
       .entry-path:hover {
-        transform: translateY(-3px);
-        border-color: var(--line-strong);
-        background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
+        transform: translateY(-4px) scale(1.01);
+        border-color: var(--card-border);
+        background: rgba(255, 253, 247, 0.78);
+        box-shadow: 0 12px 32px rgba(139, 195, 74, 0.15);
       }
 
       .entry-path strong,
       .product-panel-item strong,
-      .scene-stage-item strong,
-      .scene-moment strong,
       .drawer-point strong {
         display: block;
         margin-bottom: 6px;
       }
 
-      .product-showcase,
-      .scene-stage {
-        display: grid;
-        grid-template-columns: minmax(0, 0.94fr) minmax(320px, 1.06fr);
-        gap: 18px;
-        align-items: start;
-      }
-
-      .product-selector {
-        display: grid;
-        gap: 12px;
-      }
-
-      .product-switch {
-        width: 100%;
-        padding: 18px;
-        text-align: left;
-        font: inherit;
-        color: inherit;
-        border-radius: 24px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
-        cursor: pointer;
-        transition:
-          transform var(--ease),
-          border-color var(--ease),
-          background var(--ease),
-          box-shadow var(--ease);
-      }
-
-      .product-switch:hover,
-      .product-switch.is-active {
-        transform: translateY(-2px);
-        border-color: var(--line-strong);
-        background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
-        box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-b) 10%, transparent);
-      }
-
-      .product-switch-badge {
-        width: 40px;
-        height: 40px;
-        display: grid;
-        place-items: center;
-        border-radius: 14px;
-        margin-bottom: 12px;
-        background: linear-gradient(135deg, var(--accent-a), var(--accent-b), var(--accent-c));
-        color: white;
-        font-family: var(--font-display);
-        font-weight: 800;
-      }
-
-      .product-switch strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.04rem;
-        color: var(--text);
-      }
-
-      .product-switch em {
-        display: inline-flex;
-        margin-top: 12px;
-        font-style: normal;
-        font-size: 0.76rem;
-        font-weight: 800;
-        color: var(--text);
-      }
-
       .product-panel-grid,
-      .scene-stage-list,
       .drawer-points {
         display: grid;
         gap: 12px;
         margin-top: 20px;
       }
 
+      .product-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .product-art-shell {
+        display: grid;
+        gap: 0;
+      }
+
+      .product-art-stage {
+        --product-glow-a: rgba(255, 183, 197, 0.28);
+        --product-glow-b: rgba(179, 229, 252, 0.22);
+        position: relative;
+        min-height: 340px;
+        padding: 10px 14px 0;
+        border-radius: 30px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 24% 24%, var(--product-glow-a), transparent 30%),
+          radial-gradient(circle at 78% 18%, var(--product-glow-b), transparent 26%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+      }
+
+      .product-art-stage::after {
+        content: "";
+        position: absolute;
+        inset: auto 16% 4% 16%;
+        height: 18%;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(139, 195, 74, 0.3), transparent 72%);
+        filter: blur(20px);
+      }
+
+      .product-panel-art {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-height: 320px;
+        margin: 0 auto;
+        object-fit: contain;
+        transform: translateY(12px);
+        filter: drop-shadow(0 30px 54px rgba(139, 195, 74, 0.25));
+      }
+
+      .product-art-meta {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        z-index: 2;
+      }
+
+      .product-art-tag,
+      .product-art-palette {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(165, 214, 169, 0.92);
+        background: rgba(255, 253, 247, 0.74);
+        color: var(--text);
+        font-size: 0.8rem;
+        backdrop-filter: blur(14px);
+      }
+
       .product-panel-item,
-      .scene-stage-item,
-      .scene-moment,
       .drawer-point,
       .cta-choice-panel,
       .belief-stage {
         padding: 16px 18px;
         border-radius: 22px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.7);
       }
 
       .product-panel-actions,
@@ -1148,33 +1233,6 @@
       .product-panel-actions {
         margin-top: 20px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .scene-experience {
-        display: grid;
-        gap: 16px;
-      }
-
-      .scene-stage-copy {
-        padding: 26px;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line);
-        background:
-          radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
-          color-mix(in srgb, var(--surface) 92%, transparent);
-      }
-
-      .scene-stage-copy h3 {
-        margin: 14px 0 12px;
-        font-family: var(--font-display);
-        font-size: clamp(2rem, 2.8vw, 3rem);
-        line-height: 1.02;
-        letter-spacing: -0.04em;
-      }
-
-      .scene-moments {
-        display: grid;
-        gap: 12px;
       }
 
       .belief-panel {
@@ -1195,11 +1253,16 @@
 
       .cta-choice-list {
         display: grid;
+        grid-template-columns: 1fr;
         gap: 12px;
       }
 
       .cta-choice {
         text-align: left;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        white-space: nowrap;
       }
 
       .cta-choice-panel strong {
@@ -1210,7 +1273,7 @@
         position: fixed;
         inset: 0;
         z-index: 36;
-        background: rgba(10, 14, 28, 0.42);
+        background: rgba(139, 195, 74, 0.35);
         backdrop-filter: blur(8px);
       }
 
@@ -1223,8 +1286,8 @@
         width: min(480px, calc(100vw - 36px));
         padding: 22px;
         border-radius: 32px;
-        border: 1px solid var(--line);
-        background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
+        border: var(--card-border-width) solid var(--card-border);
+        background: rgba(255, 253, 247, 0.94);
         box-shadow: var(--shadow-hero);
         transform: translateX(calc(100% + 40px));
         opacity: 0;
@@ -1260,9 +1323,9 @@
       .drawer-close {
         width: 42px;
         height: 42px;
-        border: 1px solid var(--line);
+        border: var(--card-border-width) solid var(--card-border);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 253, 247, 0.7);
         color: var(--text);
         cursor: pointer;
       }
@@ -1284,7 +1347,7 @@
         justify-content: space-between;
         gap: 18px;
         padding-top: 18px;
-        border-top: 1px solid var(--line);
+        border-top: var(--card-border-width) solid var(--card-border);
       }
 
       .footer-copy {
@@ -1308,9 +1371,7 @@
         .hero-grid,
         .gateway-grid,
         .world-grid,
-        .manifesto-grid,
-        .product-showcase,
-        .scene-stage {
+        .manifesto-grid {
           grid-template-columns: 1fr;
         }
 
@@ -1357,16 +1418,6 @@
           flex-direction: column;
           align-items: flex-start;
         }
-
-        .mascot-hotspot[data-companion="gentle"] {
-          top: 12%;
-          left: 10%;
-        }
-
-        .mascot-hotspot[data-companion="reliable"] {
-          top: 18%;
-          right: 10%;
-        }
       }
 
       @media (max-width: 560px) {
@@ -1378,7 +1429,6 @@
         .hero-visual,
         .quote,
         .cta-shell,
-        .universe-shell,
         .card {
           padding: 20px;
         }
@@ -1403,8 +1453,7 @@
           grid-template-columns: 1fr;
         }
 
-        .scene-tabs,
-        .companion-tabs,
+          .companion-tabs,
         .belief-pills {
           display: grid;
           grid-template-columns: 1fr;
@@ -1416,17 +1465,15 @@
         }
 
         .visual-stage {
-          min-height: 390px;
+          min-height: 320px;
         }
 
-        .speech-bubble {
-          width: 150px;
+        .product-art-stage {
+          min-height: 260px;
         }
-      }
 
-      @media (hover: none), (pointer: coarse) {
-        .cursor-glow-layer {
-          display: none;
+        .product-panel-art {
+          max-height: 220px;
         }
       }
 
@@ -1448,16 +1495,32 @@
           opacity: 1;
           transform: none;
         }
-
-        .cursor-glow-layer {
-          display: none;
-        }
       }
     </style>
   </head>
   <body>
-    <div class="cursor-glow-layer" aria-hidden="true">
-      <canvas class="cursor-trail-canvas" id="cursorTrailCanvas"></canvas>
+    <!-- Cloud Layer -->
+    <div class="clouds-layer" aria-hidden="true">
+      <svg class="cloud cloud-1" viewBox="0 0 200 80" width="180">
+        <ellipse cx="60" cy="50" rx="50" ry="30" fill="var(--cloud-color)"/>
+        <ellipse cx="100" cy="40" rx="60" ry="35" fill="var(--cloud-color)"/>
+        <ellipse cx="150" cy="50" rx="45" ry="28" fill="var(--cloud-color)"/>
+      </svg>
+      <svg class="cloud cloud-2" viewBox="0 0 160 70" width="140">
+        <ellipse cx="40" cy="45" rx="35" ry="22" fill="var(--cloud-color)"/>
+        <ellipse cx="80" cy="35" rx="45" ry="28" fill="var(--cloud-color)"/>
+        <ellipse cx="120" cy="45" rx="38" ry="24" fill="var(--cloud-color)"/>
+      </svg>
+      <svg class="cloud cloud-3" viewBox="0 0 220 90" width="200">
+        <ellipse cx="70" cy="55" rx="55" ry="32" fill="var(--cloud-color)" opacity="0.6"/>
+        <ellipse cx="120" cy="42" rx="65" ry="38" fill="var(--cloud-color)" opacity="0.6"/>
+        <ellipse cx="175" cy="55" rx="50" ry="30" fill="var(--cloud-color)" opacity="0.6"/>
+      </svg>
+      <svg class="cloud cloud-4" viewBox="0 0 140 60" width="120">
+        <ellipse cx="35" cy="38" rx="30" ry="18" fill="var(--cloud-color)"/>
+        <ellipse cx="70" cy="30" rx="40" ry="24" fill="var(--cloud-color)"/>
+        <ellipse cx="105" cy="38" rx="32" ry="20" fill="var(--cloud-color)"/>
+      </svg>
     </div>
     <div class="page">
       <header class="topbar" id="topbar">
@@ -1481,7 +1544,6 @@
             </nav>
 
             <div class="topbar-actions">
-              <button class="theme-button" id="themeToggle" type="button">Galaxy</button>
               <a class="button ghost" href="#entries">项目入口</a>
               <a class="button primary" href="#contact">立即开始</a>
             </div>
@@ -1532,21 +1594,17 @@
 
             <aside class="hero-visual" data-reveal>
               <div class="visual-stage">
-                <div class="halo"></div>
-                <div class="orbit o1"></div>
-                <div class="orbit o2"></div>
-                <div class="spark s1"></div>
-                <div class="spark s2"></div>
-                <div class="spark s3"></div>
-                <div class="spark s4"></div>
-                <div class="speech-bubble">
+                <div class="mascot-circle">
+                  <img src="nebubu-animate/main.png" alt="Nebubu mascot" />
+                </div>
+                <div class="sparkle sp1"></div>
+                <div class="sparkle sp2"></div>
+                <div class="sparkle sp3"></div>
+                <div class="sparkle sp4"></div>
+                <div class="hero-speech">
                   <strong id="companionSpeechLabel">Gentle</strong>
                   <span id="companionSpeechText">安静靠近，在你需要的时候给出不打扰但真实有用的帮助。</span>
                 </div>
-                <button class="mascot-hotspot" type="button" data-companion="gentle" aria-pressed="true">Gentle</button>
-                <button class="mascot-hotspot" type="button" data-companion="reliable" aria-pressed="false">Reliable</button>
-                <button class="mascot-hotspot" type="button" data-companion="present" aria-pressed="false">Present</button>
-                <img class="mascot" src="assets/logo-full.png" alt="Nebubu galaxy cat logo" />
               </div>
 
               <div class="companion-panel">
@@ -1574,6 +1632,153 @@
                 </div>
               </div>
             </aside>
+          </div>
+        </section>
+
+        <section class="section" id="principles">
+          <div class="container">
+            <div class="section-head" data-reveal>
+              <div>
+                <div class="eyebrow">Brand Principles</div>
+                <h2>先感受到 Nebubu 是什么，再决定从哪里开始。</h2>
+              </div>
+              <p>
+                我们希望每个产品都保持同一套平衡: Cute, but not childish. Gentle, but not weak. Useful, not decorative. Reliable, not noisy.
+              </p>
+            </div>
+
+            <div class="principle-grid">
+              <article class="principle-card" data-reveal data-expanded="false">
+                <div class="principle-badge">01</div>
+                <div class="principle-preview">
+                  <h3>温柔感</h3>
+                  <p>不制造焦虑，不用压迫式提示抢注意力，而是用更平静的方式陪你理解问题。</p>
+                </div>
+                <div class="principle-full">
+                  <p>在每个产品的细节里，我们选择用更安静的方式呈现帮助——不催促，不施压，让用户感受到被理解而不是被驱动。</p>
+                </div>
+                <div class="principle-arrow"></div>
+              </article>
+              <article class="principle-card" data-reveal data-expanded="false">
+                <div class="principle-badge">02</div>
+                <div class="principle-preview">
+                  <h3>可靠感</h3>
+                  <p>可爱只是入口，不是全部。真正留下你的，应该是清楚、稳定、能落到日常里的帮助。</p>
+                </div>
+                <div class="principle-full">
+                  <p>Nebubu 的可靠感来自于稳定的反馈、长期一致的品牌体验，以及每个功能都认真对待的设计态度。可靠不是口号，而是每天都在发生的事实。</p>
+                </div>
+                <div class="principle-arrow"></div>
+              </article>
+              <article class="principle-card" data-reveal data-expanded="false">
+                <div class="principle-badge">03</div>
+                <div class="principle-preview">
+                  <h3>母品牌视角</h3>
+                  <p>Nebubu 不只是一款工具，而是一整套会逐步展开的陪伴式产品体验。</p>
+                </div>
+                <div class="principle-full">
+                  <p>从 Invest 到 Notes、Focus、Daily、Widget，每一步都是在同一个世界观下的自然延伸。我们不是在做一个工具，而是在构建一个会长期陪伴你的世界。</p>
+                </div>
+                <div class="principle-arrow"></div>
+              </article>
+              <article class="principle-card" data-reveal data-expanded="false">
+                <div class="principle-badge">04</div>
+                <div class="principle-preview">
+                  <h3>长期扩展</h3>
+                  <p>从 Invest 到未来的 Notes、Focus、Daily、Widget，每一步都应该属于同一个世界。</p>
+                </div>
+                <div class="principle-full">
+                  <p>我们不追求一次性发布所有产品，而是让每个产品都先在自己的场景里打磨好，再自然地与已有产品产生连接，形成更大的使用体验网络。</p>
+                </div>
+                <div class="principle-arrow"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="products">
+          <div class="container">
+            <div class="section-head" data-reveal>
+              <div>
+                <div class="eyebrow">Product Universe</div>
+                <h2>一个品牌，多种陪伴场景。</h2>
+              </div>
+              <p>
+                Nebubu 会慢慢长出不同产品，但它们做的是同一件事: 用更温柔、更清楚的方式，把 AI 带回真实日常。
+              </p>
+            </div>
+
+            <div class="product-grid" data-reveal>
+              <article class="product-card">
+                <img class="product-art" src="nebubu-animate/nebubu-invest-key.png" alt="Nebubu Invest" />
+                <h3>Nebubu Invest</h3>
+                <p>陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
+                <div class="status-pill">Live Product</div>
+              </article>
+              <article class="product-card">
+                <img class="product-art" src="nebubu-animate/nebubu-notes-key.png" alt="Nebubu Notes" />
+                <h3>Nebubu Notes</h3>
+                <p>安静地收纳灵感、碎片和知识，不让想法只是划过。</p>
+                <div class="status-pill">Coming Soon</div>
+              </article>
+              <article class="product-card">
+                <img class="product-art" src="nebubu-animate/nebubu-focus-key.png" alt="Nebubu Focus" />
+                <h3>Nebubu Focus</h3>
+                <p>帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。</p>
+                <div class="status-pill">Coming Soon</div>
+              </article>
+              <article class="product-card">
+                <img class="product-art" src="nebubu-animate/nebubu-daily-key.png" alt="Nebubu Daily" />
+                <h3>Nebubu Daily</h3>
+                <p>把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。</p>
+                <div class="status-pill">Coming Soon</div>
+              </article>
+              <article class="product-card">
+                <img class="product-art" src="nebubu-animate/nebubu-widget-key.png" alt="Nebubu Widget" />
+                <h3>Nebubu Widget</h3>
+                <p>让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。</p>
+                <div class="status-pill">Coming Soon</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="scenes">
+          <div class="container">
+            <div class="section-head" data-reveal>
+              <div>
+                <div class="eyebrow">Daily Scenes</div>
+                <h2>Nebubu 应该出现在真实生活里，而不是只活在品牌口号里。</h2>
+              </div>
+              <p>品牌的价值不是抽象理念，而是落到用户每天会遇到的节奏、任务、判断和情绪压力里。</p>
+            </div>
+
+            <div class="scene-grid">
+              <article class="scene-card" data-reveal>
+                <div>
+                  <span class="scene-tag">Morning</span>
+                  <h3>帮你整理一天的开始</h3>
+                  <p>用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。</p>
+                </div>
+                <div class="scene-footer">Nebubu Daily / Nebubu Widget</div>
+              </article>
+              <article class="scene-card" data-reveal>
+                <div>
+                  <span class="scene-tag">Work</span>
+                  <h3>在复杂任务里提供安静支持</h3>
+                  <p>从整理资料到收纳灵感，再到帮你理解复杂信息，Nebubu 更像同伴，而不是催促系统。</p>
+                </div>
+                <div class="scene-footer">Nebubu Notes / Nebubu Focus</div>
+              </article>
+              <article class="scene-card" data-reveal>
+                <div>
+                  <span class="scene-tag">Decision</span>
+                  <h3>在决策时降低压力感</h3>
+                  <p>无论是市场、计划还是个人节奏，Nebubu 的价值都不是替你决定，而是让判断更柔和、更清楚。</p>
+                </div>
+                <div class="scene-footer">Nebubu Invest and future decision tools</div>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -1620,353 +1825,30 @@
                     </a>
                   </div>
                 </article>
-
-                <article class="card" data-reveal>
-                  <div class="card-top">
-                    <span class="kicker">Start Here</span>
-                  </div>
-                  <h3>先从一个已经可用的产品开始，再慢慢认识这个品牌。</h3>
-                  <p>我们不想一上来就把所有东西塞给你。先从清楚的入口开始，等你熟悉之后，再走进更多工具、场景和产品。</p>
-                </article>
               </div>
 
               <div class="dock-stack">
                 <article class="card" data-reveal>
                   <div class="card-top">
                     <span class="kicker">Next Up</span>
-                    <span class="domain">growing with you</span>
+                    <span class="domain">coming soon</span>
                   </div>
-                  <h3>Nebubu 还在继续长大，但方向已经很清楚。</h3>
-                  <p>你现在可以先使用已经开放的入口，也可以先看看接下来会有哪些能力慢慢加入你的日常。</p>
-
+                  <h3>更多产品正在路上</h3>
                   <div class="social-list">
-                    <div class="social-item"><div><strong>Invest</strong><span>已经开放，适合直接开始体验 Nebubu 的判断与陪伴方式。</span></div><em>Now</em></div>
-                    <div class="social-item"><div><strong>Asset Calculator</strong><span>更轻量的工具入口，适合快速计算、对比和做初步判断。</span></div><em>Open</em></div>
-                    <div class="social-item"><div><strong>Notes / Focus</strong><span>会把整理、收纳和专注带进同一个温柔但清楚的工作流里。</span></div><em>Soon</em></div>
-                    <div class="social-item"><div><strong>Daily / Widget</strong><span>会让 Nebubu 更常驻、更贴近日常，变成更轻但更稳定的陪伴。</span></div><em>Soon</em></div>
+                    <div class="social-item"><div><strong>Notes / Focus</strong><span>整理、收纳和专注，带进同一个温柔但清楚的工作流</span></div><em>Soon</em></div>
+                    <div class="social-item"><div><strong>Daily / Widget</strong><span>更常驻、更贴近日常，变成更轻但更稳定的陪伴</span></div><em>Soon</em></div>
                   </div>
                 </article>
               </div>
             </div>
-
-            <article class="card entry-guide" data-reveal>
-              <div class="card-top">
-                <span class="kicker">Flow</span>
-                <span class="domain">simple first steps</span>
-              </div>
-              <h3>三种开始方式，按你现在最需要的来。</h3>
-              <div class="entry-paths">
-                <a class="entry-path" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">
-                  <strong>直接开始</strong>
-                  <span>打开 Invest，立刻进入已经可用的核心产品。</span>
-                </a>
-                <a class="entry-path" href="https://asset.gnar127.com/" target="_blank" rel="noreferrer">
-                  <strong>先用轻工具</strong>
-                  <span>用 Asset Calculator 快速计算、对比和做初步判断。</span>
-                </a>
-                <a class="entry-path" href="#products">
-                  <strong>先看看宇宙</strong>
-                  <span>浏览 Nebubu 接下来会慢慢长出的产品和场景。</span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="principles">
-          <div class="container">
-            <div class="section-head" data-reveal>
-              <div>
-                <div class="eyebrow">Brand Principles</div>
-                <h2>先感受到 Nebubu 是什么，再决定从哪里开始。</h2>
-              </div>
-              <p>
-                我们希望每个产品都保持同一套平衡: Cute, but not childish. Gentle, but not weak. Useful, not decorative. Reliable, not noisy.
-              </p>
-            </div>
-
-            <div class="principle-grid">
-              <article class="principle-card" data-reveal>
-                <div class="principle-badge">01</div>
-                <h3>温柔感</h3>
-                <p>不制造焦虑，不用压迫式提示抢注意力，而是用更平静的方式陪你理解问题。</p>
-              </article>
-              <article class="principle-card" data-reveal>
-                <div class="principle-badge">02</div>
-                <h3>可靠感</h3>
-                <p>可爱只是入口，不是全部。真正留下你的，应该是清楚、稳定、能落到日常里的帮助。</p>
-              </article>
-              <article class="principle-card" data-reveal>
-                <div class="principle-badge">03</div>
-                <h3>母品牌视角</h3>
-                <p>Nebubu 不只是一款工具，而是一整套会逐步展开的陪伴式产品体验。</p>
-              </article>
-              <article class="principle-card" data-reveal>
-                <div class="principle-badge">04</div>
-                <h3>长期扩展</h3>
-                <p>从 Invest 到未来的 Notes、Focus、Daily、Widget，每一步都应该属于同一个世界。</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="products">
-          <div class="container">
-            <div class="section-head" data-reveal>
-              <div>
-                <div class="eyebrow">Product Universe</div>
-                <h2>一个品牌，多种陪伴场景。</h2>
-              </div>
-              <p>
-                Nebubu 会慢慢长出不同产品，但它们做的是同一件事: 用更温柔、更清楚的方式，把 AI 带回真实日常。
-              </p>
-            </div>
-
-            <div class="universe-shell" data-reveal>
-              <div class="product-showcase">
-                <div class="product-selector" role="tablist" aria-label="Nebubu products">
-                  <button class="product-switch is-active" type="button" data-product-key="invest">
-                    <span class="product-switch-badge">I</span>
-                    <strong>Nebubu Invest</strong>
-                    <span>陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</span>
-                    <em>Live Product</em>
-                  </button>
-                  <button class="product-switch" type="button" data-product-key="notes">
-                    <span class="product-switch-badge">N</span>
-                    <strong>Nebubu Notes</strong>
-                    <span>安静地收纳灵感、碎片和知识，不让想法只是划过。</span>
-                    <em>Coming Soon</em>
-                  </button>
-                  <button class="product-switch" type="button" data-product-key="focus">
-                    <span class="product-switch-badge">F</span>
-                    <strong>Nebubu Focus</strong>
-                    <span>帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。</span>
-                    <em>Coming Soon</em>
-                  </button>
-                  <button class="product-switch" type="button" data-product-key="daily">
-                    <span class="product-switch-badge">D</span>
-                    <strong>Nebubu Daily</strong>
-                    <span>把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。</span>
-                    <em>Coming Soon</em>
-                  </button>
-                  <button class="product-switch" type="button" data-product-key="widget">
-                    <span class="product-switch-badge">W</span>
-                    <strong>Nebubu Widget</strong>
-                    <span>让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。</span>
-                    <em>Coming Soon</em>
-                  </button>
-                </div>
-
-                <article class="product-panel">
-                  <div class="card-top">
-                    <span class="kicker" id="productPanelState">Live Product</span>
-                    <span class="domain" id="productPanelTime">Available now</span>
-                  </div>
-                  <h3 id="productPanelTitle">Nebubu Invest</h3>
-                  <p id="productPanelSummary">陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
-
-                  <div class="product-panel-grid">
-                    <div class="product-panel-item">
-                      <strong>适合什么时候</strong>
-                      <span id="productPanelUse">当你需要更快读懂市场、整理风险和形成判断的时候。</span>
-                    </div>
-                    <div class="product-panel-item">
-                      <strong>它的方式</strong>
-                      <span id="productPanelMode">把复杂信息压缩成更容易比较和行动的结构，而不是堆更多术语。</span>
-                    </div>
-                    <div class="product-panel-item">
-                      <strong>当前阶段</strong>
-                      <span id="productPanelStage">已经开放，可以直接进入体验。</span>
-                    </div>
-                  </div>
-
-                  <div class="product-panel-actions">
-                    <a class="button primary" id="productPrimaryAction" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
-                    <button class="button secondary" id="productDrawerTrigger" type="button">查看详细展开</button>
-                  </div>
-                </article>
-              </div>
-
-              <div class="product-grid">
-                <article class="product-card">
-                  <div class="product-badge">I</div>
-                  <h3>Nebubu Invest</h3>
-                  <p>陪你理解市场、看懂风险、把复杂信息柔和地带进判断。</p>
-                  <div class="status-pill">Live Product</div>
-                </article>
-                <article class="product-card">
-                  <div class="product-badge">N</div>
-                  <h3>Nebubu Notes</h3>
-                  <p>安静地收纳灵感、碎片和知识，不让想法只是划过。</p>
-                  <div class="status-pill">Coming Soon</div>
-                </article>
-                <article class="product-card">
-                  <div class="product-badge">F</div>
-                  <h3>Nebubu Focus</h3>
-                  <p>帮助用户维持节奏与专注，但语气始终像陪伴，不像训导。</p>
-                  <div class="status-pill">Coming Soon</div>
-                </article>
-                <article class="product-card">
-                  <div class="product-badge">D</div>
-                  <h3>Nebubu Daily</h3>
-                  <p>把 AI 放进提醒、计划与日常整理，成为固定而轻的存在。</p>
-                  <div class="status-pill">Coming Soon</div>
-                </article>
-                <article class="product-card">
-                  <div class="product-badge">W</div>
-                  <h3>Nebubu Widget</h3>
-                  <p>让 Nebubu 更常驻、更触手可及，用更轻的方式贴近日常。</p>
-                  <div class="status-pill">Coming Soon</div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="scenes">
-          <div class="container">
-            <div class="section-head" data-reveal>
-              <div>
-                <div class="eyebrow">Daily Scenes</div>
-                <h2>Nebubu 应该出现在真实生活里，而不是只活在品牌口号里。</h2>
-              </div>
-              <p>品牌的价值不是抽象理念，而是落到用户每天会遇到的节奏、任务、判断和情绪压力里。</p>
-            </div>
-
-            <div class="scene-experience" data-reveal>
-              <div class="scene-tabs" role="tablist" aria-label="Daily scenes">
-                <button class="scene-toggle is-active" type="button" data-scene-key="morning">Morning</button>
-                <button class="scene-toggle" type="button" data-scene-key="work">Work</button>
-                <button class="scene-toggle" type="button" data-scene-key="decision">Decision</button>
-              </div>
-
-              <div class="scene-stage">
-                <div class="scene-stage-copy">
-                  <span class="scene-tag" id="sceneStageTag">Morning</span>
-                  <h3 id="sceneStageTitle">帮你整理一天的开始</h3>
-                  <p id="sceneStageBody">用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。</p>
-
-                  <div class="scene-stage-list">
-                    <div class="scene-stage-item">
-                      <strong>更适合配合</strong>
-                      <span id="sceneStageProducts">Nebubu Daily / Nebubu Widget</span>
-                    </div>
-                    <div class="scene-stage-item">
-                      <strong>带来的感受</strong>
-                      <span id="sceneStageFeeling">不急着推进你，而是先帮你把一天理顺。</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="scene-moments" id="sceneMoments">
-                  <div class="scene-moment">
-                    <strong>看一眼重点</strong>
-                    <span>先知道今天最重要的事情是什么。</span>
-                  </div>
-                  <div class="scene-moment">
-                    <strong>把提醒变轻</strong>
-                    <span>不是轰炸式提醒，而是更顺手的温柔提示。</span>
-                  </div>
-                  <div class="scene-moment">
-                    <strong>留一点余地</strong>
-                    <span>给节奏和情绪都留出可以呼吸的空间。</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="scene-grid">
-              <article class="scene-card" data-reveal>
-                <div>
-                  <span class="scene-tag">Morning</span>
-                  <h3>帮你整理一天的开始</h3>
-                  <p>用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。</p>
-                </div>
-                <div class="scene-footer">Nebubu Daily / Nebubu Widget</div>
-              </article>
-              <article class="scene-card" data-reveal>
-                <div>
-                  <span class="scene-tag">Work</span>
-                  <h3>在复杂任务里提供安静支持</h3>
-                  <p>从整理资料到收纳灵感，再到帮你理解复杂信息，Nebubu 更像同伴，而不是催促系统。</p>
-                </div>
-                <div class="scene-footer">Nebubu Notes / Nebubu Focus</div>
-              </article>
-              <article class="scene-card" data-reveal>
-                <div>
-                  <span class="scene-tag">Decision</span>
-                  <h3>在决策时降低压力感</h3>
-                  <p>无论是市场、计划还是个人节奏，Nebubu 的价值都不是替你决定，而是让判断更柔和、更清楚。</p>
-                </div>
-                <div class="scene-footer">Nebubu Invest and future decision tools</div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="story">
-          <div class="container world-grid">
-            <article class="quote" data-reveal>
-              <div class="eyebrow">Mascot Story</div>
-              <strong>它像一只银河猫，安静、不张扬，但总在你需要的时候出现。</strong>
-              <p>
-                Nebubu 最重要的不是“可爱”本身，而是那种柔和但可靠的靠近方式。它不是过度幼态的角色，而是一种让人愿意长期相处的情绪入口。
-              </p>
-              <ul class="story-list">
-                <li>Gentle, but not weak.</li>
-                <li>Smart, but not showy.</li>
-                <li>Quiet, but always there when needed.</li>
-                <li>Healing, but still practical.</li>
-              </ul>
-            </article>
-
-            <article class="belief-panel" data-reveal>
-              <div class="eyebrow">What We Believe</div>
-              <strong>好用不该只意味着更快，也应该意味着更安心。</strong>
-              <div class="belief-pills" role="tablist" aria-label="Nebubu beliefs">
-                <button class="belief-pill is-active" type="button" data-belief-key="quiet">安静一点</button>
-                <button class="belief-pill" type="button" data-belief-key="clear">清楚一点</button>
-                <button class="belief-pill" type="button" data-belief-key="near">靠近一点</button>
-              </div>
-              <div class="belief-stage">
-                <p id="beliefBody">不喧闹，不抢戏，让帮助自然地发生。Nebubu 应该更像陪伴，而不是一层不断施压的界面。</p>
-                <span class="belief-signature">Gentle with you, serious about helping.</span>
-              </div>
-            </article>
-
-            <article class="quote" data-reveal>
-              <div class="eyebrow">What We Believe</div>
-              <strong>好用不该只意味着更快，也应该意味着更安心。</strong>
-              <p>
-                我们希望 Nebubu 带来的不是压迫式效率，而是一种更轻、更稳、更愿意每天使用的帮助。它可以聪明，但不必炫耀; 可以可爱，但一定要可靠。
-                <br /><br />
-                <span style="font-family: var(--font-display); font-size: 1.4rem; letter-spacing: -0.03em; color: var(--text);">
-                  Gentle with you, serious about helping.
-                </span>
-              </p>
-              <div class="anti-list">
-                <div class="anti-item">
-                  <strong>安静一点</strong>
-                  <span>不喧闹，不抢戏，让帮助自然地发生。</span>
-                </div>
-                <div class="anti-item">
-                  <strong>清楚一点</strong>
-                  <span>复杂的事情可以被解释得更容易理解，而不是更像黑箱。</span>
-                </div>
-                <div class="anti-item">
-                  <strong>靠近一点</strong>
-                  <span>产品不是冷冰冰的命令界面，而是愿意长期待在你身边的工具。</span>
-                </div>
-              </div>
-            </article>
           </div>
         </section>
 
         <section class="section" id="contact">
           <div class="container">
-            <div class="cta-shell" data-reveal>
+            <div class="cta-shell">
               <div>
-                <div class="eyebrow">Start With Nebubu</div>
+                <div class="eyebrow">Ready?</div>
                 <h2 id="ctaHeadline">如果你已经准备好，可以先从 Invest 开始。</h2>
                 <p class="footer-copy" id="ctaBody">
                   先进入已经开放的产品，感受 Nebubu 的判断方式和陪伴语气。之后，更多工具和日常场景会在这里慢慢补齐。
@@ -1976,7 +1858,7 @@
                 <div class="cta-choice-list" role="tablist" aria-label="Start choices">
                   <button class="cta-choice is-active" type="button" data-cta-key="start">我想直接开始</button>
                   <button class="cta-choice" type="button" data-cta-key="products">我想先看产品</button>
-                  <button class="cta-choice" type="button" data-cta-key="story">我想先认识 Nebubu</button>
+                  <button class="cta-choice" type="button" data-cta-key="principles">我想了解理念</button>
                 </div>
 
                 <div class="cta-choice-panel">
@@ -1987,8 +1869,8 @@
               </div>
               <div class="cta-actions">
                 <a class="button primary" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Invest</a>
-                <a class="button secondary" href="#products">查看产品宇宙</a>
-                <a class="button secondary" href="#story">阅读 Nebubu 设定</a>
+                <a class="button secondary" href="#products">查看产品</a>
+                <a class="button secondary" href="#principles">了解理念</a>
               </div>
             </div>
           </div>
@@ -2036,10 +1918,8 @@
     <script>
       const root = document.documentElement;
       const topbar = document.getElementById("topbar");
-      const themeToggle = document.getElementById("themeToggle");
       const yearEl = document.getElementById("year");
       const revealTargets = document.querySelectorAll("[data-reveal]");
-      const storageKey = "nebubu-home-theme";
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
       const cursorLayer = document.querySelector(".cursor-glow-layer");
@@ -2048,7 +1928,6 @@
       const companionSpeechText = document.getElementById("companionSpeechText");
       const companionTitle = document.getElementById("companionTitle");
       const companionBody = document.getElementById("companionBody");
-      const companionHotspots = document.querySelectorAll("[data-companion]");
       const companionTabs = document.querySelectorAll("[data-companion-tab]");
       const productSwitches = document.querySelectorAll("[data-product-key]");
       const productPanelState = document.getElementById("productPanelState");
@@ -2058,6 +1937,10 @@
       const productPanelUse = document.getElementById("productPanelUse");
       const productPanelMode = document.getElementById("productPanelMode");
       const productPanelStage = document.getElementById("productPanelStage");
+      const productArtStage = document.getElementById("productArtStage");
+      const productPanelArt = document.getElementById("productPanelArt");
+      const productArtTag = document.getElementById("productArtTag");
+      const productArtPalette = document.getElementById("productArtPalette");
       const productPrimaryAction = document.getElementById("productPrimaryAction");
       const productDrawerTrigger = document.getElementById("productDrawerTrigger");
       const drawerScrim = document.getElementById("drawerScrim");
@@ -2069,13 +1952,6 @@
       const drawerPoints = document.getElementById("drawerPoints");
       const drawerAction = document.getElementById("drawerAction");
       const drawerClose = document.getElementById("drawerClose");
-      const sceneToggles = document.querySelectorAll("[data-scene-key]");
-      const sceneStageTag = document.getElementById("sceneStageTag");
-      const sceneStageTitle = document.getElementById("sceneStageTitle");
-      const sceneStageBody = document.getElementById("sceneStageBody");
-      const sceneStageProducts = document.getElementById("sceneStageProducts");
-      const sceneStageFeeling = document.getElementById("sceneStageFeeling");
-      const sceneMoments = document.getElementById("sceneMoments");
       const beliefPills = document.querySelectorAll("[data-belief-key]");
       const beliefBody = document.getElementById("beliefBody");
       const ctaChoices = document.querySelectorAll("[data-cta-key]");
@@ -2084,6 +1960,7 @@
       const ctaChoiceTitle = document.getElementById("ctaChoiceTitle");
       const ctaChoiceBody = document.getElementById("ctaChoiceBody");
       const ctaChoiceAction = document.getElementById("ctaChoiceAction");
+      const principleCards = document.querySelectorAll(".principle-card");
 
       const companionStates = {
         gentle: {
@@ -2118,6 +1995,12 @@
           actionLabel: "打开 Invest",
           actionHref: "https://invest.gnar127.com/",
           actionExternal: true,
+          artSrc: "nebubu-animate/nebubu-invest-key.png",
+          artAlt: "Nebubu Invest product mascot",
+          artTag: "Invest 形态",
+          artPalette: "Deep navy / silver / ice blue",
+          artGlowA: "rgba(125, 169, 255, 0.28)",
+          artGlowB: "rgba(191, 229, 255, 0.18)",
           details: [
             { title: "读懂信息", body: "把复杂市场信息整理成更容易比较和判断的结构。" },
             { title: "降低压力", body: "不替你做决定，而是让判断过程更柔和、更清楚。" },
@@ -2135,6 +2018,12 @@
           actionLabel: "先看品牌故事",
           actionHref: "#story",
           actionExternal: false,
+          artSrc: "nebubu-animate/nebubu-notes-key.png",
+          artAlt: "Nebubu Notes product mascot",
+          artTag: "Notes 形态",
+          artPalette: "Paper white / sky blue / soft yellow",
+          artGlowA: "rgba(164, 217, 255, 0.26)",
+          artGlowB: "rgba(255, 228, 162, 0.18)",
           details: [
             { title: "收纳碎片", body: "让零散灵感和笔记不再只是在屏幕上划过。" },
             { title: "保留上下文", body: "重要的不是记住一条信息，而是知道它为什么值得留下。" },
@@ -2152,6 +2041,12 @@
           actionLabel: "查看产品宇宙",
           actionHref: "#products",
           actionExternal: false,
+          artSrc: "nebubu-animate/nebubu-focus-key.png",
+          artAlt: "Nebubu Focus product mascot",
+          artTag: "Focus 形态",
+          artPalette: "Midnight blue / muted teal / soft cyan",
+          artGlowA: "rgba(105, 177, 196, 0.24)",
+          artGlowB: "rgba(114, 222, 230, 0.16)",
           details: [
             { title: "找回节奏", body: "帮助你知道现在最值得做的是什么，而不是逼你全都做。" },
             { title: "减少噪声", body: "把注意力从外部噪音里拉回来，而不是再叠一层压力。" },
@@ -2169,6 +2064,12 @@
           actionLabel: "看看日常场景",
           actionHref: "#scenes",
           actionExternal: false,
+          artSrc: "nebubu-animate/nebubu-daily-key.png",
+          artAlt: "Nebubu Daily product mascot",
+          artTag: "Daily 形态",
+          artPalette: "Warm cream / sunrise peach / pale blue",
+          artGlowA: "rgba(255, 191, 166, 0.24)",
+          artGlowB: "rgba(255, 229, 169, 0.18)",
           details: [
             { title: "晨间节奏", body: "用更平静的方式帮助你整理一天的开始。" },
             { title: "日常轻整理", body: "让提醒、计划和待办变得更自然，不那么打扰。" },
@@ -2186,49 +2087,16 @@
           actionLabel: "认识 Nebubu",
           actionHref: "#contact",
           actionExternal: false,
+          artSrc: "nebubu-animate/nebubu-widget-key.png",
+          artAlt: "Nebubu Widget product mascot",
+          artTag: "Widget 形态",
+          artPalette: "Clean white / crisp blue / mint",
+          artGlowA: "rgba(162, 220, 255, 0.22)",
+          artGlowB: "rgba(166, 249, 232, 0.16)",
           details: [
             { title: "常驻但轻", body: "更像贴在生活边缘的一层柔和提示，而不是新的负担。" },
             { title: "更快触达", body: "不需要切换完整工作流，也能拿到当下最需要的帮助。" },
             { title: "保持存在感", body: "让 Nebubu 真正走进日常，而不是只停留在产品页面里。" }
-          ]
-        }
-      };
-
-      const sceneData = {
-        morning: {
-          tag: "Morning",
-          title: "帮你整理一天的开始",
-          body: "用轻提醒、摘要和待办，把 AI 变成一种稳定但不打扰的晨间陪伴。",
-          products: "Nebubu Daily / Nebubu Widget",
-          feeling: "不急着推进你，而是先帮你把一天理顺。",
-          moments: [
-            { title: "看一眼重点", body: "先知道今天最重要的事情是什么。" },
-            { title: "把提醒变轻", body: "不是轰炸式提醒，而是更顺手的温柔提示。" },
-            { title: "留一点余地", body: "给节奏和情绪都留出可以呼吸的空间。" }
-          ]
-        },
-        work: {
-          tag: "Work",
-          title: "在复杂任务里提供安静支持",
-          body: "从整理资料到收纳灵感，再到帮你理解复杂信息，Nebubu 更像同伴，而不是催促系统。",
-          products: "Nebubu Notes / Nebubu Focus",
-          feeling: "不是继续加速，而是先让复杂的事变得更容易处理。",
-          moments: [
-            { title: "收住信息", body: "先把散乱的资料和想法放到更容易理解的位置。" },
-            { title: "帮你看清", body: "把复杂内容压成能快速比较和行动的结构。" },
-            { title: "把节奏扶稳", body: "不大声催促，只在你要偏离的时候轻轻拉回来。" }
-          ]
-        },
-        decision: {
-          tag: "Decision",
-          title: "在决策时降低压力感",
-          body: "无论是市场、计划还是个人节奏，Nebubu 的价值都不是替你决定，而是让判断更柔和、更清楚。",
-          products: "Nebubu Invest and future decision tools",
-          feeling: "把压力从你身上拿掉一点，让你更容易看见真正重要的事情。",
-          moments: [
-            { title: "先看清局面", body: "把变量摊开，而不是把焦虑继续叠高。" },
-            { title: "再形成判断", body: "让信息、风险和选择之间的关系更容易理解。" },
-            { title: "最后才行动", body: "Nebubu 想陪你判断，而不是替你下命令。" }
           ]
         }
       };
@@ -2258,13 +2126,13 @@
           actionHref: "#products",
           actionExternal: false
         },
-        story: {
-          headline: "如果你想先认识 Nebubu，就先从它的故事开始。",
-          body: "比起参数和术语，Nebubu 更想先让你感受到它的气质: 温柔、可靠、安静，但总在身边。",
-          choiceTitle: "阅读 Nebubu 设定",
-          choiceBody: "去看看这只银河猫为什么会成为整个品牌最重要的情绪入口。",
-          actionLabel: "阅读 IP 设定",
-          actionHref: "#story",
+        principles: {
+          headline: "如果你想先了解 Nebubu 的理念，就先看看 Brand Principles。",
+          body: "Nebubu 的核心价值: 安静一点、清楚一点、靠近一点、温暖陪伴。",
+          choiceTitle: "了解 Brand Principles",
+          choiceBody: "先感受 Nebubu 是什么，再决定从哪里开始。",
+          actionLabel: "查看理念",
+          actionHref: "#principles",
           actionExternal: false
         }
       };
@@ -2279,34 +2147,6 @@
       const maxTrailParticles = 180;
       const maxTrailDistance = 240;
       const trailSampleDistance = 18;
-
-      function syncThemeLabel(theme) {
-        themeToggle.textContent = theme === "cute" ? "Cute" : "Galaxy";
-      }
-
-      function applyTheme(theme) {
-        const nextTheme = theme === "cute" ? "cute" : "galaxy";
-        root.dataset.theme = nextTheme;
-        syncThemeLabel(nextTheme);
-        try {
-          localStorage.setItem(storageKey, nextTheme);
-        } catch (error) {
-          void error;
-        }
-      }
-
-      function initTheme() {
-        let storedTheme = "galaxy";
-        try {
-          storedTheme = localStorage.getItem(storageKey) || storedTheme;
-        } catch (error) {
-          void error;
-        }
-        applyTheme(storedTheme);
-        themeToggle.addEventListener("click", () => {
-          applyTheme(root.dataset.theme === "galaxy" ? "cute" : "galaxy");
-        });
-      }
 
       function initScrollState() {
         const sync = () => {
@@ -2363,11 +2203,6 @@
         if (companionTitle) companionTitle.textContent = next.title;
         if (companionBody) companionBody.textContent = next.body;
 
-        companionHotspots.forEach((button) => {
-          const active = button.dataset.companion === key;
-          button.setAttribute("aria-pressed", String(active));
-        });
-
         companionTabs.forEach((button) => {
           button.classList.toggle("is-active", button.dataset.companionTab === key);
         });
@@ -2404,6 +2239,16 @@
         if (productPanelUse) productPanelUse.textContent = next.use;
         if (productPanelMode) productPanelMode.textContent = next.mode;
         if (productPanelStage) productPanelStage.textContent = next.stage;
+        if (productPanelArt) {
+          productPanelArt.src = next.artSrc;
+          productPanelArt.alt = next.artAlt;
+        }
+        if (productArtTag) productArtTag.textContent = next.artTag;
+        if (productArtPalette) productArtPalette.textContent = next.artPalette;
+        if (productArtStage) {
+          productArtStage.style.setProperty("--product-glow-a", next.artGlowA);
+          productArtStage.style.setProperty("--product-glow-b", next.artGlowB);
+        }
         syncActionLink(productPrimaryAction, next.actionHref, next.actionLabel, next.actionExternal);
 
         if (drawerTitle) drawerTitle.textContent = next.title;
@@ -2430,33 +2275,6 @@
         document.body.style.overflow = "";
       }
 
-      function setSceneState(key) {
-        const next = sceneData[key] || sceneData.morning;
-
-        sceneToggles.forEach((button) => {
-          button.classList.toggle("is-active", button.dataset.sceneKey === key);
-        });
-
-        if (sceneStageTag) sceneStageTag.textContent = next.tag;
-        if (sceneStageTitle) sceneStageTitle.textContent = next.title;
-        if (sceneStageBody) sceneStageBody.textContent = next.body;
-        if (sceneStageProducts) sceneStageProducts.textContent = next.products;
-        if (sceneStageFeeling) sceneStageFeeling.textContent = next.feeling;
-
-        if (sceneMoments) {
-          sceneMoments.innerHTML = next.moments
-            .map(
-              (item) => `
-                <div class="scene-moment">
-                  <strong>${item.title}</strong>
-                  <span>${item.body}</span>
-                </div>
-              `
-            )
-            .join("");
-        }
-      }
-
       function setBeliefState(key) {
         const next = beliefData[key] || beliefData.quiet;
         if (beliefBody) beliefBody.textContent = next;
@@ -2478,8 +2296,14 @@
       }
 
       function initInteractivePanels() {
-        companionHotspots.forEach((button) => {
-          button.addEventListener("click", () => setCompanionState(button.dataset.companion));
+        principleCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const expanded = card.dataset.expanded === "true";
+            principleCards.forEach((c) => (c.dataset.expanded = "false"));
+            if (!expanded) {
+              card.dataset.expanded = "true";
+            }
+          });
         });
 
         companionTabs.forEach((button) => {
@@ -2508,10 +2332,6 @@
           }
         });
 
-        sceneToggles.forEach((button) => {
-          button.addEventListener("click", () => setSceneState(button.dataset.sceneKey));
-        });
-
         beliefPills.forEach((button) => {
           button.addEventListener("click", () => setBeliefState(button.dataset.beliefKey));
         });
@@ -2522,7 +2342,6 @@
 
         setCompanionState("gentle");
         setProductState(activeProductKey);
-        setSceneState("morning");
         setBeliefState("quiet");
         setCtaState("start");
       }
@@ -2543,21 +2362,13 @@
       }
 
       function getTrailStyle() {
-        return root.dataset.theme === "cute"
-          ? {
-              fill: "255, 236, 245",
-              glow: "255, 173, 209",
-              stroke: "255, 252, 255",
-              fragmentStroke: "255, 214, 231",
-              fragmentStrokeAlpha: 0.38
-            }
-          : {
-              fill: "232, 228, 255",
-              glow: "160, 173, 255",
-              stroke: "244, 240, 255",
-              fragmentStroke: "205, 216, 255",
-              fragmentStrokeAlpha: 0.16
-            };
+        return {
+          fill: "255, 236, 245",
+          glow: "255, 173, 209",
+          stroke: "255, 252, 255",
+          fragmentStroke: "255, 214, 231",
+          fragmentStrokeAlpha: 0.38
+        };
       }
 
       function pushTrailParticle(particle) {
@@ -2729,11 +2540,9 @@
       }
 
       yearEl.textContent = String(new Date().getFullYear());
-      initTheme();
       initScrollState();
       initReveal();
       initInteractivePanels();
-      initCursorGlow();
     </script>
   </body>
 </html>
