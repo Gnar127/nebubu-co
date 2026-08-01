@@ -713,6 +713,61 @@
         font-weight: 800;
       }
 
+      .signal-dock {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+
+      .signal-dock-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .signal-dock-head strong {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+      }
+
+      .signal-dock-head span {
+        max-width: 22rem;
+        color: var(--text-mute);
+        font-size: 0.84rem;
+        line-height: 1.6;
+        text-align: right;
+      }
+
+      .signal-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .signal-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--text-soft);
+        font-size: 0.88rem;
+      }
+
+      .signal-item em {
+        color: var(--text-mute);
+        font-size: 0.72rem;
+        font-style: normal;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
       .quote {
         border-radius: var(--radius-lg);
         padding: 28px;
@@ -882,7 +937,6 @@
       .manifest-grid,
       #principles,
       #entries .gateway-stack > article.card:last-child,
-      #entries .dock-stack,
       #products .product-grid,
       #scenes .scene-grid,
       #story .world-grid > .quote:last-child,
@@ -1326,14 +1380,22 @@
 
       @media (max-width: 860px) {
         .topbar-inner {
-          flex-wrap: wrap;
-          justify-content: center;
+          flex-wrap: nowrap;
+          justify-content: space-between;
           border-radius: 28px;
         }
 
-        .nav-links,
+        .nav-links {
+          display: none;
+        }
+
         .topbar-actions {
-          justify-content: center;
+          justify-content: flex-end;
+          margin-left: auto;
+        }
+
+        .topbar-actions .button.ghost {
+          display: none;
         }
 
         .hero-band,
@@ -1383,6 +1445,45 @@
           padding: 20px;
         }
 
+        .topbar {
+          padding: 10px 0;
+        }
+
+        .topbar-inner {
+          gap: 8px;
+          padding: 10px 12px;
+        }
+
+        .brand {
+          gap: 8px;
+        }
+
+        .brand-mark {
+          width: 44px;
+          height: 44px;
+          border-radius: 15px;
+        }
+
+        .brand-copy strong {
+          font-size: 0.9rem;
+        }
+
+        .brand-copy span {
+          display: none;
+        }
+
+        .topbar-actions {
+          gap: 6px;
+        }
+
+        .topbar-actions .theme-button,
+        .topbar-actions .button.primary {
+          width: auto;
+          min-height: 38px;
+          padding: 0 12px;
+          font-size: 0.78rem;
+        }
+
         .hero-title,
         .section-head h2,
         .cta-shell h2,
@@ -1393,6 +1494,11 @@
         .button,
         .theme-button {
           width: 100%;
+        }
+
+        .topbar-actions .button,
+        .topbar-actions .theme-button {
+          width: auto;
         }
 
         .hero-actions,
@@ -1421,6 +1527,20 @@
 
         .speech-bubble {
           width: 150px;
+        }
+
+        .signal-dock-head {
+          display: block;
+        }
+
+        .signal-dock-head span {
+          display: block;
+          margin-top: 6px;
+          text-align: left;
+        }
+
+        .signal-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -1478,6 +1598,7 @@
               <a href="#products">产品</a>
               <a href="#products">宇宙</a>
               <a href="#story">设定</a>
+              <a href="#social">社区</a>
             </nav>
 
             <div class="topbar-actions">
@@ -1644,6 +1765,23 @@
                     <div class="social-item"><div><strong>Asset Calculator</strong><span>更轻量的工具入口，适合快速计算、对比和做初步判断。</span></div><em>Open</em></div>
                     <div class="social-item"><div><strong>Notes / Focus</strong><span>会把整理、收纳和专注带进同一个温柔但清楚的工作流里。</span></div><em>Soon</em></div>
                     <div class="social-item"><div><strong>Daily / Widget</strong><span>会让 Nebubu 更常驻、更贴近日常，变成更轻但更稳定的陪伴。</span></div><em>Soon</em></div>
+                  </div>
+
+                  <div class="signal-dock" id="social">
+                    <div class="signal-dock-head">
+                      <strong>Signal Dock</strong>
+                      <span>社交入口先保留位置，等真实渠道准备好后直接接入。</span>
+                    </div>
+                    <div class="signal-grid" aria-label="社交入口预留位">
+                      <div class="signal-item"><strong>Git</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>Discord</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>Telegram</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>WeChat</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>QQ</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>Weibo</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>Redbook</strong><em>Reserved</em></div>
+                      <div class="signal-item"><strong>Twitter</strong><em>Reserved</em></div>
+                    </div>
                   </div>
                 </article>
               </div>
