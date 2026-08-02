@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nebubu Diary - 个人交易日记 Agent</title>
+    <meta
+      name="description"
+      content="Nebubu Diary 是一个本地优先的个人交易日记 Agent，用自然语言记录交易、整理历史决策，并帮助复盘止盈止损与情绪交易。"
+    />
+    <link rel="icon" href="../assets/logo-128.png" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17221d;
+        --muted: #637067;
+        --line: rgba(31, 48, 39, 0.14);
+        --paper: #fbfff8;
+        --mint: #dff6e6;
+        --blue: #dceeff;
+        --rose: #ffe1ea;
+        --sun: #ffe7a6;
+        --deep: #162019;
+        --deep-soft: #26382e;
+        --shadow: 0 24px 60px rgba(28, 45, 34, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Noto Sans SC",
+          sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(125deg, rgba(223, 246, 230, 0.82), rgba(220, 238, 255, 0.6) 48%, rgba(255, 225, 234, 0.7)),
+          var(--paper);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(31, 48, 39, 0.1);
+        background: rgba(251, 255, 248, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand,
+      .nav-links,
+      .actions,
+      .badge-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 0.98rem;
+        letter-spacing: 0;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .nav-links {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        color: white;
+        background: var(--deep);
+        border-color: var(--deep);
+      }
+
+      .button.ghost {
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        min-height: calc(100vh - 72px);
+        display: grid;
+        align-items: center;
+        padding: 58px 0 34px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        color: #3f7860;
+        font-weight: 900;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        margin: 14px 0 18px;
+        font-size: clamp(2.7rem, 6vw, 6.4rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .hero-copy p {
+        max-width: 620px;
+        margin: 0;
+        color: #3d4f45;
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .badge-row {
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .badge {
+        padding: 8px 11px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .product-visual {
+        position: relative;
+        min-height: 600px;
+        display: grid;
+        align-items: center;
+      }
+
+      .mascot {
+        position: absolute;
+        right: 1%;
+        bottom: 4%;
+        width: min(38vw, 270px);
+        filter: drop-shadow(0 30px 42px rgba(35, 52, 42, 0.16));
+      }
+
+      .terminal {
+        position: relative;
+        z-index: 2;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background: linear-gradient(180deg, #1a241e, #0e1511);
+        color: #effaf2;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .terminal-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #b9cabf;
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .dots {
+        display: flex;
+        gap: 7px;
+      }
+
+      .dots i {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--rose);
+      }
+
+      .dots i:nth-child(2) {
+        background: var(--sun);
+      }
+
+      .dots i:nth-child(3) {
+        background: #93d7b4;
+      }
+
+      .chat {
+        padding: 20px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .bubble {
+        max-width: 82%;
+        padding: 13px 14px;
+        border-radius: 8px;
+        line-height: 1.65;
+        font-size: 0.94rem;
+      }
+
+      .bubble.user {
+        justify-self: end;
+        color: #14201a;
+        background: #e6f6ea;
+      }
+
+      .bubble.agent {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .calendar {
+        margin-top: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .calendar-head,
+      .calendar-row {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .calendar-head span,
+      .day {
+        min-height: 54px;
+        border-right: 1px solid rgba(255, 255, 255, 0.09);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        padding: 9px;
+        color: #bbcec2;
+        font-size: 0.78rem;
+      }
+
+      .calendar-head span:last-child,
+      .day:last-child {
+        border-right: 0;
+      }
+
+      .day.has {
+        color: white;
+        background: rgba(223, 246, 230, 0.12);
+      }
+
+      .ticker {
+        display: block;
+        margin-top: 8px;
+        color: #9ee0b9;
+        font-weight: 900;
+      }
+
+      section.band {
+        padding: 86px 0;
+        background: rgba(255, 255, 255, 0.48);
+        border-top: 1px solid rgba(31, 48, 39, 0.08);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        max-width: 780px;
+        margin: 8px 0 0;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .section-head p {
+        max-width: 430px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 220px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 42px rgba(28, 45, 34, 0.08);
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: 0.88fr 1.12fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .steps {
+        display: grid;
+        gap: 12px;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .step em {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        color: white;
+        background: var(--deep);
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .step strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .step span {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .privacy {
+        padding: 28px;
+        border-radius: 8px;
+        color: white;
+        background:
+          linear-gradient(145deg, rgba(38, 56, 46, 0.94), rgba(18, 28, 22, 0.98)),
+          var(--deep);
+      }
+
+      .privacy h3 {
+        margin: 0 0 14px;
+        font-size: clamp(1.6rem, 3vw, 2.8rem);
+        line-height: 1.08;
+      }
+
+      .privacy p {
+        color: #c9d8cf;
+        line-height: 1.85;
+      }
+
+      footer {
+        padding: 34px 0;
+        color: var(--muted);
+      }
+
+      @media (max-width: 920px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+        }
+
+        .hero-grid,
+        .workflow {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .product-visual {
+          min-height: 520px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          display: block;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          width: min(100% - 24px, 1120px);
+        }
+
+        .nav-links,
+        .actions {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          padding-top: 34px;
+        }
+
+        .product-visual {
+          min-height: 430px;
+        }
+
+        .mascot {
+          width: 170px;
+        }
+
+        .bubble {
+          max-width: 96%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell nav">
+        <a class="brand" href="../">
+          <img src="../assets/logo-128.png" alt="Nebubu logo" />
+          <span>
+            <strong>Nebubu Diary</strong>
+            <span>Personal trading memory agent</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="页面导航">
+          <a href="#idea">定位</a>
+          <a href="#flow">工作流</a>
+          <a href="#privacy">本地优先</a>
+        </nav>
+        <div class="actions">
+          <a class="button ghost" href="../">Nebubu 首页</a>
+          <a class="button primary" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">Nebubu Invest</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Nebubu Product 02</div>
+            <h1>会记得你的交易，也会记得你为什么下单。</h1>
+            <p>
+              Nebubu Diary 是一个本地优先的个人交易日记 Agent。它用对话收集交易线索，把草稿整理到日历里，再从你的历史胜率、止盈止损与情绪偏差中，逐步形成更贴近你的复盘和开仓建议。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#flow">看工作流</a>
+              <a class="button ghost" href="#privacy">看隐私设计</a>
+            </div>
+            <div class="badge-row" aria-label="产品特点">
+              <span class="badge">Local-first</span>
+              <span class="badge">LLM-ready</span>
+              <span class="badge">Calendar memory</span>
+              <span class="badge">Trade review</span>
+            </div>
+          </div>
+
+          <div class="product-visual" aria-label="Nebubu Diary interface preview">
+            <div class="terminal">
+              <div class="terminal-top">
+                <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <span>nebubu-diary.local</span>
+              </div>
+              <div class="chat">
+                <div class="bubble user">6月17日买入中国长城，逻辑是军工和国产替代，6月19日卖出。</div>
+                <div class="bubble agent">我先整理成交易草稿：买入日、卖出日、标的和你的买入逻辑已识别。请确认后写入交易日历。</div>
+                <div class="calendar">
+                  <div class="calendar-head">
+                    <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+                  </div>
+                  <div class="calendar-row">
+                    <span class="day">15</span>
+                    <span class="day">16</span>
+                    <span class="day has">17<span class="ticker">中国长城</span></span>
+                    <span class="day">18</span>
+                    <span class="day has">19<span class="ticker">卖出</span></span>
+                    <span class="day">20</span>
+                    <span class="day">21</span>
+                  </div>
+                </div>
+                <div class="bubble agent">下次分析 8月3日 重新买入时，我会同时读取这条草稿历史和已经成交的量化样本。</div>
+              </div>
+            </div>
+            <img class="mascot" src="../nebubu-animate/side.png" alt="Nebubu mascot" />
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="idea">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Positioning</div>
+              <h2>它不是另一个表格，而是你的交易记忆层。</h2>
+            </div>
+            <p>
+              你可以用一句话记录，也可以导入 CSV 或 Excel 导出的历史仓位。Diary 会先整理、再确认、再沉淀为可复盘的交易历史。
+            </p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <strong>对话式记录</strong>
+              <p>不用每次开仓都填一堆字段。你先说自然语言，Agent 负责提取日期、标的、方向、逻辑和缺失项。</p>
+            </article>
+            <article class="card">
+              <strong>日历式交易历史</strong>
+              <p>所有记录都按日期进入月历。点击具体日期，可以查看当日交易、草稿和备注，并继续修正。</p>
+            </article>
+            <article class="card">
+              <strong>灵活复盘</strong>
+              <p>它不把你锁进固定策略宪法，而是从你的历史交易里挖掘胜率、等待周期、止盈止损和情绪偏差。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="flow">
+        <div class="shell workflow">
+          <div>
+            <div class="eyebrow">Workflow</div>
+            <h2>从一句话，到一个可被未来分析调用的决策记忆。</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <em>1</em>
+              <div>
+                <strong>输入交易线索</strong>
+                <span>一句话、聊天记录、CSV 或 Excel 导出的历史记录都可以成为入口。</span>
+              </div>
+            </div>
+            <div class="step">
+              <em>2</em>
+              <div>
+                <strong>生成交易草稿</strong>
+                <span>Agent 先整理结构，不直接污染正式历史。你确认后，记录才进入日历。</span>
+              </div>
+            </div>
+            <div class="step">
+              <em>3</em>
+              <div>
+                <strong>复盘与开仓前提醒</strong>
+                <span>当你问“明天能不能买”，它会结合过往相似交易、完整度和当前逻辑给出风险判断。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="privacy">
+        <div class="shell privacy">
+          <div class="eyebrow">Local-first</div>
+          <h3>密钥和交易数据留在你的本地项目里。</h3>
+          <p>
+            这个官网页面只是产品入口和说明。真正的 Nebubu Diary 工具是独立于 Nebubu Invest 的本地项目，默认不把你的 API Key、聊天历史、交易数据或未确认草稿上传到官网仓库。
+          </p>
+          <div class="hero-actions">
+            <a class="button ghost" href="../">回到 Nebubu 首页</a>
+            <a class="button primary" href="https://invest.gnar127.com/" target="_blank" rel="noreferrer">打开 Nebubu Invest</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">© <span id="year"></span> Nebubu. Diary is a local-first trading memory agent.</div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
