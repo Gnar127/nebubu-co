@@ -425,14 +425,119 @@
 
       .visual-stage {
         position: relative;
-        min-height: 380px;
+        min-height: 460px;
         border-radius: var(--radius-lg);
         border: var(--card-border-width) solid var(--card-border);
         overflow: hidden;
-        background: linear-gradient(180deg, rgba(255, 253, 247, 0.9), rgba(200, 230, 201, 0.3));
+        background:
+          radial-gradient(120% 90% at 50% 18%, #1b1540 0%, #0b0824 55%, #050410 100%);
         display: flex;
         align-items: center;
         justify-content: center;
+        isolation: isolate;
+      }
+
+      /* Brand film — H3 generated loop */
+      .hero-film {
+        position: absolute;
+        inset: 0;
+        display: block;
+      }
+
+      .hero-film-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 34%;
+        display: block;
+        filter: saturate(1.06) contrast(1.04);
+      }
+
+      .hero-film-scrim {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(5, 4, 16, 0.5) 0%, rgba(5, 4, 16, 0) 26%),
+          linear-gradient(0deg, rgba(5, 4, 16, 0.88) 0%, rgba(5, 4, 16, 0.34) 26%, rgba(5, 4, 16, 0) 52%),
+          radial-gradient(90% 70% at 50% 46%, rgba(5, 4, 16, 0) 40%, rgba(5, 4, 16, 0.42) 100%);
+      }
+
+      .hero-film-sound {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: rgba(10, 8, 30, 0.62);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: rgba(255, 255, 255, 0.92);
+        font: inherit;
+        font-size: 0.78rem;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .hero-film-sound:hover {
+        background: rgba(28, 22, 68, 0.82);
+        border-color: rgba(140, 220, 255, 0.5);
+      }
+
+      .hero-film-sound:active {
+        transform: scale(0.97);
+      }
+
+      .hero-film-sound:focus-visible {
+        outline: 2px solid rgba(140, 220, 255, 0.9);
+        outline-offset: 2px;
+      }
+
+      .hero-film-sound svg {
+        width: 15px;
+        height: 15px;
+        flex: none;
+        display: block;
+      }
+
+      .hero-film-sound .icon-on,
+      .hero-film-sound .icon-off {
+        display: none;
+      }
+
+      .hero-film-sound[aria-pressed="false"] .icon-on {
+        display: block;
+      }
+
+      .hero-film-sound[aria-pressed="true"] .icon-off {
+        display: block;
+      }
+
+      .hero-film-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 3;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(10, 8, 30, 0.58);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: rgba(232, 240, 255, 0.9);
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        pointer-events: none;
       }
 
       .mascot-circle {
@@ -1716,14 +1821,43 @@
             </article>
 
             <aside class="hero-visual" data-reveal>
-              <div class="visual-stage">
-                <div class="mascot-circle">
-                  <img src="nebubu-animate/main.png" alt="Nebubu mascot" />
+              <div class="visual-stage" role="img" aria-label="Nebubu 品牌短片：银河猫在深空星云中由星光凝聚成形，尾巴上的水晶星点亮，抱着水晶星闪烁，环绕的星球随后收束为品牌标志。">
+                <div class="hero-film">
+                  <video
+                    class="hero-film-video"
+                    id="heroFilmVideo"
+                    src="assets/nebubu-promo.mp4"
+                    poster="assets/nebubu-promo-poster.jpg"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    disablepictureinpicture
+                    tabindex="-1"
+                  ></video>
+                  <div class="hero-film-scrim" aria-hidden="true"></div>
+                  <span class="hero-film-badge" aria-hidden="true">Brand Film</span>
+                  <button
+                    class="hero-film-sound"
+                    id="heroFilmSound"
+                    type="button"
+                    aria-pressed="false"
+                    aria-label="开启品牌短片声音"
+                  >
+                    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M11 5 6 9H3v6h3l5 4z" />
+                      <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                      <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+                    </svg>
+                    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M11 5 6 9H3v6h3l5 4z" />
+                      <path d="m16 9 5 6" />
+                      <path d="m21 9-5 6" />
+                    </svg>
+                    <span id="heroFilmSoundLabel">声音</span>
+                  </button>
                 </div>
-                <div class="sparkle sp1"></div>
-                <div class="sparkle sp2"></div>
-                <div class="sparkle sp3"></div>
-                <div class="sparkle sp4"></div>
                 <div class="hero-speech">
                   <strong id="companionSpeechLabel">Gentle</strong>
                   <span id="companionSpeechText">安静靠近，在你需要的时候给出不打扰但真实有用的帮助。</span>
@@ -2088,6 +2222,9 @@
       const companionTitle = document.getElementById("companionTitle");
       const companionBody = document.getElementById("companionBody");
       const companionTabs = document.querySelectorAll("[data-companion-tab]");
+      const heroFilmVideo = document.getElementById("heroFilmVideo");
+      const heroFilmSound = document.getElementById("heroFilmSound");
+      const heroFilmSoundLabel = document.getElementById("heroFilmSoundLabel");
       const productSwitches = document.querySelectorAll("[data-product-key]");
       const productPanelState = document.getElementById("productPanelState");
       const productPanelTime = document.getElementById("productPanelTime");
@@ -2468,6 +2605,47 @@
         companionTabs.forEach((button) => {
           button.addEventListener("click", () => setCompanionState(button.dataset.companionTab));
         });
+
+        // Brand film: browsers block audible autoplay, so the beat only
+        // starts after an explicit user gesture on the sound toggle.
+        if (heroFilmVideo && heroFilmSound) {
+          heroFilmVideo.muted = true;
+
+          const syncSoundUi = () => {
+            const on = !heroFilmVideo.muted;
+            heroFilmSound.setAttribute("aria-pressed", String(on));
+            heroFilmSound.setAttribute("aria-label", on ? "关闭品牌短片声音" : "开启品牌短片声音");
+            if (heroFilmSoundLabel) heroFilmSoundLabel.textContent = on ? "静音" : "声音";
+          };
+
+          heroFilmVideo.addEventListener("play", syncSoundUi);
+          heroFilmVideo.addEventListener("pause", syncSoundUi);
+          heroFilmVideo.addEventListener("volumechange", syncSoundUi);
+          syncSoundUi();
+
+          heroFilmSound.addEventListener("click", async () => {
+            if (heroFilmVideo.muted) {
+              heroFilmVideo.muted = false;
+              syncSoundUi();
+              try {
+                await heroFilmVideo.play();
+              } catch (error) {
+                heroFilmVideo.muted = true;
+                syncSoundUi();
+              }
+            } else {
+              heroFilmVideo.muted = true;
+              syncSoundUi();
+            }
+          });
+
+          // Respect reduced-motion: hold on the poster frame instead of looping.
+          if (reduceMotion) {
+            heroFilmVideo.removeAttribute("autoplay");
+            heroFilmVideo.pause();
+            heroFilmSound.hidden = true;
+          }
+        }
 
         productSwitches.forEach((button) => {
           button.addEventListener("click", () => setProductState(button.dataset.productKey));
