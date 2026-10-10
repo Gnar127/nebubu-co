@@ -1,3 +1,6 @@
+# promo working folders (source of truth for assets/ copies)
+promo3/
+
 # wrangler files
 .wrangler
 .dev.vars*
