@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720"><rect width="1280" height="720" fill="#e3ecd8"/>
+    <circle cx="1070" cy="165" r="100" fill="#f2d47d"/><path d="M0 620Q240 430 450 560T850 520T1280 470V720H0Z" fill="#c4d6b6"/>
+    <path d="M0 674Q245 520 505 625T970 550T1280 570V720H0Z" fill="#b1c99e"/>
+    <text x="82" y="118" font-family="Trebuchet MS, sans-serif" font-size="21" font-weight="700" fill="#627958">NEBUBU</text><text x="80" y="205" font-family="Trebuchet MS, sans-serif" font-size="79" font-weight="700" fill="#354b3e">Invest</text><text x="84" y="254" font-family="Trebuchet MS, sans-serif" font-size="20" font-weight="400" fill="#627958">A clearer view. A calmer mind.</text>
+    <path d="M210 540C345 540 340 430 460 430S580 470 660 355 770 375 850 265" fill="none" stroke="#3c7055" stroke-width="28" stroke-linecap="round"/>
+    <path d="m796 270 68-35 16 76" fill="none" stroke="#3c7055" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="986" cy="590" rx="110" ry="19" fill="#94b185"/>
+    <path d="M935 575q-18-78-8-105h108q11 35-10 105Z" fill="#df9363"/>
+    <path d="M980 469q-3-70 17-125" stroke="#567b4b" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <path d="M990 407q-94 1-94-76 85-10 94 76M995 382q-6-95 77-105 14 83-77 105" fill="#5e8d65"/>
+    <path transform="translate(1110 379) scale(0.24)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#e9b751"/><path transform="translate(600 142) scale(0.13)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#6d946d"/>
+  </svg>

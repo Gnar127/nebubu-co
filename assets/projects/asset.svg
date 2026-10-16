@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720"><rect width="1280" height="720" fill="#f5e9bd"/>
+    <text x="82" y="117" font-family="Trebuchet MS, sans-serif" font-size="21" font-weight="700" fill="#8e7d45">LITTLE TOOLS</text><text x="80" y="197" font-family="Trebuchet MS, sans-serif" font-size="78" font-weight="700" fill="#625534">Asset</text><text x="82" y="272" font-family="Trebuchet MS, sans-serif" font-size="61" font-weight="700" fill="#625534">Calculator</text>
+    <ellipse cx="815" cy="610" rx="240" ry="24" fill="#dfd19d"/>
+    <g transform="translate(835 352) rotate(10)"><rect x="-160" y="-231" width="320" height="470" rx="54" fill="#ce9d5c"/><rect x="-160" y="-246" width="320" height="470" rx="54" fill="#e8bd79"/>
+    <rect x="-122" y="-195" width="244" height="100" rx="21" fill="#f7f1d6"/><text x="-11" y="-125" font-family="Trebuchet MS, sans-serif" font-size="56" font-weight="700" fill="#5a644d">127</text>
+    <g fill="#fbf4dd"><rect x="-122" y="-58" width="64" height="64" rx="19"/><rect x="-32" y="-58" width="64" height="64" rx="19"/><rect x="58" y="-58" width="64" height="64" rx="19"/><rect x="-122" y="29" width="64" height="64" rx="19"/><rect x="-32" y="29" width="64" height="64" rx="19"/><rect x="-122" y="116" width="64" height="64" rx="19"/><rect x="-32" y="116" width="64" height="64" rx="19"/></g>
+    <rect x="58" y="29" width="64" height="151" rx="19" fill="#657c5b"/><path d="M76 97h28m-28 17h28" stroke="#faf3dd" stroke-width="7" stroke-linecap="round"/>
+    </g><g fill="#e3b363"><ellipse cx="430" cy="570" rx="72" ry="27"/><path d="M358 548v23q72 39 144 0v-23"/><ellipse cx="430" cy="545" rx="72" ry="27" fill="#edc77e"/><path d="M370 518v23q60 36 120 0v-23"/><ellipse cx="430" cy="514" rx="60" ry="23" fill="#f7d994"/></g>
+    <path transform="translate(1100 220) scale(0.26)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#cc8d4e"/><path transform="translate(480 370) scale(0.17)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#cc8d4e"/>
+  </svg>

@@ -7,3 +7,6 @@ promo3/
 !.dev.vars.example
 .env*
 !.env.example
+
+# Local portfolio verification output
+.verification/

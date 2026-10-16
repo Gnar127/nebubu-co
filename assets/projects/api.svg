@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720"><rect width="1280" height="720" fill="#e0e9ec"/>
+    <text x="82" y="117" font-family="Trebuchet MS, sans-serif" font-size="21" font-weight="700" fill="#627882">NEBUBU</text><text x="80" y="202" font-family="Trebuchet MS, sans-serif" font-size="84" font-weight="700" fill="#365661">API</text><text x="84" y="253" font-family="Trebuchet MS, sans-serif" font-size="20" font-weight="400" fill="#627882">Connect an idea to something real.</text>
+    <path d="M350 452h160q70 0 70-73t70-73h145" fill="none" stroke="#d98154" stroke-width="20" stroke-linecap="round"/>
+    <g transform="translate(325 437)"><ellipse cx="0" cy="100" rx="148" ry="22" fill="#c4d5db"/>
+    <path d="M-112 33q-55-68 13-96 1-110 106-90 68-29 102 48 91 1 83 74-4 69-83 69h-167Z" fill="#faf5e9"/>
+    <text x="-56" y="-7" font-family="Trebuchet MS, sans-serif" font-size="79" font-weight="700" fill="#527c89">{ }</text>
+    </g><g transform="translate(895 298)"><ellipse cx="0" cy="148" rx="156" ry="22" fill="#c4d5db"/>
+    <path d="M-116 64q-72-52-14-106 12-21 44-20 3-112 107-97 84-19 102 65 81-1 80 76 4 79-97 82Z" fill="#faf5e9"/>
+    <circle cx="-29" cy="-8" r="8" fill="#4c6c72"/><circle cx="31" cy="-8" r="8" fill="#4c6c72"/><path d="M-12 16q13 17 26 0" fill="none" stroke="#4c6c72" stroke-width="5" stroke-linecap="round"/>
+    </g><path transform="translate(1010 546) scale(0.36)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#e9b751"/><path transform="translate(602 176) scale(0.17)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#70979e"/><path transform="translate(1100 175) scale(0.14)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#70979e"/>
+  </svg>

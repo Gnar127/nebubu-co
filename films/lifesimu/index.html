@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#233d36">
+  <meta name="description" content="小鸭漫游记 · 河畔来信。一个关于邻居、卡牌与日常发现的网页宣传短片。">
+  <title>小鸭漫游记 — 河畔来信 · 宣传短片</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23233d36'/%3E%3Cellipse cx='19' cy='23' rx='12' ry='8' fill='%23efd18a'/%3E%3Ccircle cx='25' cy='15' r='7' fill='%23efd18a'/%3E%3Cpath d='M30 16h8l-7 4' fill='%23d78253'/%3E%3Ccircle cx='27' cy='13' r='1.3' fill='%23233d36'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="trailer.js"></script>
+</head>
+<body>
+  <main class="cinema">
+    <header class="masthead">
+      <a href="#film" class="wordmark" aria-label="跳到宣传片"><span class="mark">≈</span><span>河畔来信<small>LETTERS FROM RIVERSIDE</small></span></a>
+      <p class="edition">小鸭漫游记<span>概念宣传短片 / 48 秒</span></p>
+    </header>
+    <section class="player" id="film" aria-label="小鸭漫游记宣传片播放器">
+      <div class="screen">
+        <canvas id="canvas" width="1600" height="900" role="img" aria-label="河畔小镇、三位动物居民与成长卡牌的动画演绎"></canvas>
+        <div class="frame-top"><span>一封来自小镇的邀请</span><span>素材演绎 · 非游戏实录</span></div>
+        <button id="start" class="start" disabled><span class="play-icon">▶</span><span id="start-label">正在准备河畔来信…</span></button>
+        <div class="screen-caption" id="caption">有些地方，不用急着成为谁。</div>
+        <div class="error" id="error" hidden role="alert"><h2>画面还没准备好</h2><p>请保留完整工程目录，或通过本地预览入口打开。</p><button id="retry">重新加载</button></div>
+      </div>
+      <div class="controls">
+        <button id="play" aria-label="播放宣传片" disabled>播放</button>
+        <button id="replay" aria-label="从头重播" disabled>重播</button>
+        <span class="time" id="time" aria-live="off">00:00 / 00:48</span>
+        <label class="seek-label"><span class="sr-only">播放进度，秒</span><input id="seek" type="range" min="0" max="48" step="0.1" value="0" disabled aria-valuetext="0 秒，共 48 秒"></label>
+        <button id="sound" aria-label="关闭配乐" aria-pressed="true">配乐 开</button>
+        <button id="motion" aria-label="减弱动态效果" aria-pressed="false">减弱动效</button>
+        <button id="fullscreen" aria-label="全屏观看">全屏</button>
+      </div>
+    </section>
+    <nav class="chapters" aria-label="宣传片章节">
+      <button data-time="0" aria-current="true"><span>01</span>来到河畔</button>
+      <button data-time="8"><span>02</span>邻居的心事</button>
+      <button data-time="16"><span>03</span>日常的线索</button>
+      <button data-time="24"><span>04</span>你的回应</button>
+      <button data-time="33"><span>05</span>一种午后</button>
+      <button data-time="41"><span>06</span>小鸭漫游记</button>
+    </nav>
+    <footer><p>一场关于相遇与选择的动物小镇冒险。<br><span>开发中 · 现有美术素材编排 / 原创合成配乐 · 非完整玩法展示</span></p><p class="keys">空格 播放 / 暂停<br>← → 前后 5 秒 · M 静音</p></footer>
+    <details class="transcript"><summary>阅读短片文案</summary><ol><li>有些地方，不用急着成为谁。</li><li>认识邻居，也认识他们没说出口的话。</li><li>线索不只指向一个篮子，也指向一个人的小习惯。</li><li>同一张牌，不同的靠近方式。你的选择，会改变接下来听到的故事。</li><li>不必每一顿饭，都有人负责热闹。</li><li>小鸭漫游记。把日常，过成自己的故事。</li></ol></details>
+    <p id="status" class="sr-only" role="status"></p>
+  </main>
+</body>
+</html>

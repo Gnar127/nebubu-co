@@ -1,114 +1,30 @@
-﻿# Nebubu Brand Guidelines
+# gnar127 · Brand Guidelines
 
-## Brand Core
+## 品牌人格
 
-Brand name:
-Nebubu
+好奇、明快、亲切。用第一人称介绍创作，清楚说明作品的玩法、用途与实际开发状态。nebubu 提供轻松的陪伴感，不取代创作者成为主站品牌主体。
 
-Brand category:
-Cute companion AI tools
+## 视觉
 
-Core positioning:
-Nebubu is a cute companion AI tools brand that combines emotional warmth with practical utility.
+- 奶油白底色，深森林绿正文，橙色强调，柔和黄色与项目专属浅色搭配。
+- 轻松的卡通风，圆润图形、少量星星和手绘线条。
+- 作品画面优先：大封面、简短介绍、明确入口。
+- 使用留白、字号和间距建立层次。避免卡片套卡片、细描边、玻璃面板和发光装饰。
+- 仅重点作品使用完整浅色区域；其他项目以无边框的图片与文字排版展示。
+- 中文正文使用 Noto Sans SC；英文标识和标题使用 Outfit。保留本地中文字体回退。
 
-## Brand Personality
+## 文案与状态
 
-Nebubu should feel like a cute galaxy cat that is:
+- 用具体功能取代泛泛的品牌宣言。
+- 开发计划与已实现功能分开表述；不承诺未确定的发行时间。
+- 真实封面、概念封面、素材演绎各自明确标识。
+- 没有视频时显示「宣传片筹备中」，没有子站时显示「子站筹备中」，不创建无效按钮或虚构域名。
+- 外部入口另开标签页；Diary 在本站保留 /diary/ 路由。
 
-- Gentle
-- Smart
-- Quiet
-- Healing
-- Reliable
+## 吉祥物与媒体
 
-Nebubu should never feel:
+保留既有 nebubu 图片与原版 assets/nebubu-promo.mp4；主视觉使用既有 main.png 的网页优化副本。影片仅在用户操作后播放；切换宣传片会暂停其他媒体。尊重减少动态效果的系统设置。
 
-- Cold
-- Mechanical
-- Aggressive
-- Loud
-- Cheaply childish
+## 可访问性与移动端
 
-## Tone of Voice
-
-Nebubu copy should be:
-
-- Warm
-- Soft
-- Clear
-- Light
-- Trustworthy
-
-Nebubu copy should avoid:
-
-- Excessively technical language in user-facing surfaces
-- Overly exaggerated marketing language
-- Overly cute wording that reduces credibility
-- Robotic or emotionally empty phrasing
-
-## Messaging Rules
-
-Every Nebubu product message should balance two things:
-
-- Companionship
-- Usefulness
-
-The brand should not sound like a toy.
-The brand should not sound like a cold productivity machine.
-The correct feeling is soft, calm, and dependable.
-
-## Visual Rules
-
-Primary visual identity:
-A cute galaxy cat avatar.
-
-Visual characteristics:
-
-- Rounded and friendly shapes
-- Galaxy-inspired gradients
-- Soft glow and dreamy atmosphere
-- Clean silhouette at small sizes
-- Simple enough for icons and app branding
-
-Current avatar usage:
-The existing galaxy cat avatar can continue to be used as the official Nebubu primary avatar.
-
-Recommended asset usage:
-
-- Transparent avatar version for profile photos, app icons, and favicons
-- Background version for splash screens, promo images, and cover graphics
-- Full-size logo compositions for websites, README headers, and brand pages
-
-## Naming Rules
-
-Use Nebubu as the parent brand.
-
-Recommended product naming format:
-Nebubu + product descriptor
-
-Examples:
-
-- Nebubu Invest
-- Nebubu Notes
-- Nebubu Focus
-- Nebubu Daily
-- Nebubu Widget
-
-## Slogan
-
-Recommended main slogan:
-Gentle with you, serious about helping.
-
-Alternative slogans:
-
-- Cute, but deeply reliable.
-- More than a tool, a daily companion.
-- Nebubu, always here to help.
-
-## Intro Copy
-
-Short intro:
-Nebubu is a cute companion AI tools brand. We build lightweight products that feel warm, reliable, and useful, so AI becomes a natural part of your everyday life.
-
-Long intro:
-Nebubu is a brand built around cute companion AI tools. We believe AI should not only be powerful, but also warm, calm, and easy to live with. Whether it is helping users understand information, organize daily tasks, capture ideas, or make decisions with less pressure, Nebubu is designed to feel like a gentle and reliable presence by their side.
+所有可操作控件提供清晰的键盘焦点；图片有说明；视频使用原生控件。桌面双列作品布局在手机变为单列，筛选、简介、媒体与入口均保留。

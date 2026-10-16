@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720"><rect width="1280" height="720" fill="#f2e3db"/>
+    <circle cx="1060" cy="175" r="110" fill="#edc5b1"/><text x="82" y="117" font-family="Trebuchet MS, sans-serif" font-size="21" font-weight="700" fill="#8d6c60">NEBUBU</text><text x="80" y="200" font-family="Trebuchet MS, sans-serif" font-size="79" font-weight="700" fill="#684d43">Diary</text><text x="84" y="249" font-family="Trebuchet MS, sans-serif" font-size="20" font-weight="400" fill="#8d6c60">Every decision has a story.</text>
+    <g transform="translate(675 402) rotate(-8)"><ellipse cx="0" cy="155" rx="295" ry="30" fill="#debdad"/>
+    <path d="M-285-105Q-140-145 0-91Q140-145 285-105V162Q140 125 0 166Q-140 125-285 162Z" fill="#d69e85"/>
+    <path d="M-273-130Q-140-165 0-115Q140-165 273-130V134Q140 100 0 142Q-140 100-273 134Z" fill="#fcf5e8"/>
+    <path d="M0-113V140" stroke="#dac9b2" stroke-width="3"/>
+    <path d="M-220-70h140m-140 30h165m-165 30h135m-135 75h165m-165 30h120" stroke="#b4ad99" stroke-width="9" stroke-linecap="round"/>
+    <g fill="#d7dfc1"><rect x="48" y="-68" width="45" height="42" rx="9"/><rect x="112" y="-68" width="45" height="42" rx="9"/><rect x="176" y="-68" width="45" height="42" rx="9"/><rect x="48" y="-8" width="45" height="42" rx="9"/><rect x="176" y="-8" width="45" height="42" rx="9"/><rect x="48" y="52" width="45" height="42" rx="9"/><rect x="112" y="52" width="45" height="42" rx="9"/></g>
+    <rect x="112" y="-8" width="45" height="42" rx="9" fill="#d78564"/><path d="m124 10 9 9 15-17" fill="none" stroke="#fcf5e8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 125v65l20-12 20 12v-69" fill="#6f9474"/>
+    </g><path transform="translate(1040 414) scale(0.6)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#e9b751"/><path transform="translate(290 390) scale(0.23)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#cd8d72"/><path transform="translate(1110 540) scale(0.17)" d="M0-100 28-32 100-22 48 25 62 100 0 62-62 100-48 25-100-22-28-32Z" fill="#cd8d72"/>
+  </svg>
